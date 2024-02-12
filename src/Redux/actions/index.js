@@ -8,6 +8,8 @@ export const actionType=
     SET_USER_ROLE: "SET_USER_ROLE",
     SET_ALL_USERS: "SET_ALL_USERS",
     SET_MENU:"SET_MENU",
+    SET_PRENOTAZIONI:"SET_PRENOTAZIONI",
+    SET_DELIVERY:"SET_DELIVERY"
 }
 export const setUserToken = (token) => ({
     type: actionType.SET_USER_TOKEN,
@@ -38,6 +40,16 @@ export const setMenuData=(menu)=>
 ({
     type:actionType.setMenuData,
     payload:menu
+})
+export const setPrenotazioniData=(prenotazioni)=>
+({
+    type:actionType.SET_PRENOTAZIONI,
+    payload:prenotazioni
+})
+export const setDeliveryData=(delivery)=>
+({
+    type:actionType.SET_DELIVERY,
+    payload:delivery
 })
 
 
@@ -136,6 +148,66 @@ export const getMenuData=(token)=>async(dispatch)=>
             else
             {
                 throw new Error("errore nella fetch");
+            }
+    }
+    catch(error)
+    {
+        console.error(error);
+    }
+}
+export const getPrenotazioni=(token)=>async(dispatch)=>
+{
+    const URL="http://localhost:3001/prenotazioni";
+    try
+    {
+        const response=await fetch(URL,
+            {
+                method:"GET",
+                headers:
+                {
+                    Authorization:"Bearer"+token,
+                    "Content-Type":"application/json"
+                }
+            });
+            if(response.ok)
+            {
+                const data=await response.json();
+                dispatch(setPrenotazioniData(data));
+                return data;
+            }
+            else
+            {
+                throw new Error("errore")
+            }
+    }
+    catch(error)
+    {
+        console.error(error);
+    }
+}
+export const getDeliveryData=(token)=>async(dispatch)=>
+{
+    const URL="http://localhost:3001/delivery";
+    try
+    {
+        const response=await fetch(URL,
+            {
+                method:"GET",
+                headers:
+                {
+                    Authorization:"Bearer"+token,
+                    "Content-Type":"application/json"
+                }
+            });
+            if(response.ok)
+            {
+                const data=await response.json();
+                dispatch(setDeliveryData(data));
+                return data;
+            }
+            else
+            {
+                throw new Error("errore");
             }
     }
     catch(error)

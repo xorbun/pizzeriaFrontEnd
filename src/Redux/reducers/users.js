@@ -1,7 +1,7 @@
 import { actionType } from "../actions";
 
 const initialState={
-    token:localStorage.getItem("token") || null,
+    
     data:null
 }
 
