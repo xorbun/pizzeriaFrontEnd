@@ -11,21 +11,25 @@ const MenuRestourant = () => {
   console.log(menuFromRedux);
   if (menuFromRedux) {
     return (
-      <Container fluid className="mt-5">
+      <Container fluid className="d-flex  mt-5">
         <Row>
-          <Col md={4}>
-            {menuFromRedux.map((menuHome) => {
-              return (
-                <Card style={{ width: "18rem" }} className="mx-2 mb-2">
-                  <Card.Img variant="top" src={menuHome.image} />
+          {menuFromRedux.map((menuHome) => {
+            return (
+              <Col md={4}>
+                <Card style={{ height: "350px" }} className="mx-2 mb-4">
+                  <Card.Img
+                    variant="top"
+                    style={{ height: "250px" }}
+                    src={menuHome.image}
+                  />
                   <Card.Body>
                     <Card.Title>{menuHome.descrizione}</Card.Title>
                     <Button variant="primary">ordina</Button>
                   </Card.Body>
                 </Card>
-              );
-            })}
-          </Col>
+              </Col>
+            );
+          })}
         </Row>
       </Container>
     );
