@@ -10,7 +10,7 @@ export const actionType=
     SET_MENU:"SET_MENU",
     SET_PRENOTAZIONI:"SET_PRENOTAZIONI",
     SET_DELIVERY:"SET_DELIVERY",
-   
+    SET_REGISTER:"SET_REGISTER"
 }
 export const setUserToken = (token) => ({
     type: actionType.SET_USER_TOKEN,
@@ -33,6 +33,7 @@ export const setAllUsers=(users)=>
 })
 export const setRegisterData=(data)=>
 ({
+    
     type:actionType.SET_REGISTER,
     payload:data
 })
@@ -109,7 +110,7 @@ export const getAllUsersData=(token)=>async(dispatch)=>
         {
             method:"GET",
             headers:{
-                Authorization:"Bearer "+token,
+                Authorization:"Bearer "+ token,
                 "Content-Type":"application/json"
             }
         });

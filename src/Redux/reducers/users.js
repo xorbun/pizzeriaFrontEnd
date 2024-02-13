@@ -2,7 +2,8 @@ import { actionType } from "../actions";
 
 const initialState={
     
-    data:null
+    data:null,
+    users:[]
 }
 
 const userReducer=(state=initialState,action)=>
@@ -15,7 +16,7 @@ const userReducer=(state=initialState,action)=>
             };
         case actionType.SET_ALL_USERS:
             return{
-                ...state,data:action.payload
+                ...state,users:action.payload
             }
             default:
                 return state;
