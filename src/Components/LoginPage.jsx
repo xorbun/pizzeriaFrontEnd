@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTokenFromLogin, getUserData, getMenuData, getAllUsersData } from "../Redux/actions";
+import { getMenuData, getTokenFromLogin, getUserData } from "../Redux/actions";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
 const Login = () => {
@@ -15,9 +15,8 @@ const Login = () => {
       e.preventDefault();
       dispatch(getTokenFromLogin(email, password)).then((token) =>
       dispatch(getUserData(token))
-    );
+   );
   };
-  
   return (
     <>
       <Container>

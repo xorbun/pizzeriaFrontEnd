@@ -3,7 +3,7 @@ import { actionType } from "../actions";
 
 const initialState={
     
-    menu:[]
+    menu:""
 }
 
 const menuReducer=(state = initialState,action)=>

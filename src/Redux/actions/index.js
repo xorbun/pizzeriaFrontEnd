@@ -94,8 +94,8 @@ export const getUserData=(token)=> async(dispatch)=>
         if(response.ok)
         {
             const data=await response.json();
-            dispatch(SetUserData(data));
-            console.log(data);
+            dispatch(SetUserData(data.content));
+            console.log(data.content);
             return data;
         }
         else
@@ -126,7 +126,7 @@ export const getAllUsersData=(token)=>async(dispatch)=>
         }
 }
 
-export const getMenuData=(token)=>async(dispatch)=>
+export const getMenuData=()=>async(dispatch)=>
 {
     const URL="http://localhost:3001/menu";
     try
@@ -136,14 +136,14 @@ export const getMenuData=(token)=>async(dispatch)=>
                 method:"GET",
                 headers:
                 {
-                    Authorization:"Bearer "+token,
-                    "Content-Type":"application/json"
+                  "Content-Type":"application/json"
                 }
             });
             if(response.ok)
             {
                 const data=await response.json();
                 dispatch(setMenuData(data));
+                
                 return data;
             }
             else
