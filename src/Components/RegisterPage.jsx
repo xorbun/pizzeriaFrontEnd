@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [nome, setnome] = useState("");
@@ -18,7 +19,7 @@ const Register = () => {
     password: password,
   };
   const baseEndPoint = "http://localhost:3001/auth/register";
-
+  
   const registerUser = () => 
   {
     fetch(baseEndPoint, {

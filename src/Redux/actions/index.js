@@ -9,16 +9,16 @@ export const actionType=
     SET_ALL_USERS: "SET_ALL_USERS",
     SET_MENU:"SET_MENU",
     SET_PRENOTAZIONI:"SET_PRENOTAZIONI",
-    SET_DELIVERY:"SET_DELIVERY"
+    SET_DELIVERY:"SET_DELIVERY",
+   
 }
 export const setUserToken = (token) => ({
     type: actionType.SET_USER_TOKEN,
     payload: token
   });
-
 export const SetUserData=(data)=>
 ({
-    type:actionType.SetUserData,
+    type:actionType.SET_USER_DATA,
     payload:data
 });
 export const setUserRole=(role)=>
@@ -38,7 +38,7 @@ export const setRegisterData=(data)=>
 })
 export const setMenuData=(menu)=>
 ({
-    type:actionType.setMenuData,
+    type:actionType.SET_MENU,
     payload:menu
 })
 export const setPrenotazioniData=(prenotazioni)=>
@@ -59,7 +59,7 @@ export const getTokenFromLogin=(email,password)=>async(dispatch)=>
     const response=await fetch(URL,
         {
             method:"POST",
-            headers:{"Content-Type":"application/Json"},
+            headers:{"Content-Type":"application/json"},
             body:JSON.stringify({
                 email:email,
                 password:password
@@ -86,8 +86,8 @@ export const getUserData=(token)=> async(dispatch)=>
         {
             method:"GET",
             headers:{
-                Authorization:"Bearer"+token,
-                "Content-Type":"application/Json"
+                Authorization:"Bearer "+ token,
+                "Content-Type":"application/json"
             }
         });
         if(response.ok)
@@ -109,8 +109,8 @@ export const getAllUsersData=(token)=>async(dispatch)=>
         {
             method:"GET",
             headers:{
-                Authorization:"Bearer"+token,
-                "Content-Type":"application/Json"
+                Authorization:"Bearer "+token,
+                "Content-Type":"application/json"
             }
         });
         if(response.ok)
@@ -135,7 +135,7 @@ export const getMenuData=(token)=>async(dispatch)=>
                 method:"GET",
                 headers:
                 {
-                    Authorization:"Bearer"+token,
+                    Authorization:"Bearer "+token,
                     "Content-Type":"application/json"
                 }
             });
@@ -165,7 +165,7 @@ export const getPrenotazioni=(token)=>async(dispatch)=>
                 method:"GET",
                 headers:
                 {
-                    Authorization:"Bearer"+token,
+                    Authorization:"Bearer "+token,
                     "Content-Type":"application/json"
                 }
             });
@@ -195,7 +195,7 @@ export const getDeliveryData=(token)=>async(dispatch)=>
                 method:"GET",
                 headers:
                 {
-                    Authorization:"Bearer"+token,
+                    Authorization:"Bearer "+token,
                     "Content-Type":"application/json"
                 }
             });
