@@ -1,5 +1,4 @@
-import { type } from "@testing-library/user-event/dist/type";
-import { resolvePath } from "react-router-dom";
+
 
 export const actionType=
 {
@@ -112,8 +111,8 @@ export const getUserData=(token)=> async(dispatch)=>
         if(response.ok)
         {
             const data=await response.json();
-            dispatch(SetUserData(data.content));
-            console.log(data.content);
+            dispatch(SetUserData(data));
+            console.log(data);
             return data;
         }
         else

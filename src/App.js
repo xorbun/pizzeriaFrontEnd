@@ -7,8 +7,9 @@ import Register from './Components/RegisterPage';
 import Login from './Components/LoginPage';
 import { BrowserRouter, Routes,Route } from 'react-router-dom';
 import MenuRestourant from './Components/Menu';
-
 import BackOfficeFetch from './Components/Backoffice';
+
+
 
 function App() {
  
@@ -16,7 +17,7 @@ function App() {
     <>
       <BrowserRouter>
       <NavbarHome/>
-      <BackOfficeFetch/>
+     <BackOfficeFetch/>
       <Routes>
         <Route path="/home" element={<MenuRestourant/>}/>
         <Route path="/LoginPage" element={<Login />} /> 

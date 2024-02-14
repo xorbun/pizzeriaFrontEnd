@@ -1,14 +1,19 @@
-
 import Container from 'react-bootstrap/Container';
 
 import { Navbar,Nav } from 'react-bootstrap';
 import NavLink from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 const NavbarHome=()=>
 {
   const navigate = useNavigate();
+  
+  const currentUser=useSelector((state)=>
+  {
+    return state.users.data
+  })
     return(
         <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -26,6 +31,7 @@ const NavbarHome=()=>
                   navigate("/register");
                 }} >Registrati</Nav.Link>
             <Nav.Link href="#">cerca</Nav.Link>
+            <Nav.Link href="#">{currentUser.nickname}</Nav.Link>
           </Nav>
         </Navbar.Collapse>
        

@@ -1,8 +1,8 @@
 import { actionType } from "../actions";
 
-const initialState={
-    
-    data:null,
+const initialState=
+{
+    data:"",
     users:[]
 }
 
