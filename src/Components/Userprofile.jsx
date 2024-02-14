@@ -1,10 +1,12 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Currentuser = () => {
   const user = useSelector((state) => {
     return state.users.data;
   });
+  const navigate = useNavigate();
   return (
     <div>
       <Container>
@@ -17,7 +19,16 @@ const Currentuser = () => {
             <p>Benvenuto, {user.nome}!</p>
             <p>Username: {user.nickname}</p>
             <p>Email: {user.email}</p>
-            <Button>modifica</Button>
+            <div className="d-flex">
+              <Button className="mx-2">modifica</Button>
+              <Button
+                onClick={() => {
+                  navigate("/menu");
+                }}
+              >
+                vedi menu
+              </Button>
+            </div>
           </Col>
         </Row>
       </Container>

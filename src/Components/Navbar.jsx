@@ -24,9 +24,11 @@ const NavbarHome=()=>
             <Nav.Link onClick={() => {
                   navigate("/home");
                 }}>Home</Nav.Link>
+                
             <Nav.Link onClick={() => {
                   navigate("/LoginPage");
                 }}>Login</Nav.Link>
+                
             <Nav.Link onClick={() => {
                   navigate("/register");
                 }} >Registrati</Nav.Link>
