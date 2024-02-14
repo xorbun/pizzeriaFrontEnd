@@ -12,7 +12,8 @@ export const actionType=
     SET_ANTIPASTI:"SET_ANTIPASTI",
     SET_PRENOTAZIONI:"SET_PRENOTAZIONI",
     SET_DELIVERY:"SET_DELIVERY",
-    SET_REGISTER:"SET_REGISTER"
+    SET_REGISTER:"SET_REGISTER",
+    SET_MODIFY:"SET_MODIFY"
 }
 export const setUserToken = (token) => ({
     type: actionType.SET_USER_TOKEN,
@@ -68,6 +69,11 @@ export const setBevandeData=(bevande)=>
 ({
     type:actionType.SET_BEVANDE,
     payload:bevande
+})
+export const setModify=(currentuser)=>
+({
+    type:actionType.SET_MODIFY,
+    payload:currentuser
 })
 
 

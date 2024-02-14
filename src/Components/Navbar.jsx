@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 
 import { Navbar,Nav } from 'react-bootstrap';
-import NavLink from 'react-bootstrap';
+
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -31,7 +31,9 @@ const NavbarHome=()=>
                   navigate("/register");
                 }} >Registrati</Nav.Link>
             <Nav.Link href="#">cerca</Nav.Link>
-            <Nav.Link href="#">{currentUser.nickname}</Nav.Link>
+            <Nav.Link onClick={() => {
+                  navigate("/me");
+                }}>{currentUser.nickname}</Nav.Link>
           </Nav>
         </Navbar.Collapse>
        
