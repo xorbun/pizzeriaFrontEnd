@@ -7,7 +7,7 @@ import { Col, Container, Row } from "react-bootstrap";
 
 const MenuRestourant = () => {
   const menuFromRedux = useSelector((state) => {
-    return state.menu.pizza.content;
+    return state.menu.menu.content;
   });
 
   
