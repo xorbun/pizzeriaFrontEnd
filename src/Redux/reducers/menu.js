@@ -3,7 +3,10 @@ import { actionType } from "../actions";
 
 const initialState={
     
-    menu:""
+    menu:"",
+    pizza:"",
+    antipasti:"",
+    bevande:""
 }
 
 const menuReducer=(state = initialState,action)=>
@@ -13,6 +16,18 @@ const menuReducer=(state = initialState,action)=>
             case actionType.SET_MENU:
                 return{
                     ...state,menu:action.payload
+                }
+            case actionType.SET_PIZZA:
+                return{
+                    ...state,pizza:action.payload
+                }
+            case actionType.SET_ANTIPASTI:
+                return{
+                    ...state,antipasti:action.payload
+                }
+            case actionType.SET_BEVANDE:
+                return{
+                    ...state,bevande:action.payload
                 }
             default:
                 return state;

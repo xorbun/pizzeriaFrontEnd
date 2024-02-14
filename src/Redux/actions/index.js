@@ -8,6 +8,9 @@ export const actionType=
     SET_USER_ROLE: "SET_USER_ROLE",
     SET_ALL_USERS: "SET_ALL_USERS",
     SET_MENU:"SET_MENU",
+    SET_PIZZA:"SET_PIZZA",
+    SET_BEVANDE:"SET_BEVANDE",
+    SET_ANTIPASTI:"SET_ANTIPASTI",
     SET_PRENOTAZIONI:"SET_PRENOTAZIONI",
     SET_DELIVERY:"SET_DELIVERY",
     SET_REGISTER:"SET_REGISTER"
@@ -51,6 +54,21 @@ export const setDeliveryData=(delivery)=>
 ({
     type:actionType.SET_DELIVERY,
     payload:delivery
+})
+export const setPizzaData=(pizza)=>
+({
+    type:actionType.SET_PIZZA,
+    payload:pizza
+})
+export const setAntipastiData=(antipasti)=>
+({
+    type:actionType.SET_ANTIPASTI,
+    payload:antipasti
+})
+export const setBevandeData=(bevande)=>
+({
+    type:actionType.SET_BEVANDE,
+    payload:bevande
 })
 
 
@@ -205,6 +223,90 @@ export const getDeliveryData=(token)=>async(dispatch)=>
                 const data=await response.json();
                 dispatch(setDeliveryData(data));
                 return data;
+            }
+            else
+            {
+                throw new Error("errore");
+            }
+    }
+    catch(error)
+    {
+        console.error(error);
+    }
+}
+export const getPizzaData=()=>async(dispatch)=>
+{
+    const URL="http://localhost:3001/menu/type?type=PIZZA";
+    try
+    {
+        const response=await fetch(URL,
+            {
+                method:"GET",
+                headers:
+                {
+                    "Content-Type":"application/json"
+                }
+            })
+            if(response.ok)
+            {
+                const data=await response.json();
+                dispatch(setPizzaData(data));
+            }
+            else
+            {
+                throw new Error("errore");
+            }
+    }
+    catch(error)
+    {
+        console.error(error);
+    }
+}
+export const getAntipastiData=()=>async(dispatch)=>
+{
+    const URL="http://localhost:3001/menu/type?type=ANTIPASTI";
+    try
+    {
+        const response=await fetch(URL,
+            {
+                method:"GET",
+                headers:
+                {
+                    "Content-Type":"application/json"
+                }
+            })
+            if(response.ok)
+            {
+                const data=await response.json();
+                dispatch(setAntipastiData(data));
+            }
+            else
+            {
+                throw new Error("errore")
+            }
+    }
+    catch(error)
+    {
+        console.error(error);
+    }
+}
+export const getBevandeData=()=>async(dispatch)=>
+{
+    const URL="http://localhost:3001/menu/type?type=BEVANDE";
+    try
+    {
+        const response=await fetch(URL,
+            {
+                method:"GET",
+                headers:
+                {
+                    "Content-Type":"application/json"
+                }
+            })
+            if(response.ok)
+            {
+                const data=await response.json();
+                dispatch(setBevandeData(data));
             }
             else
             {
