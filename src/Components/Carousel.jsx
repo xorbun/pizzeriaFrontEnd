@@ -8,39 +8,20 @@ const Carouselcomp = () => {
   if (pizza) {
     return (
       <>
-        <Carousel>
+        <Carousel className="colorsite">
           <Carousel.Item>
             <img
               src={pizza[0].image}
-              style={{ width: "100%", height: "650px" }}
+              style={{ width: "100%", height: "450px" }}
               alt="boh"
             />
             <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              src={pizza[4].image}
-              style={{ width: "100%", height: "650px" }}
-              alt="boh"
-            />
-            <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              src={pizza[6].image}
-              style={{ width: "100%", height: "650px" }}
-              alt="boh"
-            />
-            <Carousel.Caption>
-              <h3>Third slide label</h3>
+              <h1 className="fontcolor">Benvenuti alla Pizzeria del Gusto!</h1>
               <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                Sei pronto per un’esperienza culinaria indimenticabile? La
+                Pizzeria del Gusto è il luogo perfetto per gli amanti della
+                pizza, dove tradizione e creatività si fondono in ogni morso.
+                Ecco cosa rende la nostra pizzeria speciale:
               </p>
             </Carousel.Caption>
           </Carousel.Item>

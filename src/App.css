@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+.colornav{
+  background-color: rgb(249, 244, 215);
+}
+
+.colorsite 
+{
+  background-color:rgba(233, 154, 55,0.2) ;
+
+}
+.fontcolor
+{
+  color:rgb(255, 255, 255); ;
+}

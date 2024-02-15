@@ -4,7 +4,6 @@ export const actionType=
 {
     SET_USER_TOKEN: "SET_USER_TOKEN",
     SET_USER_DATA: "SET_USER_DATA",
-    SET_USER_ROLE: "SET_USER_ROLE",
     SET_ALL_USERS: "SET_ALL_USERS",
     SET_MENU:"SET_MENU",
     SET_PIZZA:"SET_PIZZA",
@@ -24,11 +23,7 @@ export const SetUserData=(data)=>
     type:actionType.SET_USER_DATA,
     payload:data
 });
-export const setUserRole=(role)=>
-({
-    type:actionType.SET_USER_ROLE,
-    payload:role
-});
+
 export const setAllUsers=(users)=>
 ({
     type:actionType.SET_ALL_USERS,
@@ -312,6 +307,35 @@ export const getBevandeData=()=>async(dispatch)=>
             {
                 const data=await response.json();
                 dispatch(setBevandeData(data));
+            }
+            else
+            {
+                throw new Error("errore");
+            }
+    }
+    catch(error)
+    {
+        console.error(error);
+    }
+}
+export const tekeprenotazioni=(token)=>async(dispatch)=>
+{
+    const URL="http://localhost:3001/prenotazioni";
+    try
+    {
+        const response=await fetch(URL,
+            {
+                method:"POST",
+                headers:
+                {
+                    Authorization:"Bearer "+token,
+                    "Content-Type":"application/json"
+                }
+            })
+            if(response.ok)
+            {
+                const data=await response.json();
+                dispatch(setPrenotazioniData(data));
             }
             else
             {

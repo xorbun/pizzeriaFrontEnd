@@ -19,8 +19,8 @@ const Login = () => {
    );
   };
   return (
-    <>
-      <Container>
+    <div>
+      <Container >
         <Row className="flex-column">
           <Col>
             <Form onSubmit={login}>
@@ -54,7 +54,7 @@ const Login = () => {
           
         </Row>
       </Container>
-    </>
+    </div>
   );
 };
 export default Login;

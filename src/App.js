@@ -11,6 +11,7 @@ import BackOfficeFetch from './Components/Backoffice';
 
 import Currentuser from './Components/Userprofile';
 import Homepagesite from './Components/Homepage';
+import Footer from './Components/Footer';
 
 
 
@@ -31,7 +32,7 @@ function App() {
         <Route path="/register" element={<Register/>}/> 
         <Route path="/me" element={<Currentuser/>}/>
       </Routes>
-       
+      <Footer/>
       </BrowserRouter>
       
     </>
