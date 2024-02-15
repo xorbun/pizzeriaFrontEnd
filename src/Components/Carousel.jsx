@@ -11,7 +11,7 @@ const Carouselcomp = () => {
         <Carousel className="colorsite">
           <Carousel.Item>
             <img
-              src={pizza[0].image}
+              src={pizza[6].image}
               style={{ width: "100%", height: "450px" }}
               alt="boh"
             />

@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 const NavbarHome = () => {
   const navigate = useNavigate();
 
+
   const currentUser = useSelector((state) => {
     return state.users.data;
   });
@@ -39,22 +40,21 @@ const NavbarHome = () => {
             >
               Login
             </Nav.Link>
-
-            <Nav.Link
+            
+             <Nav.Link
+             
               onClick={() => {
-                navigate("/register");
-              }}
-            >
-              Registrati
-            </Nav.Link>
-            <Nav.Link href="#">cerca</Nav.Link>
-            <Nav.Link
-              onClick={() => {
-                navigate("/me");
+                if(currentUser)
+                  {
+                    navigate("/me");
+                  }
+                
               }}
             >
               {currentUser.nickname}
             </Nav.Link>
+            
+            
           </Nav>
         </Navbar.Collapse>
       </Container>

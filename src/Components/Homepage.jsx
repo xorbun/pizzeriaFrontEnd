@@ -7,10 +7,10 @@ const Homepagesite = () => {
   return (
     <div>
       <Carouselcomp />
-      <Container className="mt-5">
+      <Container className="mt-5" style={{height:"50em"}}>
         <Row >
           <Col>
-            <Card style={{ height: "350px" }}>
+            <Card className="cardshadow" style={{ height: "350px" }}>
              
               <Card.Body>
                 <Card.Title><h5>Atmosfera Accogliente:</h5></Card.Title>
@@ -22,7 +22,7 @@ const Homepagesite = () => {
             </Card>
           </Col>
           <Col>
-            <Card style={{ height: "350px" }}>
+            <Card className="cardshadow" style={{ height: "350px" }}>
               
               <Card.Body>
                 <Card.Title><h5>Menu Eclettico:</h5></Card.Title>
@@ -35,7 +35,7 @@ const Homepagesite = () => {
             </Card>
           </Col>
           <Col>
-            <Card style={{ height: "350px" }}>
+            <Card className="cardshadow" style={{ height: "350px" }}>
               
               <Card.Body>
                 <Card.Title><h5>Ingredienti di Qualità: </h5></Card.Title>
@@ -49,7 +49,7 @@ const Homepagesite = () => {
             </Card>
           </Col>
           <Col>
-          <Card style={{ height: "350px"  }}>
+          <Card className="cardshadow"style={{ height: "350px"  }}>
       
       <Card.Body>
         <Card.Title><h5>Servizio Cordiale:</h5></Card.Title>

@@ -19,7 +19,7 @@ const MenuRestourant = () => {
           {menuFromRedux.map((menuHome) => {
             return (
               <Col key={menuHome.idMenu} lg={4} md={6}>
-                <Card style={{ height: "350px" }} className="mx-2 mb-4">
+                <Card style={{ height: "350px" }} className="mx-2 mb-4 cardshadow">
                   <Card.Img
                     variant="top"
                     style={{ height: "250px" }}
