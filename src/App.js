@@ -14,6 +14,7 @@ import Homepagesite from './Components/Homepage';
 import Footer from './Components/Footer';
 import PrenotazioniList from './Components/Prenotazioni';
 import Getprenotazioni from './Components/Getprenotazioni';
+import Logoutuser from './Components/Logout';
 
 
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/home" element={<Homepagesite/>}/>
         <Route path="/menu" element={<MenuRestourant/>}/>
         <Route path="/LoginPage" element={<Login />} /> 
+        <Route path="/logout" element={<Logoutuser/>}/>
         <Route path="/register" element={<Register/>}/> 
         <Route path="/me" element={<Currentuser/>}/>
         <Route path="/prenotazioni" element={<PrenotazioniList/>}/>

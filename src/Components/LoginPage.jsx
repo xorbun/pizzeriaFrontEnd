@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {  getTokenFromLogin, getUserData } from "../Redux/actions";
+import { getTokenFromLogin, getUserData } from "../Redux/actions";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
@@ -8,20 +8,20 @@ const Login = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
 
-  
   const dispatch = useDispatch();
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   const login = async (e) => {
-      e.preventDefault();
-      dispatch(getTokenFromLogin(email, password)).then((token) =>
-      dispatch(getUserData(token))
-      
-   );
+    e.preventDefault();
+    dispatch(getTokenFromLogin(email, password)).then(
+      (token) => dispatch(getUserData(token)),
+      navigate("/me")
+    );
   };
+
   return (
     <div>
-      <Container >
+      <Container>
         <Row className="flex-column">
           <Col>
             <Form onSubmit={login}>
@@ -53,10 +53,14 @@ const Login = () => {
             </Form>
           </Col>
           <Col>
-          <h3>Non sei ancora registrato?</h3>
-          <Button onClick={() => {
+            <h3>Non sei ancora registrato?</h3>
+            <Button
+              onClick={() => {
                 navigate("/register");
-              }}>Registrati</Button>
+              }}
+            >
+              Registrati
+            </Button>
           </Col>
         </Row>
       </Container>

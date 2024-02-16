@@ -8,16 +8,13 @@ import { useEffect } from "react";
 
 const NavbarHome = () => {
   const navigate = useNavigate();
-const token=localStorage.getItem("token");
-//localStorage.removeItem("token");
-console.log(token);
+  const token = localStorage.getItem("token");
+  //localStorage.removeItem("token");
+  console.log(token);
   const currentUser = useSelector((state) => {
     return state.users.data;
   });
-  useEffect(()=>
-  {
-
-  },[])
+  useEffect(() => {}, []);
   return (
     <Navbar expand="lg" className="colornav">
       <Container fluid>
@@ -39,29 +36,25 @@ console.log(token);
             >
               <i className="bi bi-house"></i>
             </Nav.Link>
-            {
-              token===null?
+            {token !== null ? (
               <Nav.Link
-              onClick={() => {
-                navigate("/LoginPage");
-              }}
-            >
-              Login
-            </Nav.Link>:
+                onClick={() => {
+                  if (currentUser) {
+                    navigate("/me");
+                  }
+                }}
+              >
+                {currentUser.nickname}
+              </Nav.Link>
+            ) : (
               <Nav.Link
-              onClick={() => {
-                if (currentUser) {
-                  navigate("/me");
-                }
-              }}
-            >
-              {currentUser.nickname}
-            </Nav.Link> 
-            
-            }
-          
-
-            
+                onClick={() => {
+                  navigate("/LoginPage");
+                }}
+              >
+                Login
+              </Nav.Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
