@@ -8,8 +8,8 @@ const Carouselcomp = () => {
   if (pizza) {
     return (
       <>
-        <Carousel className="colorsite">
-          <Carousel.Item>
+        <Carousel indicators={false}controls={false} className="colorsite">
+          <Carousel.Item >
             <img
               src={pizza[6].image}
               style={{ width: "100%", height: "550px" }}
