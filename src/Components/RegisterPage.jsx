@@ -9,8 +9,6 @@ const Register = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
 
-
-
   const payload = {
     nome: nome,
     cognome: cognome,
@@ -19,9 +17,8 @@ const Register = () => {
     password: password,
   };
   const baseEndPoint = "http://localhost:3001/auth/register";
-  
-  const registerUser = () => 
-  {
+
+  const registerUser = () => {
     fetch(baseEndPoint, {
       method: "POST",
       headers: {
@@ -29,96 +26,90 @@ const Register = () => {
       },
       body: JSON.stringify(payload),
     })
-    .then((res) => 
-    {
-      if (res.ok) 
-      {
-        return res.json();
-      } 
-      else 
-      {
-        throw new Error("errore");
-      }
-    })
-    .then((data)=>
-    {
-        
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("errore");
+        }
+      })
+      .then((data) => {
         alert("registrato correttamente");
-    })
-    .catch((err)=>
-    {
+      })
+      .catch((err) => {
         console.log(err);
-    })
+      });
   };
 
-
-  return(
-    <Container>
-      <Row>
-        <Col>
-          <h1>Registrati</h1>
-          <Form
-            onSubmit={(e) => {
-              e.preventDefault();
-              registerUser();
-            }}
-          >
-            <Form.Group
-              className="mb-3"
-              onChange={(e) => {
-                setemail(e.target.value);
+  return (
+    <div className="colorsite vh-100">
+      <Container>
+        <Row>
+          <Col>
+            <h1>Registrati</h1>
+            <Form
+              onSubmit={(e) => {
+                e.preventDefault();
+                registerUser();
               }}
             >
-              <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
-            </Form.Group>
+              <Form.Group
+                className="mb-3"
+                onChange={(e) => {
+                  setemail(e.target.value);
+                }}
+              >
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type="email" placeholder="Enter email" />
+              </Form.Group>
 
-            <Form.Group
-              className="mb-3"
-              onChange={(e) => {
-                setnome(e.target.value);
-              }}
-            >
-              <Form.Label>Name</Form.Label>
-              <Form.Control type="text" placeholder="Enter email" />
-            </Form.Group>
+              <Form.Group
+                className="mb-3"
+                onChange={(e) => {
+                  setnome(e.target.value);
+                }}
+              >
+                <Form.Label>Name</Form.Label>
+                <Form.Control type="text" placeholder="Enter email" />
+              </Form.Group>
 
-            <Form.Group
-              className="mb-3"
-              onChange={(e) => {
-                setcognome(e.target.value);
-              }}
-            >
-              <Form.Label>Surname</Form.Label>
-              <Form.Control type="text" placeholder="Enter email" />
-            </Form.Group>
+              <Form.Group
+                className="mb-3"
+                onChange={(e) => {
+                  setcognome(e.target.value);
+                }}
+              >
+                <Form.Label>Surname</Form.Label>
+                <Form.Control type="text" placeholder="Enter email" />
+              </Form.Group>
 
-            <Form.Group
-              className="mb-3"
-              onChange={(e) => {
-                setnickname(e.target.value);
-              }}
-            >
-              <Form.Label>Username</Form.Label>
-              <Form.Control type="text" placeholder="Enter email" />
-            </Form.Group>
+              <Form.Group
+                className="mb-3"
+                onChange={(e) => {
+                  setnickname(e.target.value);
+                }}
+              >
+                <Form.Label>Username</Form.Label>
+                <Form.Control type="text" placeholder="Enter email" />
+              </Form.Group>
 
-            <Form.Group
-              className="mb-3"
-              onChange={(e) => {
-                setpassword(e.target.value);
-              }}
-            >
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </Form>
-        </Col>
-      </Row>
-    </Container>
-  )
+              <Form.Group
+                className="mb-3"
+                onChange={(e) => {
+                  setpassword(e.target.value);
+                }}
+              >
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="Password" />
+              </Form.Group>
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  );
 };
-export default Register
+export default Register;

@@ -8,7 +8,7 @@ const Currentuser = () => {
   });
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="colorsite vh-100">
       <Container>
         <Row>
           <Col

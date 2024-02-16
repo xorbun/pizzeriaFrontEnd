@@ -20,7 +20,7 @@ const NavbarHome = () => {
       <Container fluid>
         <Navbar.Brand onClick={() => navigate("/home")}>
           <img
-            src="assets/OIG3.oGwKUH0fvFOGFzq2liqS.jpeg"
+            src="assets/logo.png"
             alt="logo"
             style={{ width: "50px", height: "55px" }}
           />

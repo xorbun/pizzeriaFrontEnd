@@ -13,6 +13,7 @@ const PrenotazioniList = () => {
   if(prenotazioniFromRedux)
   {
   return (
+    <div className="colorsite vh-100">
     <Container style={{ height: "50em" }} className="mt-5">
       <h2 className="d-flex justify-content-center">Le tue prenotazioni</h2>
       {prenotazioniFromRedux.map((prenotazioni) => {
@@ -33,6 +34,7 @@ const PrenotazioniList = () => {
         );
       })}
     </Container>
+    </div>
   );
     }
 };

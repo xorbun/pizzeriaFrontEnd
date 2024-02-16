@@ -16,8 +16,8 @@ const Carouselcomp = () => {
               alt="boh"
             />
             <Carousel.Caption>
-              <h1 className="fontcolor">Benvenuti alla Pizzeria del Gusto!</h1>
-              <p>
+              <h1 className="fontcolor ">Benvenuti alla Pizzeria del Gusto!</h1>
+              <p className="trasparencytext">
                 Sei pronto per un’esperienza culinaria indimenticabile? La
                 Pizzeria del Gusto è il luogo perfetto per gli amanti della
                 pizza, dove tradizione e creatività si fondono in ogni morso.

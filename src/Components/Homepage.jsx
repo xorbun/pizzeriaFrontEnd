@@ -7,12 +7,12 @@ import { useNavigate } from "react-router-dom";
 const Homepagesite = () => {
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="colorsite ">
       <Carouselcomp />
-      <Container className="mt-5" style={{ height: "70em" }}>
+      <Container className="mt-5 ">
         <Row>
           <Col>
-            <Card className="cardshadow" style={{ height: "350px" }}>
+            <Card className="cardshadow border-0" style={{ height: "350px" }}>
               <Card.Body>
                 <Card.Title>
                   <h5>Atmosfera Accogliente:</h5>
@@ -26,7 +26,7 @@ const Homepagesite = () => {
             </Card>
           </Col>
           <Col>
-            <Card className="cardshadow" style={{ height: "350px" }}>
+            <Card className="cardshadow border-0" style={{ height: "350px" }}>
               <Card.Body>
                 <Card.Title>
                   <h5>Menu Eclettico:</h5>
@@ -42,7 +42,7 @@ const Homepagesite = () => {
             </Card>
           </Col>
           <Col>
-            <Card className="cardshadow" style={{ height: "350px" }}>
+            <Card className="cardshadow border-0" style={{ height: "350px" }}>
               <Card.Body>
                 <Card.Title>
                   <h5>Ingredienti di Qualità: </h5>
@@ -58,7 +58,7 @@ const Homepagesite = () => {
             </Card>
           </Col>
           <Col>
-            <Card className="cardshadow" style={{ height: "350px" }}>
+            <Card className="cardshadow border-0" style={{ height: "350px" }}>
               <Card.Body>
                 <Card.Title>
                   <h5>Servizio Cordiale:</h5>
@@ -84,21 +84,17 @@ const Homepagesite = () => {
             </Button>
           </Col>
           <Col>
-          <Carousel className="colorsite">
-              <Carousel.Item>
-                <img
-                  src="https://i.imgur.com/Z1bl39a.jpg"
-                  style={{ width: "100%", height: "550px" }}
-                  alt="boh"
-                />
-                <Carousel.Caption>
-                  <h1 className="fontcolor">
-                    La nostra pizzeria vi accoglie con calore e allegria
-                  </h1>
-                  <p></p>
-                </Carousel.Caption>
-              </Carousel.Item>
-            </Carousel>
+            <div>
+              <img
+                className=" cardshadow mb-5"
+                src="https://i.imgur.com/Z1bl39a.jpg"
+                style={{ width: "100%", height: "550px" }}
+                alt="boh"
+              />
+              <span className="message">
+                La nostra pizzeria vi accoglie con calore e allegria
+              </span>
+            </div>
           </Col>
         </Row>
       </Container>

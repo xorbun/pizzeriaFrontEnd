@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 const Footer = () => {
   return (
-    <footer >
-      <p>© 2024 Nome della tua azienda</p>
-      <p>Indirizzo: Via esempio, 123 - Città</p>
-      <p>Email: info@esempio.com</p>
+    <footer className="colornav " style={{ height: "120px" }}>
+      <p className="mx-5">© 2024 RistoriaPizzorante</p>
+      <p className="mx-5">Indirizzo: Via lorem ipsum - CineCittà</p>
+      <p className="mx-5">Email: test@test.it</p>
     </footer>
   );
 };
