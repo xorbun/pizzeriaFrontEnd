@@ -12,6 +12,8 @@ import BackOfficeFetch from './Components/Backoffice';
 import Currentuser from './Components/Userprofile';
 import Homepagesite from './Components/Homepage';
 import Footer from './Components/Footer';
+import PrenotazioniList from './Components/Prenotazioni';
+import Getprenotazioni from './Components/Getprenotazioni';
 
 
 
@@ -31,6 +33,8 @@ function App() {
         <Route path="/LoginPage" element={<Login />} /> 
         <Route path="/register" element={<Register/>}/> 
         <Route path="/me" element={<Currentuser/>}/>
+        <Route path="/prenotazioni" element={<PrenotazioniList/>}/>
+        <Route path="/prenota" element={<Getprenotazioni/>}/>
       </Routes>
       <Footer/>
       </BrowserRouter>

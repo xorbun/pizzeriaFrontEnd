@@ -6,7 +6,7 @@ import {
   getMenuData,
   getPizzaData,
   getPrenotazioni,
-  getTokenFromLogin,
+  
 } from "../Redux/actions";
 
 const BackOfficeFetch = () => {
@@ -16,7 +16,7 @@ const BackOfficeFetch = () => {
   const pizze = dispatch(getPizzaData());
   const antipasti = dispatch(getAntipastiData());
   const bevande = dispatch(getBevandeData());
-  const prenotazioni=dispatch(getPrenotazioni(token));
+  
   
   return <></>;
 };

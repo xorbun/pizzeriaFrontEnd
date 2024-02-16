@@ -28,6 +28,9 @@ const Currentuser = () => {
               >
                 vedi menu
               </Button>
+              <Button className="mx-2" onClick={()=>{
+                navigate("/prenotazioni")
+              }}>Visualizza prenotazioni</Button>
             </div>
           </Col>
         </Row>

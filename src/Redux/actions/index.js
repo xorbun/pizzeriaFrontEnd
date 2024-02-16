@@ -176,7 +176,7 @@ export const getMenuData=()=>async(dispatch)=>
 }
 export const getPrenotazioni=(token)=>async(dispatch)=>
 {
-    const URL="http://localhost:3001/prenotazioni";
+    const URL="http://localhost:3001/prenotazioni/me";
     try
     {
         const response=await fetch(URL,
@@ -318,32 +318,4 @@ export const getBevandeData=()=>async(dispatch)=>
         console.error(error);
     }
 }
-export const tekeprenotazioni=(token)=>async(dispatch)=>
-{
-    const URL="http://localhost:3001/prenotazioni";
-    try
-    {
-        const response=await fetch(URL,
-            {
-                method:"POST",
-                headers:
-                {
-                    Authorization:"Bearer "+token,
-                    "Content-Type":"application/json"
-                }
-            })
-            if(response.ok)
-            {
-                const data=await response.json();
-                dispatch(setPrenotazioniData(data));
-            }
-            else
-            {
-                throw new Error("errore");
-            }
-    }
-    catch(error)
-    {
-        console.error(error);
-    }
-}
+

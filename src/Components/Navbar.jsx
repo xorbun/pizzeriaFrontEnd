@@ -1,16 +1,23 @@
 import Container from "react-bootstrap/Container";
 
-import { Navbar, Nav, Row, Col } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const NavbarHome = () => {
   const navigate = useNavigate();
-
+const token=localStorage.getItem("token");
+//localStorage.removeItem("token");
+console.log(token);
   const currentUser = useSelector((state) => {
     return state.users.data;
   });
+  useEffect(()=>
+  {
+
+  },[])
   return (
     <Navbar expand="lg" className="colornav">
       <Container fluid>
@@ -30,18 +37,18 @@ const NavbarHome = () => {
                 navigate("/home");
               }}
             >
-              <i class="bi bi-house"></i>
+              <i className="bi bi-house"></i>
             </Nav.Link>
-
-            <Nav.Link
+            {
+              token===null?
+              <Nav.Link
               onClick={() => {
                 navigate("/LoginPage");
               }}
             >
               Login
-            </Nav.Link>
-
-            <Nav.Link
+            </Nav.Link>:
+              <Nav.Link
               onClick={() => {
                 if (currentUser) {
                   navigate("/me");
@@ -49,7 +56,12 @@ const NavbarHome = () => {
               }}
             >
               {currentUser.nickname}
-            </Nav.Link>
+            </Nav.Link> 
+            
+            }
+          
+
+            
           </Nav>
         </Navbar.Collapse>
       </Container>

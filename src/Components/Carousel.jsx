@@ -12,7 +12,7 @@ const Carouselcomp = () => {
           <Carousel.Item>
             <img
               src={pizza[6].image}
-              style={{ width: "100%", height: "450px" }}
+              style={{ width: "100%", height: "550px" }}
               alt="boh"
             />
             <Carousel.Caption>
