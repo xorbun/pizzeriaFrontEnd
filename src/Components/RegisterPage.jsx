@@ -24,7 +24,7 @@ const Register = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(payload)
     })
       .then((res) => {
         if (res.ok) {
@@ -35,6 +35,7 @@ const Register = () => {
       })
       .then((data) => {
         alert("registrato correttamente");
+      
       })
       .catch((err) => {
         console.log(err);

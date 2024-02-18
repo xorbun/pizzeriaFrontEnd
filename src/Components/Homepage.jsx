@@ -11,7 +11,7 @@ const Homepagesite = () => {
       <Carouselcomp />
       <Container className="mt-5 ">
         <Row>
-          <Col>
+          <Col sm={1} className="mb-3" lg={3} >
             <Card className="cardshadow border-0" style={{ height: "350px" }}>
               <Card.Body>
                 <Card.Title>
@@ -25,7 +25,7 @@ const Homepagesite = () => {
               </Card.Body>
             </Card>
           </Col>
-          <Col>
+          <Col sm={1} className="mb-3" lg={3}>
             <Card className="cardshadow border-0" style={{ height: "350px" }}>
               <Card.Body>
                 <Card.Title>
@@ -41,7 +41,7 @@ const Homepagesite = () => {
               </Card.Body>
             </Card>
           </Col>
-          <Col>
+          <Col sm={1} className="mb-3" lg={3}>
             <Card className="cardshadow border-0" style={{ height: "350px" }}>
               <Card.Body>
                 <Card.Title>
@@ -57,7 +57,7 @@ const Homepagesite = () => {
               </Card.Body>
             </Card>
           </Col>
-          <Col>
+          <Col sm={1} className="mb-3" lg={3}>
             <Card className="cardshadow border-0" style={{ height: "350px" }}>
               <Card.Body>
                 <Card.Title>
@@ -74,7 +74,28 @@ const Homepagesite = () => {
           </Col>
         </Row>
         <Row className="mt-5">
-          <Col>
+          
+          <Col sm={12} >
+            <div>
+            <Carousel indicators={false}controls={false}>
+          <Carousel.Item >
+          <img
+                className=" cardshadow mb-5"
+                src="https://i.imgur.com/Z1bl39a.jpg"
+                style={{ width: "100%", height: "550px" }}
+                alt="boh"
+              />
+            <Carousel.Caption>
+            <span className="message">
+                La nostra pizzeria vi accoglie con calore e allegria
+              </span>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+              
+            </div>
+          </Col>
+          <Col sm={12} className="d-flex justify-content-center mb-4">
             <Button
               onClick={() => {
                 navigate("/prenota");
@@ -82,19 +103,6 @@ const Homepagesite = () => {
             >
               prenota un tavolo
             </Button>
-          </Col>
-          <Col>
-            <div>
-              <img
-                className=" cardshadow mb-5"
-                src="https://i.imgur.com/Z1bl39a.jpg"
-                style={{ width: "100%", height: "550px" }}
-                alt="boh"
-              />
-              <span className="message">
-                La nostra pizzeria vi accoglie con calore e allegria
-              </span>
-            </div>
           </Col>
         </Row>
       </Container>

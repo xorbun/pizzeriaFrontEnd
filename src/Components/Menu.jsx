@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 
 import Card from "react-bootstrap/Card";
 import { Col, Container, Row } from "react-bootstrap";
-import Footer from "./Footer";
+
 
 const MenuRestourant = () => {
   const menuFromRedux = useSelector((state) => {
@@ -30,6 +30,7 @@ const MenuRestourant = () => {
                     <Card.Body>
                       <Card.Title>{menuHome.descrizione}</Card.Title>
                       <Button variant="primary">ordina</Button>
+                      
                     </Card.Body>
                   </Card>
                 </Col>
