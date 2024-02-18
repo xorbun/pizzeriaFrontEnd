@@ -75,7 +75,7 @@ const Homepagesite = () => {
         </Row>
         <Row className="mt-5">
           
-          <Col sm={12} >
+          <Col sm={12} lg={6}>
             <div>
             <Carousel indicators={false}controls={false}>
           <Carousel.Item >
@@ -95,7 +95,7 @@ const Homepagesite = () => {
               
             </div>
           </Col>
-          <Col sm={12} className="d-flex justify-content-center mb-4">
+          <Col sm={12} className="d-flex justify-content-center mb-4" >
             <Button
               onClick={() => {
                 navigate("/prenota");
