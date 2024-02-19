@@ -7,7 +7,7 @@ const Getprenotazioni = () => {
   const [data, setdata] = useState("");
   const [orario, setorario] = useState("");
   const [numeroPersone, setnumeroPersone] = useState("");
- console.log(typeof orario)
+  console.log(typeof orario);
   const token = localStorage.getItem("token");
 
   const payload = {
@@ -15,16 +15,14 @@ const Getprenotazioni = () => {
     orario: orario,
     numeroPersone: numeroPersone,
   };
-  
+
   const baseEndPoint = "http://localhost:3001/prenotazioni";
   const takePrenotazione = () => {
     fetch(baseEndPoint, {
       method: "POST",
       headers: {
-        Authorization:"Bearer "+token,
+        Authorization: "Bearer " + token,
         "Content-Type": "application/json",
-       
-        
       },
       body: JSON.stringify(payload),
     })
@@ -62,7 +60,11 @@ const Getprenotazioni = () => {
                 }}
               >
                 <Form.Label>inserisci data</Form.Label>
-                <Form.Control type="date" format="yyyy-MM-dd"placeholder="inserisci data" />
+                <Form.Control
+                  type="date"
+                  format="yyyy-MM-dd"
+                  placeholder="inserisci data"
+                />
               </Form.Group>
 
               <Form.Group
@@ -89,8 +91,8 @@ const Getprenotazioni = () => {
                 />
               </Form.Group>
 
-              <Button variant="primary" type="submit">
-                Submit
+              <Button className="bn632-hover bn19" type="submit">
+                PRENOTA
               </Button>
             </Form>
           </Col>

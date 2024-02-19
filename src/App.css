@@ -37,12 +37,12 @@
   }
 }
 .colornav{
-  background-color: rgba(233, 154, 55,0.5);
+  background-color:#FBC02D;
 }
 
 .colorsite 
 {
-  background-color:rgba(233, 154, 55,0.2) ;
+  background-color:#FFF9C4;
 
 }
 .fontcolor
@@ -85,4 +85,104 @@ div {
   font-size: 25px;
   
   color: #333; /* Colore del testo */
+}
+.bn632-hover {
+  width: 160px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin: 20px;
+  height: 55px;
+  text-align:center;
+  border: 0 !important;
+  background-size: 300% 100%;
+  border-radius: 50px !important;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.bn632-hover:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.bn632-hover:focus {
+  outline: none;
+}
+
+.bn632-hover.bn19 {
+  background-image: linear-gradient(
+    to right,
+    #f5ce62,
+    #e43603,
+    #fa7199,
+    #e85a19
+  );
+  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+}
+.card:hover
+{
+  
+    animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  
+}
+.card
+{
+  border: 0 !important;
+  border-radius: 15% !important;
+}
+
+ @keyframes slide-top {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+.imgMenu
+{
+  
+  border-top-left-radius: 15% !important;
+  border-top-right-radius: 15% !important;
+}
+.truncate {
+  width: 300px;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+.bn3637 {
+  width: 160px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin: 20px;
+  height: 55px;
+  text-align:center;
+  border: 0 !important;
+  background-size: 300% 100%;
+  border-radius: 50px !important;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.bn37 {
+  border-color: transparent !important;
+  background-color: #fff !important;
+  color: #000 !important;
+  transition: transform 0.2s cubic-bezier(0.235, 0, 0.05, 0.95) !important;
+}
+  
+.bn37:hover {
+  transform: perspective(1px) scale3d(1.044, 1.044, 1) translateZ(0) !important;
 }

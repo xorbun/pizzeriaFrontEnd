@@ -1,3 +1,5 @@
+import { type } from "@testing-library/user-event/dist/type";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -13,7 +15,8 @@ export const actionType=
     SET_PRENOTAZIONI:"SET_PRENOTAZIONI",
     SET_DELIVERY:"SET_DELIVERY",
     SET_REGISTER:"SET_REGISTER",
-    SET_MODIFY:"SET_MODIFY"
+    SET_MODIFY:"SET_MODIFY",
+    SET_LOGIN_ERROR:"SET_LOGIN_ERROR"
 }
 export const setUserToken = (token) => ({
     type: actionType.SET_USER_TOKEN,
@@ -71,7 +74,11 @@ export const setModify=(currentuser)=>
     type:actionType.SET_MODIFY,
     payload:currentuser
 })
-
+export const setError=(error)=>
+({
+    type:actionType.SET_LOGIN_ERROR,
+    payload:error
+})
 
 export const getTokenFromLogin=(email,password)=>async(dispatch)=>
 {
@@ -91,12 +98,14 @@ export const getTokenFromLogin=(email,password)=>async(dispatch)=>
             const data=await response.json();
             dispatch(setUserToken(data.token));
             localStorage.setItem("token",data.token);
+            dispatch(getUserData(data.token))
+            
             return data.token;
         }
         else
         {
-           
-          throw new Error("errore nel login");
+            console.log(response);
+            dispatch(setError(true));
         }
 };
 
@@ -322,3 +331,34 @@ export const getBevandeData=()=>async(dispatch)=>
     }
 }
 
+export const takeanorder=(token,orderedFood,payload)=>async(dispatch)=>
+{
+    
+    const URL="http://localhost:3001/delivery?idMenu=" + orderedFood;
+    try
+    {
+        const response=await fetch(URL,
+            {
+                method:"POST",
+                headers:
+                {
+                    Authorization:"Bearer "+token,
+                    "Content-Type":"application/json",
+                },
+                body:JSON.stringify(payload)
+            })
+            if(response.ok)
+            {
+                const data=await response.json();
+                dispatch(setDeliveryData(data));
+            }
+            else
+            {
+                throw new Error("errore");
+            }
+    }
+    catch(error)
+    {
+        console.error(error)
+    }
+}

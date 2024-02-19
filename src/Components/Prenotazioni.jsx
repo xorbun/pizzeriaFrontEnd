@@ -32,7 +32,7 @@ const PrenotazioniList = () => {
                       {prenotazioni.orario},
                       <span className="fw-bold">numero persone </span>
                       {prenotazioni.numeroPersone}
-                      <Button className="mx-2">annulla</Button>
+                      <Button className="mx-2 bn632-hover bn19">annulla</Button>
                     </ListGroup.Item>
                   </ListGroup>
                 </Col>

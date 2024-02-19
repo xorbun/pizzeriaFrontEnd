@@ -7,39 +7,54 @@ const Currentuser = () => {
     return state.users.data;
   });
   const navigate = useNavigate();
+
   return (
     <div className="colorsite vh-100">
       <Container>
         <Row>
           <Col
-            className="d-flex flex-column align-items-center"
-            style={{ border: "2px solid black", padding: "20px" }}
+            className="d-flex flex-column align-items-center "
+            style={{ padding: "20px" }}
           >
             <h2>Profilo Utente</h2>
             <p>Benvenuto, {user.nome}!</p>
             <p>Username: {user.nickname}</p>
             <p>Email: {user.email}</p>
-            <div className="d-flex">
-              <Button className="mx-2">modifica</Button>
-              <Button
-                onClick={() => {
-                  navigate("/menu");
-                }}
-              >
-                vedi menu
-              </Button>
-              
-              <Button className="mx-2" onClick={()=>{
-                navigate("/prenotazioni")
-              }}>Visualizza prenotazioni</Button>
-              <Button className="mx-1"
-                onClick={() => {
-                  navigate("/logout");
-                }}
-              >
-                logout
-              </Button>
-            </div>
+            <Row lg={4} sm={12} >
+              <Col className="text-center">
+                <Button className=" bn632-hover bn19 ">modifica</Button>
+              </Col>
+              <Col className="text-center">
+                <Button
+                  className="bn632-hover bn19"
+                  onClick={() => {
+                    navigate("/menu");
+                  }}
+                >
+                  vedi menu
+                </Button>
+              </Col>
+              <Col className="text-center">
+                <Button
+                  className="bn632-hover bn19 "
+                  onClick={() => {
+                    navigate("/prenotazioni");
+                  }}
+                >
+                  Visualizza prenotazioni
+                </Button>
+              </Col>
+              <Col className="text-center">
+                <Button
+                  className="bn3637 bn37 "
+                  onClick={() => {
+                    navigate("/logout");
+                  }}
+                >
+                  logout
+                </Button>
+              </Col>
+            </Row>
           </Col>
         </Row>
       </Container>

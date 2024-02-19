@@ -1,19 +1,24 @@
-import { Button, Carousel, Col, Container, Row } from "react-bootstrap";
+import { Button, Carousel, Col, Container, Modal, Row } from "react-bootstrap";
 import Carouselcomp from "./Carousel";
 
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Homepagesite = () => {
   const navigate = useNavigate();
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <div className="colorsite ">
       <Carouselcomp />
       <Container className="mt-5 ">
         <Row>
-          <Col sm={1} className="mb-3" lg={3} >
+          <Col sm={1} className="mb-3" lg={3}>
             <Card className="cardshadow border-0" style={{ height: "350px" }}>
-              <Card.Body>
+              <Card.Body className="d-flex flex-column align-items-center">
                 <Card.Title>
                   <h5>Atmosfera Accogliente:</h5>
                 </Card.Title>
@@ -27,7 +32,7 @@ const Homepagesite = () => {
           </Col>
           <Col sm={1} className="mb-3" lg={3}>
             <Card className="cardshadow border-0" style={{ height: "350px" }}>
-              <Card.Body>
+              <Card.Body className="d-flex flex-column align-items-center">
                 <Card.Title>
                   <h5>Menu Eclettico:</h5>
                 </Card.Title>
@@ -43,7 +48,7 @@ const Homepagesite = () => {
           </Col>
           <Col sm={1} className="mb-3" lg={3}>
             <Card className="cardshadow border-0" style={{ height: "350px" }}>
-              <Card.Body>
+              <Card.Body className="d-flex flex-column align-items-center">
                 <Card.Title>
                   <h5>Ingredienti di Qualità: </h5>
                 </Card.Title>
@@ -59,7 +64,7 @@ const Homepagesite = () => {
           </Col>
           <Col sm={1} className="mb-3" lg={3}>
             <Card className="cardshadow border-0" style={{ height: "350px" }}>
-              <Card.Body>
+              <Card.Body className="d-flex flex-column align-items-center">
                 <Card.Title>
                   <h5>Servizio Cordiale:</h5>
                 </Card.Title>
@@ -74,35 +79,48 @@ const Homepagesite = () => {
           </Col>
         </Row>
         <Row className="mt-5">
-          
           <Col sm={12} lg={6}>
             <div>
-            <Carousel indicators={false}controls={false}>
-          <Carousel.Item >
-          <img
-                className=" cardshadow mb-5"
-                src="https://i.imgur.com/Z1bl39a.jpg"
-                style={{ width: "100%", height: "550px" }}
-                alt="boh"
-              />
-            <Carousel.Caption>
-            <p className="trasparencytext">
-                La nostra pizzeria vi accoglie con calore e allegria
-              </p>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
-              
+              <Carousel indicators={false} controls={false}>
+                <Carousel.Item>
+                  <img
+                    className=" cardshadow mb-5"
+                    src="https://i.imgur.com/Z1bl39a.jpg"
+                    style={{ width: "100%", height: "550px" }}
+                    alt="boh"
+                  />
+                  <Carousel.Caption>
+                    <p className="trasparencytext ">
+                      La nostra pizzeria vi accoglie con calore e allegria
+                    </p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+              </Carousel>
             </div>
           </Col>
-          <Col sm={12} className="d-flex justify-content-center mb-4" >
+          <Col sm={12} className="d-flex justify-content-center mb-4">
             <Button
+              className="bn632-hover bn19"
               onClick={() => {
                 navigate("/prenota");
               }}
             >
               prenota un tavolo
             </Button>
+            <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
           </Col>
         </Row>
       </Container>

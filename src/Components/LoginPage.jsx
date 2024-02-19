@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTokenFromLogin, getUserData } from "../Redux/actions";
 import {  Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
@@ -7,18 +7,28 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-
+  const error=useSelector((state)=>
+  {
+    return state.auth.loginError
+  })
+  console.log(error)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   
   const login = async (e) => {
     e.preventDefault();
-    dispatch(getTokenFromLogin(email, password)).then(
-      (token) => dispatch(getUserData(token)),
-      navigate("/me")
-    );
+    dispatch(getTokenFromLogin(email, password)).then((token)=>{
+      if(token)
+      {
+        navigate("/me")
+      }
+    })
+    
   };
 
+useEffect(()=>{
+
+},[error])
   return (
     
     <div className="colorsite vh-100">
@@ -47,9 +57,15 @@ const Login = () => {
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" />
               </Form.Group>
+              {
+                error&&
+                <div className="alert alert-danger" role="alert">
+                  username o password errata
+                </div>
+              }
+              
                   
-                  
-              <Button variant="primary" type="submit">
+              <Button className="bn632-hover bn19" type="submit">
                 Submit
               </Button>
             </Form>

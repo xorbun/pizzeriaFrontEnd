@@ -11,6 +11,7 @@ import userReducer from '../reducers/users'
 import menuReducer from '../reducers/menu'
 import prenotazioniReducer from '../reducers/prenotazioni'
 import deliveryReducer from '../reducers/delivery'
+import authReducer from '../reducers/auth';
 
 
 const persistConfig = {
@@ -22,7 +23,7 @@ const persistConfig = {
 
 
 const bigReducer = combineReducers({
-  
+  auth:authReducer,
   users: userReducer,
   menu: menuReducer,
   prenotazioni: prenotazioniReducer,
