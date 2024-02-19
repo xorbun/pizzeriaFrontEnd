@@ -86,9 +86,9 @@ const Homepagesite = () => {
                 alt="boh"
               />
             <Carousel.Caption>
-            <span className="message">
+            <p className="trasparencytext">
                 La nostra pizzeria vi accoglie con calore e allegria
-              </span>
+              </p>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>

@@ -1,5 +1,6 @@
 
 
+
 export const actionType=
 {
     SET_USER_TOKEN: "SET_USER_TOKEN",
@@ -74,6 +75,7 @@ export const setModify=(currentuser)=>
 
 export const getTokenFromLogin=(email,password)=>async(dispatch)=>
 {
+    
     const URL="http://localhost:3001/auth/login";
     const response=await fetch(URL,
         {
@@ -93,7 +95,8 @@ export const getTokenFromLogin=(email,password)=>async(dispatch)=>
         }
         else
         {
-            throw new Error("errore");
+           
+          throw new Error("errore nel login");
         }
 };
 

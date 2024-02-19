@@ -8,10 +8,7 @@ const MenuRestourant = () => {
     return state.menu.menu.content;
   });
   
-  
-  
-    
-    return (
+  return (
       <div className="colorsite vh-200">
         <Container className="d-flex ">
           <Row className="mt-5">
@@ -19,7 +16,7 @@ const MenuRestourant = () => {
               menuFromRedux.map((menu) => {
               return (
                 <Col lg={4} md={6} key={menu.idMenu}>
-                  <Singlefood food={menu}/>
+                    <Singlefood food={menu}/>
                 </Col>
               );
             })}
@@ -27,6 +24,5 @@ const MenuRestourant = () => {
         </Container>
       </div>
     );
-  
 };
 export default MenuRestourant;

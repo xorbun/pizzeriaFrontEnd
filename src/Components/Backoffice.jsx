@@ -10,7 +10,7 @@ import {
 
 const BackOfficeFetch = () => {
   const dispatch = useDispatch();
-  const token = localStorage.getItem("token");
+  
   const menu = dispatch(getMenuData());
   const pizze = dispatch(getPizzaData());
   const antipasti = dispatch(getAntipastiData());
