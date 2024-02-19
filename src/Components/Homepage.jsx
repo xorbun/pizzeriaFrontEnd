@@ -80,47 +80,48 @@ const Homepagesite = () => {
         </Row>
         <Row className="mt-5">
           <Col sm={12} lg={6}>
-            <div>
-              <Carousel indicators={false} controls={false}>
-                <Carousel.Item>
-                  <img
-                    className=" cardshadow mb-5"
-                    src="https://i.imgur.com/Z1bl39a.jpg"
-                    style={{ width: "100%", height: "550px" }}
-                    alt="boh"
-                  />
-                  <Carousel.Caption>
-                    <p className="trasparencytext ">
-                      La nostra pizzeria vi accoglie con calore e allegria
-                    </p>
-                  </Carousel.Caption>
-                </Carousel.Item>
-              </Carousel>
-            </div>
+            <Carousel  indicators={false} controls={false}>
+              <Carousel.Item>
+                <img
+                  className=" cardshadow mb-5 rounded-5"
+                  src="https://i.imgur.com/Z1bl39a.jpg"
+                  style={{ width: "100%", height: "550px" }}
+                  alt="boh"
+                />
+                <Carousel.Caption>
+                  <p className="trasparencytext ">
+                    La nostra pizzeria vi accoglie con calore e allegria
+                  </p>
+                </Carousel.Caption>
+              </Carousel.Item>
+            </Carousel>
           </Col>
-          <Col sm={12} className="d-flex justify-content-center mb-4">
-            <Button
-              className="bn632-hover bn19"
-              onClick={() => {
-                navigate("/prenota");
-              }}
+          <Col sm={12} lg={6}>
+            <Card
+              className="cardshadow border-0 rounded-5 mb-2"
+              style={{ height: "550px" }}
             >
-              prenota un tavolo
-            </Button>
-            <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
+              <Card.Body className="d-flex flex-column align-items-center ">
+                <Card.Title>
+                  <h2>Amanti della pizza, </h2>
+                </Card.Title>
+                <Card.Text className="my-auto">
+                Se stai cercando un’esperienza culinaria autentica e deliziosa, 
+                vi invitiamo a prenotare un tavolo. 
+                Situata nel cuore di Cassino, questa pizzeria offre una vasta selezione di pizze artigianali 
+                cotte nel forno a legna.
+                  leggera e croccante.
+                </Card.Text>
+                <Button
+                  className="bn632-hover bn19"
+                  onClick={() => {
+                    navigate("/prenota");
+                  }}
+                >
+                  prenota un tavolo
+                </Button>
+              </Card.Body>
+            </Card>
           </Col>
         </Row>
       </Container>

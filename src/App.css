@@ -186,3 +186,11 @@ div {
 .bn37:hover {
   transform: perspective(1px) scale3d(1.044, 1.044, 1) translateZ(0) !important;
 }
+.modal-content
+{
+  background-color:#FFF9C4 !important;
+}
+.list {
+  max-height: 800px;
+  overflow-y: scroll;
+}

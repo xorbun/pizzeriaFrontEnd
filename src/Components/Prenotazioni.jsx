@@ -13,7 +13,7 @@ const PrenotazioniList = () => {
   if (prenotazioniFromRedux) {
     return (
       <div className="colorsite vh-100">
-        <Container style={{ height: "50em" }}>
+        <Container className="list" >
           <h2 className="d-flex justify-content-center ">
             Le tue prenotazioni
           </h2>
@@ -23,7 +23,7 @@ const PrenotazioniList = () => {
                 key={prenotazioni.prenotazione}
                 className="mt-2 d-flex justify-content-center"
               >
-                <Col lg={5}>
+                <Col lg={5} >
                   <ListGroup>
                     <ListGroup.Item>
                       <span className="fw-bold">data </span>

@@ -20,8 +20,7 @@ const Carouselcomp = () => {
               <p className="trasparencytext">
                 Sei pronto per un’esperienza culinaria indimenticabile? La
                 Pizzeria del Gusto è il luogo perfetto per gli amanti della
-                pizza, dove tradizione e creatività si fondono in ogni morso.
-                Ecco cosa rende la nostra pizzeria speciale:
+                pizza
               </p>
             </Carousel.Caption>
           </Carousel.Item>

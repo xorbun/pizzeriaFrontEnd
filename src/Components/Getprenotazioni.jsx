@@ -34,7 +34,8 @@ const Getprenotazioni = () => {
         }
       })
       .then((data) => {
-        alert("prenotazione effettuata");
+        const dataprenotazione = payload.data;
+        alert("grazie!Ci vediamo il " + dataprenotazione);
       })
       .catch((err) => {
         console.log(err);
