@@ -20,7 +20,7 @@ const Currentuser = () => {
             <p>Benvenuto, {user.nome}!</p>
             <p>Username: {user.nickname}</p>
             <p>Email: {user.email}</p>
-            <Row lg={4} sm={12} >
+            <Row lg={5} sm={12}>
               <Col className="text-center">
                 <Button className=" bn632-hover bn19 ">modifica</Button>
               </Col>
@@ -42,6 +42,16 @@ const Currentuser = () => {
                   }}
                 >
                   Visualizza prenotazioni
+                </Button>
+              </Col>
+              <Col className="text-center">
+                <Button
+                  className="bn632-hover bn19 "
+                  onClick={() => {
+                    navigate("/ordered");
+                  }}
+                >
+                  Delivery
                 </Button>
               </Col>
               <Col className="text-center">

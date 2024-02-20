@@ -1,18 +1,20 @@
 
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -38,6 +40,7 @@
 }
 .colornav{
   background-color:#FBC02D;
+  
 }
 
 .colorsite 
@@ -193,5 +196,7 @@ div {
 .list {
   max-height: 730px;
   overflow-y: scroll;
-  
+}
+*{
+  font-family: 'lato-thin ' ;
 }

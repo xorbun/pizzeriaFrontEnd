@@ -19,17 +19,17 @@ const Orderedfood = () => {
     }
     return tot;
   };
-  
+
   if (orderedFoodFromRedux) {
     totaleSpesa();
     return (
       <div className="colorsite vh-100">
-        <Container className="d-flex list justify-content-center">
-          <Row className="mt-5">
+        <Container className="d-flex list justify-content-center mx-auto">
+          <Row className="mt-5 ">
             {orderedFoodFromRedux.map((ordered) => {
               return (
                 <Col lg={12} md={6} className="mb-4" key={ordered.idDelivery}>
-                  <SingleOrderdelement food={ordered}  />
+                  <SingleOrderdelement food={ordered} />
                 </Col>
               );
             })}
