@@ -1,4 +1,5 @@
 import { type } from "@testing-library/user-event/dist/type";
+import { Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 
@@ -16,7 +17,8 @@ export const actionType=
     SET_DELIVERY:"SET_DELIVERY",
     SET_REGISTER:"SET_REGISTER",
     SET_MODIFY:"SET_MODIFY",
-    SET_LOGIN_ERROR:"SET_LOGIN_ERROR"
+    SET_LOGIN_ERROR:"SET_LOGIN_ERROR",
+    DELETE_PREORDER:"DELETE_PREORDER"
 }
 export const setUserToken = (token) => ({
     type: actionType.SET_USER_TOKEN,
@@ -78,6 +80,11 @@ export const setError=(error)=>
 ({
     type:actionType.SET_LOGIN_ERROR,
     payload:error
+})
+export const deletePreorder=(preorder)=>
+({
+    type:actionType.DELETE_PREORDER,
+    payload:preorder
 })
 
 export const getTokenFromLogin=(email,password)=>async(dispatch)=>
@@ -218,7 +225,7 @@ export const getPrenotazioni=(token)=>async(dispatch)=>
 }
 export const getDeliveryData=(token)=>async(dispatch)=>
 {
-    const URL="http://localhost:3001/delivery";
+    const URL="http://localhost:3001/delivery/me";
     try
     {
         const response=await fetch(URL,
@@ -355,6 +362,36 @@ export const takeanorder=(token,orderedFood,payload)=>async(dispatch)=>
             else
             {
                 throw new Error("errore");
+            }
+    }
+    catch(error)
+    {
+        console.error(error)
+    }
+}
+export const deleteaPreorder=(token,deletedPreorder)=>async(dispatch)=>
+{
+    const URL="http://localhost:3001/prenotazioni/" + deletedPreorder;
+    try
+    {
+        const response=await fetch(URL,
+            {
+                method:"DELETE",
+                headers:
+                {
+                    Authorization:"Bearer "+token,
+                    "Content-Type":"application/json",
+                }
+            })
+            if(response.ok)
+            {
+                
+                dispatch(deletePreorder())
+            }
+            else
+            {
+                Alert("prenotazione non cancellata")
+                throw new Error("errore",response.status, response.statusText)
             }
     }
     catch(error)

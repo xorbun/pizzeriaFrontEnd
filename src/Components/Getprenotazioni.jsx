@@ -43,10 +43,10 @@ const Getprenotazioni = () => {
   };
 
   return (
-    <div>
+    <div className="colorsite">
       <Container style={{ height: "50em" }}>
-        <Row className="flex-column">
-          <Col>
+        <Row className="flex-column align-items-center text-center">
+          <Col lg={5}>
             <Form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -60,7 +60,7 @@ const Getprenotazioni = () => {
                   setdata(e.target.value);
                 }}
               >
-                <Form.Label>inserisci data</Form.Label>
+                <Form.Label className="fw-bold">INSERISCI DATA</Form.Label>
                 <Form.Control
                   type="date"
                   format="yyyy-MM-dd"
@@ -75,7 +75,7 @@ const Getprenotazioni = () => {
                   setorario(e.target.value);
                 }}
               >
-                <Form.Label>orario</Form.Label>
+                <Form.Label className="fw-bold">ORARIO</Form.Label>
                 <Form.Control type="time" placeholder="inserisci orario" />
               </Form.Group>
               <Form.Group
@@ -85,7 +85,7 @@ const Getprenotazioni = () => {
                   setnumeroPersone(e.target.value);
                 }}
               >
-                <Form.Label>numero persone</Form.Label>
+                <Form.Label className="fw-bold">NUMERO PERSONE</Form.Label>
                 <Form.Control
                   type="int"
                   placeholder="inserisci il numero di persone"

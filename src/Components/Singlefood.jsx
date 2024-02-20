@@ -15,8 +15,8 @@ const Singlefood = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const takeorder = async (e) => {
-    e.preventDefault();
+  const takeorder = async () => {
+    
     dispatch(takeanorder(token, orderedFood, payload));
   };
 
@@ -73,6 +73,7 @@ const Singlefood = (props) => {
             <Button
               className="bn632-hover bn19 "
               onClick={() => {
+                takeorder();
                 alert("ordine confermato");
                 handleClose();
               }}

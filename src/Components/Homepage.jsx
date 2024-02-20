@@ -98,7 +98,7 @@ const Homepagesite = () => {
           </Col>
           <Col sm={12} lg={6}>
             <Card
-              className="cardshadow border-0 rounded-5 mb-2"
+              className="cardshadow border-0 rounded-5 mb-4"
               style={{ height: "550px" }}
             >
               <Card.Body className="d-flex flex-column align-items-center ">
