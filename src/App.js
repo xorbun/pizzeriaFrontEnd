@@ -16,6 +16,8 @@ import PrenotazioniList from './Components/Prenotazioni';
 import Getprenotazioni from './Components/Getprenotazioni';
 import Logoutuser from './Components/Logout';
 
+import Orderedfood from './Components/OrderedFood';
+
 
 
 
@@ -37,6 +39,7 @@ function App() {
         <Route path="/me" element={<Currentuser/>}/>
         <Route path="/prenotazioni" element={<PrenotazioniList/>}/>
         <Route path="/prenota" element={<Getprenotazioni/>}/>
+        <Route path="/ordered" element={<Orderedfood/>}/>
       </Routes>
       <Footer/>
       </BrowserRouter>

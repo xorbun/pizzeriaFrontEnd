@@ -15,10 +15,7 @@ const prenotazioniReducer=(state=initialState,action)=>
             return{
                 ...state,data:action.payload
             }
-        case actionType.DELETE_PREORDER:
-            return{
-                ...state,data:action.payload
-            }
+        
             default:
                 return state;
     }

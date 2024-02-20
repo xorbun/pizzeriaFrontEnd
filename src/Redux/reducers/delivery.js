@@ -1,8 +1,7 @@
 import { actionType } from "../actions"
 
 
-const initialState=
-{
+const initialState={
     data:null
 }
 
@@ -11,6 +10,10 @@ const deliveryReducer=(state=initialState,action)=>
     switch(action.type)
     {
         case actionType.SET_DELIVERY:
+            return{
+                ...state,data:action.payload
+            }
+        case actionType.DELETE_DELIVERY:
             return{
                 ...state,data:action.payload
             }

@@ -18,7 +18,6 @@ export const actionType=
     SET_REGISTER:"SET_REGISTER",
     SET_MODIFY:"SET_MODIFY",
     SET_LOGIN_ERROR:"SET_LOGIN_ERROR",
-    DELETE_PREORDER:"DELETE_PREORDER"
 }
 export const setUserToken = (token) => ({
     type: actionType.SET_USER_TOKEN,
@@ -81,11 +80,7 @@ export const setError=(error)=>
     type:actionType.SET_LOGIN_ERROR,
     payload:error
 })
-export const deletePreorder=(preorder)=>
-({
-    type:actionType.DELETE_PREORDER,
-    payload:preorder
-})
+
 
 export const getTokenFromLogin=(email,password)=>async(dispatch)=>
 {
@@ -386,12 +381,41 @@ export const deleteaPreorder=(token,deletedPreorder)=>async(dispatch)=>
             if(response.ok)
             {
                 
-                dispatch(deletePreorder())
+               console.log("cancellato")
             }
             else
             {
                 Alert("prenotazione non cancellata")
                 throw new Error("errore",response.status, response.statusText)
+            }
+    }
+    catch(error)
+    {
+        console.error(error)
+    }
+}
+export const deleteaDelivery=(token,deletedDelivery)=>async(dispatch)=>
+{
+    const URL="http://localhost:3001/delivery/"+ deletedDelivery;
+    try
+    {
+        const response=await fetch(URL,
+            {
+                method:"DELETE",
+                headers:
+                {
+                    Authorization:"Bearer "+token,
+                    "Content-Type":"application/json",
+                }
+            })
+            if(response.ok )
+            {
+               console.log("cancellato")
+            }
+            else
+            {
+                Alert("ordine non cancellato")
+                throw new Error("errore",response.status,response.statusText)
             }
     }
     catch(error)
