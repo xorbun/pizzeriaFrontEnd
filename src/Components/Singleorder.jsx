@@ -1,5 +1,5 @@
 import { Button, Col, ListGroup, Modal, Row } from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteaDelivery } from "../Redux/actions";
 const SingleOrderdelement = (props) => {
@@ -11,27 +11,32 @@ const SingleOrderdelement = (props) => {
   const dispatch = useDispatch();
 
   const sendADeletedOrder = async () => {
-    
     dispatch(deleteaDelivery(token, deletedOrder));
   };
 
+ 
+ 
   return (
+    <>
     <ListGroup>
       <ListGroup.Item>
         <Row>
-          <Col>
+          <Col sm={3}>
             <img
               src={props.food.menu.image}
               style={{ width: "90px", height: "50px" }}
               alt="foto"
             />
+            <h3>{props.food.menu.descrizione}</h3>
           </Col>
-          <Col>
-            <Col sm={3}>{props.food.menu.descrizione}</Col>
+
+          <Col sm={3}>
+           
           </Col>
-          <Col>
+
+          <Col sm={3} className="text-center">
             <Button
-              className="bn3637 bn37 "
+              className="bn632-hover bn19"
               onClick={() => {
                 setdeletedOrder(props.food.idDelivery);
                 handleShow();
@@ -42,7 +47,10 @@ const SingleOrderdelement = (props) => {
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title>
-                  eliminare la prenotazione con {props.food.descrizione}
+                  <span>
+                    {" "}
+                    eliminare la prenotazione di {props.food.menu.descrizione}
+                  </span>
                 </Modal.Title>
               </Modal.Header>
               <Modal.Footer>
@@ -50,7 +58,7 @@ const SingleOrderdelement = (props) => {
                   Annulla
                 </Button>
                 <Button
-                  className="bn3637 bn37 "
+                  className="bn632-hover bn19 "
                   onClick={() => {
                     sendADeletedOrder();
                     handleClose();
@@ -64,6 +72,8 @@ const SingleOrderdelement = (props) => {
         </Row>
       </ListGroup.Item>
     </ListGroup>
+     
+     </>
   );
 };
 export default SingleOrderdelement;
