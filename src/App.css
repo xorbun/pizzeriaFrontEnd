@@ -113,6 +113,7 @@ div {
   -o-transition: all .4s ease-in-out;
   -webkit-transition: all .4s ease-in-out;
   transition: all .4s ease-in-out;
+  transform: perspective(1px) scale3d(1.044, 1.044, 1) translateZ(0) !important;
 }
 
 .bn632-hover:focus {
@@ -122,12 +123,11 @@ div {
 .bn632-hover.bn19 {
   background-image: linear-gradient(
     to right,
-    #f5ce62,
-    #e43603,
-    #fa7199,
-    #e85a19
+    #FBC02D,
+    #fd9103
   );
-  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+  box-shadow: 0 4px 15px 0 rgba(24, 11, 7, 0.75);
+  
 }
 .card:hover
 {
@@ -177,6 +177,7 @@ div {
   -o-transition: all .4s ease-in-out;
   -webkit-transition: all .4s ease-in-out;
   transition: all .4s ease-in-out;
+  box-shadow: 0 4px 15px 0 rgba(24, 11, 7, 0.75) !important;
 }
 
 .bn37 {
@@ -188,6 +189,7 @@ div {
   
 .bn37:hover {
   transform: perspective(1px) scale3d(1.044, 1.044, 1) translateZ(0) !important;
+  
 }
 .modal-content
 {
@@ -198,5 +200,5 @@ div {
   overflow-y: scroll;
 }
 *{
-  font-family: 'lato-thin ' ;
+  
 }
