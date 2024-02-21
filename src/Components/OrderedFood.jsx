@@ -3,12 +3,12 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import SingleOrderdelement from "./Singleorder";
 import { getDeliveryData } from "../Redux/actions";
-import { useEffect } from "react";
 
 const Orderedfood = () => {
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
   const ordini = dispatch(getDeliveryData(token));
+
   const orderedFoodFromRedux = useSelector((state) => {
     return state.delivery.data.content;
   });
@@ -21,11 +21,13 @@ const Orderedfood = () => {
   };
 
   if (orderedFoodFromRedux) {
-    totaleSpesa();
     return (
       <div className="colorsite vh-100">
         <Container className="d-flex list justify-content-center mx-auto">
           <Row className="mt-5 ">
+            <Col className=" d-flex justify-content-center">
+              <h1 className="text-secondary">totale spesa {totaleSpesa()}</h1>
+            </Col>
             {orderedFoodFromRedux.map((ordered) => {
               return (
                 <Col lg={12} md={6} className="mb-4" key={ordered.idDelivery}>
@@ -38,11 +40,7 @@ const Orderedfood = () => {
         <Container>
           <Row>
             <Col>
-              <Row>
-                <Col>
-                  <h1>totale spesa {totaleSpesa()}</h1>
-                </Col>
-              </Row>
+              <Row></Row>
             </Col>
           </Row>
         </Container>

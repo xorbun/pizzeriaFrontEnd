@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTokenFromLogin, getUserData } from "../Redux/actions";
+import { getDeliveryData, getTokenFromLogin, getUserData } from "../Redux/actions";
 import {  Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
@@ -11,20 +11,21 @@ const Login = () => {
   {
     return state.auth.loginError
   })
-  console.log(error)
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
   
   const login = async (e) => {
     e.preventDefault();
-    dispatch(getTokenFromLogin(email, password)).then((token)=>{
-      if(token)
-      {
-        navigate("/me")
-      }
-    })
-    
-  };
+    dispatch(getTokenFromLogin(email, password)).then((token)=>
+   dispatch(getDeliveryData(token)).then((token)=>
+   {
+     if (token) {
+       navigate("/me");
+     }
+   }
+   ))
+  }
 
 useEffect(()=>{
 
@@ -66,7 +67,7 @@ useEffect(()=>{
               
                   
               <Button className="bn632-hover bn19" type="submit">
-                Submit
+                LOGIN
               </Button>
             </Form>
           </Col>
@@ -77,7 +78,7 @@ useEffect(()=>{
                 navigate("/register");
               }}
             >
-              Registrati
+              REGISTRATI
             </Button>
           </Col>
         </Row>

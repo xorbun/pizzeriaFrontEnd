@@ -198,7 +198,9 @@ div {
 .list {
   max-height: 730px;
   overflow-y: scroll;
+  overflow: auto;
 }
 *{
-  
+  font-family: 'lato-thin';
+  color: rgb(75, 79, 82);
 }

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
-  getAllUsersData,
+  
   getAntipastiData,
   getBevandeData,
   getDeliveryData,
@@ -16,12 +16,12 @@ const BackOfficeFetch = () => {
   const pizze = dispatch(getPizzaData());
   const antipasti = dispatch(getAntipastiData());
   const bevande = dispatch(getBevandeData());
-  /*if(token)
+  if(token)
   {
     const prenotazioni=dispatch(getPrenotazioni(token));
     const ordered=dispatch(getDeliveryData(token));
   }
-  */
+  
   return <></>;
 };
 export default BackOfficeFetch;

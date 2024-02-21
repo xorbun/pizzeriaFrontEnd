@@ -22,7 +22,7 @@ const Currentuser = () => {
             <p>Email: {user.email}</p>
             <Row lg={5} sm={12}>
               <Col className="text-center">
-                <Button className=" bn632-hover bn19 ">modifica</Button>
+                <Button className=" bn632-hover bn19 ">MODIFICA</Button>
               </Col>
               <Col className="text-center">
                 <Button
@@ -31,7 +31,7 @@ const Currentuser = () => {
                     navigate("/menu");
                   }}
                 >
-                  vedi menu
+                  VEDI MENU
                 </Button>
               </Col>
               <Col className="text-center">
@@ -41,7 +41,7 @@ const Currentuser = () => {
                     navigate("/prenotazioni");
                   }}
                 >
-                  Visualizza prenotazioni
+                  VISUALIZZA PRENOTAZIONI
                 </Button>
               </Col>
               <Col className="text-center">
@@ -51,7 +51,7 @@ const Currentuser = () => {
                     navigate("/ordered");
                   }}
                 >
-                  Delivery
+                  DELIVERY
                 </Button>
               </Col>
               <Col className="text-center">
@@ -61,7 +61,7 @@ const Currentuser = () => {
                     navigate("/logout");
                   }}
                 >
-                  logout
+                  LOGOUT
                 </Button>
               </Col>
             </Row>

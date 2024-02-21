@@ -118,7 +118,7 @@ const Homepagesite = () => {
                     navigate("/prenota");
                   }}
                 >
-                  prenota un tavolo
+                  PRENOTA UN TAVOLO
                 </Button>
               </Card.Body>
             </Card>

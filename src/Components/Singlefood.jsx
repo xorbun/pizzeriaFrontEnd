@@ -6,7 +6,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { takeanorder } from "../Redux/actions";
 
-
 const Singlefood = (props) => {
   const [show, setShow] = useState(false);
   const token = localStorage.getItem("token");
@@ -31,7 +30,7 @@ const Singlefood = (props) => {
       <Card.Body className="d-flex flex-column align-items-center">
         <Card.Title>{props.food.descrizione}</Card.Title>
         <Card.Text className="truncate">{props.food.ingredienti}</Card.Text>
-        <Card.Text>PREZZO: {props.food.prezzo}  €</Card.Text>
+        <Card.Text>PREZZO: {props.food.prezzo} €</Card.Text>
         <Button
           className="bn632-hover bn19 "
           onClick={() => {
@@ -39,7 +38,7 @@ const Singlefood = (props) => {
             setOrderedFood(props.food.idMenu);
           }}
         >
-          ordina
+          ORDINA
         </Button>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
@@ -69,17 +68,16 @@ const Singlefood = (props) => {
           </Modal.Body>
           <Modal.Footer>
             <Button className="bn3637 bn37 " onClick={handleClose}>
-              Annulla
+              ANNULLA
             </Button>
             <Button
               className="bn632-hover bn19 "
               onClick={() => {
                 takeorder();
-                alert("ordine confermato");
                 handleClose();
               }}
             >
-              Conferma
+              CONFERMA
             </Button>
           </Modal.Footer>
         </Modal>

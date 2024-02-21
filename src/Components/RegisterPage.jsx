@@ -104,7 +104,7 @@ const Register = () => {
                 <Form.Control type="password" placeholder="Password" />
               </Form.Group>
               <Button className="bn632-hover bn19"  type="submit">
-                Submit
+                REGISTRATI
               </Button>
             </Form>
           </Col>
