@@ -25,23 +25,16 @@ const Orderedfood = () => {
       <div className="colorsite vh-100">
         <Container className="d-flex list justify-content-center mx-auto">
           <Row className="mt-5 ">
-            <Col className=" d-flex justify-content-center">
+            <Col lg={12} className=" d-flex justify-content-center">
               <h1 className="text-secondary">totale spesa {totaleSpesa()}</h1>
             </Col>
             {orderedFoodFromRedux.map((ordered) => {
               return (
-                <Col lg={12} md={6} className="mb-4" key={ordered.idDelivery}>
+                <Col lg={6} md={12} className="mb-4" key={ordered.idDelivery}>
                   <SingleOrderdelement food={ordered} />
                 </Col>
               );
             })}
-          </Row>
-        </Container>
-        <Container>
-          <Row>
-            <Col>
-              <Row></Row>
-            </Col>
           </Row>
         </Container>
       </div>

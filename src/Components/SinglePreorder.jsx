@@ -19,22 +19,28 @@ const Singlepreorder = (props) => {
       <ListGroup>
         <ListGroup.Item>
           <Row>
-            <Col sm={3}>
-              <span className="fw-bold">data </span>
-              {props.preorder.data}
+            <Col sm={4} lg={8}>
+              <div className="d-flex flex-column">
+                <span className="fw-bold ">
+                  data:
+                  {props.preorder.data}
+                </span>
+
+                <span className="fw-bold ">
+                  orario:
+                  {props.preorder.orario}{" "}
+                </span>
+
+                <span className="fw-bold">
+                  numero persone:
+                  {props.preorder.numeroPersone}
+                </span>
+              </div>
             </Col>
-            <Col sm={3}>
-              <span className="fw-bold">orario </span>
-              {props.preorder.orario}
-            </Col>
-            <Col sm={3}>
-              <span className="fw-bold">numero persone </span>
-              {props.preorder.numeroPersone}
-            </Col>
-            <Col sm={3}>
+
+            <Col sm={2} lg={4} className="text-center">
               <Button
                 className="mx-2 bn632-hover bn19"
-                style={{ width: "100px" }}
                 onClick={() => {
                   setdeletedPreorder(props.preorder.prenotazione);
                   handleShow();

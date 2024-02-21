@@ -19,35 +19,38 @@ const SingleOrderdelement = (props) => {
     <Container>
       <ListGroup>
         <ListGroup.Item>
-          <Row className="justify-content-between">
-            <Col sm={12} lg={3} className="d-flex justify-content-center">
-              <img
-                src={props.food.menu.image}
-                style={{ width: "100px", height: "80px" }}
-                alt="foto"
-              />
+          <Row>
+            <Col sm={4} lg={8}>
+              <div className="d-flex">
+                <img
+                  src={props.food.menu.image}
+                  style={{ width: "130px", height: "90px" }}
+                  alt="foto"
+                />
+                <div className="d-flex flex-column mx-3 my-3">
+                  <span className="fw-bold">
+                    Tipologia: {props.food.menu.descrizione}
+                  </span>
+                  <span className="fw-bold ">
+                    Quantità: {props.food.quantita}
+                  </span>
+                </div>
+              </div>
             </Col>
+
             <Col
-              sm={12}
-              lg={3}
-              className="d-flex flex-column align-items-center my-2"
-            >
-              <h6>{props.food.menu.descrizione}</h6>
-              <h6 className="fw-bold">quantità: {props.food.quantita}</h6>
-            </Col>
-            <Col
-              sm={12}
+              sm={2}
               lg={4}
-              className="text-center d-flex justify-content-center"
+              className="text-center d-flex justify-content-center "
             >
               <Button
-                className="bn632-hover bn19"
+                className="bn632-hover bn19 "
                 onClick={() => {
                   setdeletedOrder(props.food.idDelivery);
                   handleShow();
                 }}
               >
-                ANNULLA ORDINE
+                <span className="bottonsize">ANNULLA ORDINE</span>
               </Button>
 
               <Modal show={show} onHide={handleClose}>
