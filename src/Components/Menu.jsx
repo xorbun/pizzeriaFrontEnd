@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import Singlefood from "./Singlefood";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const MenuRestourant = () => {
   const menuFromRedux = useSelector((state) => {
@@ -27,23 +28,38 @@ const MenuRestourant = () => {
   } else if (selectedValue === "bevande") {
     foodToShow = bevandeFromRedux;
   }
-
+  const navigate = useNavigate();
   return (
     <div className="colorsite vh-200">
       <Container className="d-flex ">
-        <Row className="mt-5">
-          <select
-            id="disabledSelect"
-            className="form-select mb-5 "
-            onChange={(e) => {
-              setSelectedValue(e.target.value);
-            }}
-          >
-            <option value="menu">menu</option>
-            <option value="pizza">pizza</option>
-            <option value="antipasti">antipasti</option>
-            <option value="bevande">bevande</option>
-          </select>
+        <Row className="mt-5 ">
+          <div className="d-flex mx-2 text-center">
+            <Col sm={6}>
+              <select
+                id="disabledSelect"
+                className="form-select mt-4 mx-3 "
+                onChange={(e) => {
+                  setSelectedValue(e.target.value);
+                }}
+              >
+                <option value="menu">menu</option>
+                <option value="pizza">pizza</option>
+                <option value="antipasti">antipasti</option>
+                <option value="bevande">bevande</option>
+              </select>
+            </Col>
+            <Col sm={6}>
+              <Button
+                className="bn632-hover bn19 mx-5"
+                onClick={() => {
+                  navigate("/ordered");
+                }}
+              >
+                DELIVERY
+              </Button>
+            </Col>
+          </div>
+
           {foodToShow.length > 0 &&
             foodToShow.map((menu) => {
               return (
