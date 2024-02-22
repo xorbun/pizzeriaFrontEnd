@@ -1,10 +1,14 @@
-import { useSelector } from "react-redux";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Button, Col, Container, Modal, Row } from "react-bootstrap";
 import Singlefood from "./Singlefood";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { setNewFood, setNewFoodToMenu } from "../Redux/actions";
 
 const MenuRestourant = () => {
+  const user = useSelector((state) => {
+    return state.users.data;
+  });
   const menuFromRedux = useSelector((state) => {
     return state.menu.menu.content;
   });
@@ -29,52 +33,155 @@ const MenuRestourant = () => {
     foodToShow = bevandeFromRedux;
   }
   const navigate = useNavigate();
-  if(menuFromRedux)
+  const dispatch=useDispatch();
+  const [show, setShow] = useState(false);
+  const token = localStorage.getItem("token");
+  const [descrizione, setdescrizione] = useState();
+  const [image,setimage]=useState();
+  const [ingredienti,setingredienti]=useState();
+  const [prezzo,setprezzo]=useState();
+  const [type,settype]=useState();
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const setNewFood=async()=>
   {
-  return (
-    
-    <div className="colorsite vh-200">
-      <Container className="d-flex ">
-        <Row className="mt-5 ">
-          <div className="d-flex mx-2 text-center">
-            <Col sm={6}>
-              <select
-                id="disabledSelect"
-                className="form-select mt-4 mx-3 "
-                onChange={(e) => {
-                  setSelectedValue(e.target.value);
-                }}
-              >
-                <option value="menu">menu</option>
-                <option value="pizza">pizza</option>
-                <option value="antipasti">antipasti</option>
-                <option value="bevande">bevande</option>
-              </select>
-            </Col>
-            <Col sm={6}>
-              <Button
-                className="bn632-hover bn19 mx-5"
-                onClick={() => {
-                  navigate("/ordered");
-                }}
-              >
-                VISUALIZZA ORDINE
-              </Button>
-            </Col>
-          </div>
-
-          {foodToShow.length > 0 &&
-            foodToShow.map((menu) => {
-              return (
-                <Col lg={4} md={6} key={menu.idMenu}>
-                  <Singlefood food={menu} />
+    dispatch(setNewFoodToMenu(token,descrizione,image,prezzo,ingredienti,type));
+  }
+  const refresh = () => {
+    window.location.reload();
+  };
+  if (menuFromRedux) {
+    return (
+      <div className="colorsite vh-200">
+        <Container className="d-flex ">
+          <Row className="mt-5 ">
+            <div className="d-flex mb-5 text-center flex-container">
+              <Col sm={4}>
+                <select
+                  id="disabledSelect"
+                  className="form-select mt-4"
+                  onChange={(e) => {
+                    setSelectedValue(e.target.value);
+                  }}
+                >
+                  <option value="menu">menu</option>
+                  <option value="pizza">pizza</option>
+                  <option value="antipasti">antipasti</option>
+                  <option value="bevande">bevande</option>
+                </select>
+              </Col>
+              <Col sm={4}>
+                <Button
+                  className="bn632-hover bn19 mx-5"
+                  onClick={() => {
+                    navigate("/ordered");
+                  }}
+                >
+                  VISUALIZZA ORDINE
+                </Button>
+              </Col>
+              {user.role === "ADMIN" ? (
+                <Col>
+                  <Button
+                    className="bn632-hover bn19 mx-5"
+                    onClick={() => {
+                      handleShow();
+                    }}
+                  >
+                    AGGIUNGI AL MENU
+                  </Button>
                 </Col>
-              );
-            })}
-        </Row>
-      </Container>
-    </div>
-  );
-          }
+              ) : (
+                ""
+              )}
+            </div>
+
+            {foodToShow.length > 0 &&
+              foodToShow.map((menu) => {
+                return (
+                  <Col lg={4} md={6} key={menu.idMenu}>
+                    <Singlefood food={menu} />
+                  </Col>
+                );
+              })}
+          </Row>
+        </Container>
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>AGGIUNGI AL MENU</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="my-2">
+            <input
+              type="text"
+              id="myInput2"
+              placeholder="nome prodotto"
+              onChange={(e) => {
+                setdescrizione(e.target.value);
+              }}
+            />
+            </div>
+            <div className="my-2">
+             <input
+              type="text"
+              id="myInput3"
+              placeholder="link immagine"
+              onChange={(e) => {
+                setimage(e.target.value);
+              }}
+            />
+            </div>
+            <div className="my-2">
+             <input
+              type="text"
+              id="myInput4"
+              placeholder="ingredienti"
+              onChange={(e) => {
+                setingredienti(e.target.value);
+              }}
+            />
+            </div>
+            <div className="my-2">
+             <input
+              type="text"
+              id="myInput5"
+              placeholder="prezzo"
+              onChange={(e) => {
+                setprezzo(parseFloat(e.target.value));
+              }}
+            />
+            </div>
+            <div>
+            <select
+              id="disabledSelect"
+              className="form-select"
+              onChange={(e) => {
+                settype(e.target.value);
+              }}
+            >
+              <option>seleziona</option>
+              <option value="PIZZA">PIZZA</option>
+              <option value="ANTIPASTI">ANTIPASTI</option>
+              <option value="BEVANDE">BEVANDE</option>
+            </select>
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={() => {
+                      setNewFood();
+                      
+                      
+                      refresh();
+                    }}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </div>
+    );
+  }
 };
 export default MenuRestourant;

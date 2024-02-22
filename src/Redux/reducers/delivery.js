@@ -2,7 +2,8 @@ import { actionType } from "../actions"
 
 
 const initialState={
-    data:null
+    data:null,
+   
 }
 
 const deliveryReducer=(state=initialState,action)=>
@@ -13,6 +14,7 @@ const deliveryReducer=(state=initialState,action)=>
             return{
                 ...state,data:action.payload
             }
+        
         case actionType.DELETE_DELIVERY:
             return{
                 ...state,data:action.payload

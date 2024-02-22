@@ -15,6 +15,7 @@ export const actionType=
     SET_ANTIPASTI:"SET_ANTIPASTI",
     SET_PRENOTAZIONI:"SET_PRENOTAZIONI",
     SET_DELIVERY:"SET_DELIVERY",
+    SET_NEW_FOOD:"SET_NEW_FOOD",
     SET_REGISTER:"SET_REGISTER",
     SET_MODIFY:"SET_MODIFY",
     SET_LOGIN_ERROR:"SET_LOGIN_ERROR",
@@ -56,6 +57,7 @@ export const setDeliveryData=(delivery)=>
     type:actionType.SET_DELIVERY,
     payload:delivery
 })
+
 export const setPizzaData=(pizza)=>
 ({
     type:actionType.SET_PIZZA,
@@ -85,6 +87,11 @@ export const setModifyMenu=(modifyMenu)=>
 ({
     type:actionType.SET_MODIFY_MENU,
     payload:modifyMenu
+})
+export const setNewFood=(newFood)=>
+({
+    type:actionType.SET_NEW_FOOD,
+    payload:newFood
 })
 
 export const getTokenFromLogin=(email,password)=>async(dispatch)=>
@@ -251,6 +258,36 @@ export const getDeliveryData=(token)=>async(dispatch)=>
     catch(error)
     {
         console.error(error);
+    }
+}
+export const getAllDeliveryData=(token)=>async(dispatch)=>
+{
+    const URL="http://localhost:3001/delivery";
+    try
+    {
+        const response=await fetch(URL,
+            {
+                method:"GET",
+                headers:
+                {
+                    Authorization:"Bearer "+token,
+                    "Content-Type":"application/json"
+                }
+            });
+            if(response.ok)
+            {
+                const data=await response.json();
+                dispatch(setDeliveryData(data));
+                return data;
+            }
+            else
+            {
+                throw new Error("errore",response.status,response.statusText)
+            }
+    }
+    catch(error)
+    {
+        console.Error(error)
     }
 }
 export const getPizzaData=()=>async(dispatch)=>
@@ -458,5 +495,41 @@ export const modifyMenu=(token,modifiedFood,payload2)=>async(dispatch)=>
     catch(error)
     {
         console.error(error)
+    }
+}
+export const setNewFoodToMenu=(token,descrizione,image,prezzo,ingredienti,type)=>async(dispatch)=>
+{
+    const URL="http://localhost:3001/menu";
+    try
+    {
+        const response=await fetch(URL,
+            {
+                method:"POST",
+                headers:
+                {
+                    Authorization:"Bearer "+token,
+                    "Content-Type":"application/json",
+                },
+                body:JSON.stringify({
+                    descrizione:descrizione,
+                    image:image,
+                    prezzo:prezzo,
+                    ingredienti:ingredienti,
+                    type:type
+                })
+            })
+            if(response.ok)
+            {
+                const data=await response.json();
+                dispatch(setNewFood(data))
+            }
+            else
+            {
+                throw new Error("errore",response.status,response.statusText)
+            }
+    }
+    catch(error)
+    {
+        console.Error(error);
     }
 }

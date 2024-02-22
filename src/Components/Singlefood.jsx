@@ -28,13 +28,11 @@ const Singlefood = (props) => {
   };
   const modifyfood = async () => {
     dispatch(modifyMenu(token, orderedFood, payload2));
-    
   };
 
-  const refresh=()=>
-  {
-    window.location.reload()
-  }
+  const refresh = () => {
+    window.location.reload();
+  };
 
   return (
     <Card className="mx-2 mb-4 cardshadow">
@@ -43,13 +41,29 @@ const Singlefood = (props) => {
         variant="top"
         style={{ height: "220px" }}
         src={props.food.image}
+        alt="fotoProdotto"
       />
       <Card.Body className="d-flex flex-column align-items-center">
         <Card.Title>{props.food.descrizione}</Card.Title>
         <Card.Text className="truncate">{props.food.ingredienti}</Card.Text>
         <Card.Text>PREZZO: {props.food.prezzo} €</Card.Text>
         <Row>
-          <div className="d-flex flex-column">
+          <div className="flex-container">
+          {user.role === "ADMIN" ? (
+            <Col>
+              
+                <Button
+                  className="bn3637 bn37 "
+                  onClick={() => {
+                    handleShow2();
+                    setOrderedFood(props.food.idMenu);
+                  }}
+                >
+                  MODIFICA MENU
+                </Button>
+              
+            </Col>
+            ):(
             <Col>
               <Button
                 className="bn632-hover bn19 "
@@ -61,19 +75,7 @@ const Singlefood = (props) => {
                 ORDINA
               </Button>
             </Col>
-            <Col>
-              {user.role === "ADMIN" && (
-                <Button
-                  className="bn3637 bn37 "
-                  onClick={() => {
-                    handleShow2();
-                    setOrderedFood(props.food.idMenu);
-                  }}
-                >
-                  MODIFICA MENU
-                </Button>
-              )}
-            </Col>
+            )}
           </div>
         </Row>
         <Modal show={show} onHide={handleClose}>
@@ -140,8 +142,7 @@ const Singlefood = (props) => {
               className="bn632-hover bn19 "
               onClick={() => {
                 modifyfood();
-                refresh()
-                
+                refresh();
               }}
             >
               SALVA MODIFICA

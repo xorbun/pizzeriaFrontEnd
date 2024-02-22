@@ -22,6 +22,7 @@ import Orderedfood from './Components/OrderedFood';
 
 
 
+
 function App() {
  
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/prenotazioni" element={<PrenotazioniList/>}/>
         <Route path="/prenota" element={<Getprenotazioni/>}/>
         <Route path="/ordered" element={<Orderedfood/>}/>
+        
       </Routes>
       <Footer/>
       </BrowserRouter>

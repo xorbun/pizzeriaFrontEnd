@@ -17,6 +17,10 @@ const menuReducer=(state = initialState,action)=>
                 return{
                     ...state,menu:action.payload
                 }
+            case actionType.SET_NEW_FOOD:
+                return{
+                    ...state,menu:action.payload
+                }
             case actionType.SET_PIZZA:
                 return{
                     ...state,pizza:action.payload
