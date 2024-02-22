@@ -1,37 +1,36 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDeliveryData, getTokenFromLogin, getUserData } from "../Redux/actions";
-import {  Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
+import {
+  getDeliveryData,
+  getTokenFromLogin,
+  getUserData,
+} from "../Redux/actions";
+import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  const error=useSelector((state)=>
-  {
-    return state.auth.loginError
-  })
-  
+  const error = useSelector((state) => {
+    return state.auth.loginError;
+  });
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+
   const login = async (e) => {
     e.preventDefault();
-    dispatch(getTokenFromLogin(email, password)).then((token)=>
-   dispatch(getDeliveryData(token)).then((token)=>
-   {
-     if (token) {
-       navigate("/me");
-     }
-   }
-   ))
-  }
+    dispatch(getTokenFromLogin(email, password)).then((token) =>
+      dispatch(getDeliveryData(token)).then((token) => {
+        if (token) {
+          navigate("/me");
+        }
+      })
+    );
+  };
 
-useEffect(()=>{
-
-},[error])
+  useEffect(() => {}, [error]);
   return (
-    
     <div className="colorsite vh-100">
       <Container>
         <Row className="flex-column">
@@ -58,28 +57,32 @@ useEffect(()=>{
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" />
               </Form.Group>
-              {
-                error&&
+              {error && (
                 <div className="alert alert-danger" role="alert">
                   username o password errata
                 </div>
-              }
-              
-                  
-              <Button className="bn632-hover bn19" type="submit">
-                LOGIN
-              </Button>
+              )}
+
+              <div className="text-center">
+                <Button className="bn632-hover bn19 " type="submit">
+                  LOGIN
+                </Button>
+              </div>
             </Form>
           </Col>
-          <Col>
-            <h3>Non sei ancora registrato?</h3>
+          <Col className="text-center">
+          <span className="fs-4">Non sei ancora registrato?</span>
+            <div>
+            
             <Button
+              className="bn632-hover bn19"
               onClick={() => {
                 navigate("/register");
               }}
             >
               REGISTRATI
             </Button>
+            </div>
           </Col>
         </Row>
       </Container>

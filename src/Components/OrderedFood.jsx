@@ -26,7 +26,7 @@ const Orderedfood = () => {
         <Container className="d-flex list justify-content-center mx-auto">
           <Row className="mt-5 ">
             <Col lg={12} className=" d-flex justify-content-center">
-              <h1 className="text-secondary">totale spesa {totaleSpesa()}</h1>
+              <h1 className="text-secondary">totale spesa {totaleSpesa()} €</h1>
             </Col>
             {orderedFoodFromRedux.map((ordered) => {
               return (
