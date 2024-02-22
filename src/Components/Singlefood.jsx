@@ -3,24 +3,41 @@ import Modal from "react-bootstrap/Modal";
 import Card from "react-bootstrap/Card";
 
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { takeanorder } from "../Redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { modifyMenu, takeanorder } from "../Redux/actions";
+import { Col, Row } from "react-bootstrap";
 
 const Singlefood = (props) => {
   const [show, setShow] = useState(false);
+  const [show2, setShow2] = useState(false);
   const token = localStorage.getItem("token");
   const dispatch = useDispatch();
   const [payload, setpayload] = useState({ quantita: 0 });
+  const [payload2, setpayload2] = useState();
   const [orderedFood, setOrderedFood] = useState();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleClose2 = () => setShow2(false);
+  const handleShow2 = () => setShow2(true);
+  const user = useSelector((state) => {
+    return state.users.data;
+  });
 
   const takeorder = async () => {
     dispatch(takeanorder(token, orderedFood, payload));
   };
+  const modifyfood = async () => {
+    dispatch(modifyMenu(token, orderedFood, payload2));
+    
+  };
+
+  const refresh=()=>
+  {
+    window.location.reload()
+  }
 
   return (
-    <Card style={{ height: "450px" }} className="mx-2 mb-4 cardshadow">
+    <Card className="mx-2 mb-4 cardshadow">
       <Card.Img
         className="imgMenu"
         variant="top"
@@ -31,15 +48,34 @@ const Singlefood = (props) => {
         <Card.Title>{props.food.descrizione}</Card.Title>
         <Card.Text className="truncate">{props.food.ingredienti}</Card.Text>
         <Card.Text>PREZZO: {props.food.prezzo} €</Card.Text>
-        <Button
-          className="bn632-hover bn19 "
-          onClick={() => {
-            handleShow();
-            setOrderedFood(props.food.idMenu);
-          }}
-        >
-          ORDINA
-        </Button>
+        <Row>
+          <div className="d-flex flex-column">
+            <Col>
+              <Button
+                className="bn632-hover bn19 "
+                onClick={() => {
+                  handleShow();
+                  setOrderedFood(props.food.idMenu);
+                }}
+              >
+                ORDINA
+              </Button>
+            </Col>
+            <Col>
+              {user.role === "ADMIN" && (
+                <Button
+                  className="bn3637 bn37 "
+                  onClick={() => {
+                    handleShow2();
+                    setOrderedFood(props.food.idMenu);
+                  }}
+                >
+                  MODIFICA MENU
+                </Button>
+              )}
+            </Col>
+          </div>
+        </Row>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>{props.food.descrizione}</Modal.Title>
@@ -78,6 +114,37 @@ const Singlefood = (props) => {
               }}
             >
               CONFERMA
+            </Button>
+          </Modal.Footer>
+        </Modal>
+
+        <Modal show={show2} onHide={handleClose2}>
+          <Modal.Header closeButton>
+            <Modal.Title>{props.food.descrizione}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <input
+              type="text"
+              id="myInput"
+              placeholder="inserisci il prezzo"
+              onChange={(e) => {
+                setpayload2(parseFloat(e.target.value));
+              }}
+            />
+          </Modal.Body>
+          <Modal.Footer>
+            <Button className="bn3637 bn37 " onClick={handleClose2}>
+              ANNULLA
+            </Button>
+            <Button
+              className="bn632-hover bn19 "
+              onClick={() => {
+                modifyfood();
+                refresh()
+                
+              }}
+            >
+              SALVA MODIFICA
             </Button>
           </Modal.Footer>
         </Modal>

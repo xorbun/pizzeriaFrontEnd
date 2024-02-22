@@ -51,9 +51,20 @@ const Currentuser = () => {
                     navigate("/ordered");
                   }}
                 >
-                  DELIVERY
+                  VISUALIZZA ORDINE
                 </Button>
               </Col>
+              {user.role==="ADMIN"?(
+               <Col className="text-center">
+               <Button
+                 className="bn3637 bn37 "
+                 onClick={() => {
+                   navigate("/");
+                 }}
+               >
+                 MODIFICA MENU
+               </Button>
+             </Col>):("")}
               <Col className="text-center">
                 <Button
                   className="bn3637 bn37 "

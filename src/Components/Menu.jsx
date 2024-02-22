@@ -29,7 +29,10 @@ const MenuRestourant = () => {
     foodToShow = bevandeFromRedux;
   }
   const navigate = useNavigate();
+  if(menuFromRedux)
+  {
   return (
+    
     <div className="colorsite vh-200">
       <Container className="d-flex ">
         <Row className="mt-5 ">
@@ -55,7 +58,7 @@ const MenuRestourant = () => {
                   navigate("/ordered");
                 }}
               >
-                DELIVERY
+                VISUALIZZA ORDINE
               </Button>
             </Col>
           </div>
@@ -72,5 +75,6 @@ const MenuRestourant = () => {
       </Container>
     </div>
   );
+          }
 };
 export default MenuRestourant;

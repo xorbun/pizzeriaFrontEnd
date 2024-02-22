@@ -18,6 +18,7 @@ export const actionType=
     SET_REGISTER:"SET_REGISTER",
     SET_MODIFY:"SET_MODIFY",
     SET_LOGIN_ERROR:"SET_LOGIN_ERROR",
+    SET_MODIFY_MENU:"SET_MODIFY_MENU"
 }
 export const setUserToken = (token) => ({
     type: actionType.SET_USER_TOKEN,
@@ -80,7 +81,11 @@ export const setError=(error)=>
     type:actionType.SET_LOGIN_ERROR,
     payload:error
 })
-
+export const setModifyMenu=(modifyMenu)=>
+({
+    type:actionType.SET_MODIFY_MENU,
+    payload:modifyMenu
+})
 
 export const getTokenFromLogin=(email,password)=>async(dispatch)=>
 {
@@ -415,6 +420,38 @@ export const deleteaDelivery=(token,deletedDelivery)=>async(dispatch)=>
             else
             {
                 Alert("ordine non cancellato")
+                throw new Error("errore",response.status,response.statusText)
+            }
+    }
+    catch(error)
+    {
+        console.error(error)
+    }
+}
+export const modifyMenu=(token,modifiedFood,payload2)=>async(dispatch)=>
+{
+    const URL="http://localhost:3001/menu/" + modifiedFood
+    try
+    {
+        const response=await fetch(URL,
+            {
+                method:"PUT",
+                headers:
+                {
+                    Authorization:"Bearer "+token,
+                    "Content-Type":"application/json",
+                },
+                body:JSON.stringify({
+                    prezzo:payload2,
+                })
+            })
+            if(response.ok)
+            {
+                const data=await response.json();
+                dispatch(setModifyMenu(data))
+            }
+            else
+            {
                 throw new Error("errore",response.status,response.statusText)
             }
     }

@@ -29,6 +29,10 @@ const menuReducer=(state = initialState,action)=>
                 return{
                     ...state,bevande:action.payload
                 }
+            case actionType.SET_MODIFY_MENU:
+                return{
+                    ...state,menu:action.payload,
+                }
             default:
                 return state;
         }
