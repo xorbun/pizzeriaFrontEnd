@@ -146,7 +146,7 @@ div {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-20px);
+    transform: translateY(-10px);
   }
 }
 .imgMenu
