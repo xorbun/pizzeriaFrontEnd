@@ -193,12 +193,12 @@ const Singlefood = (props) => {
                 />
                 
                 <Button
-                  className="bn3637 bn37 "
+                  className="bn632-hover bn19  "
                   onClick={() => {
                     sendimage(props.food.idMenu);
                   }}
                 >
-                  invia foto
+                  CARICA IMMAGINE
                 </Button>
               
             </Modal.Body>

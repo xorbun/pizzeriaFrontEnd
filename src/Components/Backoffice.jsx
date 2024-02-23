@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   
   getAllDeliveryData,
+  getAllPrenotazioniData,
   getAntipastiData,
   getBevandeData,
   getDeliveryData,
@@ -23,15 +24,17 @@ const BackOfficeFetch = () => {
   })
   if(token)
   {
-    const prenotazioni=dispatch(getPrenotazioni(token));
+    
     if(user.role !== "ADMIN" )
     {
       
       const ordini = dispatch(getDeliveryData(token));
+      const prenotazioni=dispatch(getPrenotazioni(token));
     }
     else
     {
       const ordini=dispatch(getAllDeliveryData(token));
+      const prenotazioni=dispatch(getAllPrenotazioniData(token))
     }
   }
   

@@ -236,6 +236,36 @@ export const getPrenotazioni=(token)=>async(dispatch)=>
         console.error(error);
     }
 }
+export const getAllPrenotazioniData=(token)=>async(dispatch)=>
+{
+    const URL="http://localhost:3001/prenotazioni"
+    try
+    {
+        const response=await fetch(URL,
+            {
+                method:"GET",
+                headers:
+                {
+                    Authorization:"Bearer "+token,
+                    "Content-Type":"application/json"
+                }
+            });
+            if(response.ok)
+            {
+                const data=await response.json();
+                dispatch(setPrenotazioniData(data));
+                return data;
+            }
+            else
+            {
+                throw new Error("errore")
+            }
+    }
+    catch(error)
+    {
+        console.error(error);
+    }
+}
 export const getDeliveryData=(token)=>async(dispatch)=>
 {
     const URL="http://localhost:3001/delivery/me";

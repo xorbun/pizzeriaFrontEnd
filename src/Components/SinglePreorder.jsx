@@ -29,7 +29,9 @@ const Singlepreorder = (props) => {
                 <span className="fw-bold ">
                   orario:
                   {props.preorder.orario}{" "}
+                  
                 </span>
+                
 
                 <span className="fw-bold">
                   numero persone:

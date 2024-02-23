@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Col, Container, Modal, Row } from "react-bootstrap";
+import { Alert, Button, Col, Container, Modal, Row } from "react-bootstrap";
 import Singlefood from "./Singlefood";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -62,65 +62,61 @@ const MenuRestourant = () => {
   if (foodToShow && !isLoading ) {
     return (
       <div className="colorsite vh-200">
-        
-         
-        
-          <>
-            <Container className="d-flex ">
-              <Row className="mt-5 ">
-                <div className="d-flex mb-5 text-center flex-container">
-                  <Col sm={4}>
-                    <select
-                      id="disabledSelect"
-                      className="form-select mt-4"
-                      onChange={(e) => {
-                        setSelectedValue(e.target.value);
-                      }}
-                    >
-                      <option value="menu">menu</option>
-                      <option value="pizza">pizza</option>
-                      <option value="antipasti">antipasti</option>
-                      <option value="bevande">bevande</option>
-                    </select>
-                  </Col>
+        <>
+          <Container className="d-flex ">
+            <Row className="mt-5 ">
+              <div className="d-flex mb-5 text-center flex-container">
+                <Col sm={4}>
+                  <select
+                    id="disabledSelect"
+                    className="form-select mt-4"
+                    onChange={(e) => {
+                      setSelectedValue(e.target.value);
+                    }}
+                  >
+                    <option value="menu">menu</option>
+                    <option value="pizza">pizza</option>
+                    <option value="antipasti">antipasti</option>
+                    <option value="bevande">bevande</option>
+                  </select>
+                </Col>
+                <Col sm={4}>
+                  <Button
+                    className="bn632-hover bn19 mx-5"
+                    onClick={() => {
+                      navigate("/ordered");
+                    }}
+                  >
+                    VISUALIZZA ORDINE
+                  </Button>
+                </Col>
+                {user.role === "ADMIN" ? (
                   <Col sm={4}>
                     <Button
                       className="bn632-hover bn19 mx-5"
                       onClick={() => {
-                        navigate("/ordered");
+                        handleShow();
                       }}
                     >
-                      VISUALIZZA ORDINE
+                      AGGIUNGI AL MENU
                     </Button>
                   </Col>
-                  {user.role === "ADMIN" ? (
-                    <Col sm={4}>
-                      <Button
-                        className="bn632-hover bn19 mx-5"
-                        onClick={() => {
-                          handleShow();
-                        }}
-                      >
-                        AGGIUNGI AL MENU
-                      </Button>
-                    </Col>
-                  ) : (
-                    ""
-                  )}
-                </div>
+                ) : (
+                  ""
+                )}
+              </div>
 
-                {foodToShow.length > 0 &&
-                  foodToShow.map((menu) => {
-                    return (
-                      <Col lg={4} md={6} key={menu.idMenu}>
-                        <Singlefood food={menu} />
-                      </Col>
-                    );
-                  })}
-              </Row>
-            </Container>{" "}
-          </>
-       
+              {foodToShow.length > 0 &&
+                foodToShow.map((menu) => {
+                  return (
+                    <Col lg={4} md={6} key={menu.idMenu}>
+                      <Singlefood food={menu} />
+                    </Col>
+                  );
+                })}
+            </Row>
+          </Container>{" "}
+        </>
 
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
@@ -138,7 +134,7 @@ const MenuRestourant = () => {
                 }}
               />
             </div>
-            
+
             <div className="my-2">
               <input
                 type="text"
