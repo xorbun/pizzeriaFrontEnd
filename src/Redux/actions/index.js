@@ -471,7 +471,7 @@ export const deleteaDelivery=(token,deletedDelivery)=>async(dispatch)=>
         console.error(error)
     }
 }
-export const modifyMenu=(token,modifiedFood,payload2)=>async(dispatch)=>
+export const modifyMenu=(token,modifiedFood,descrizione,ingredienti,prezzo,type)=>async(dispatch)=>
 {
     const URL="http://localhost:3001/menu/" + modifiedFood
     try
@@ -485,7 +485,10 @@ export const modifyMenu=(token,modifiedFood,payload2)=>async(dispatch)=>
                     "Content-Type":"application/json",
                 },
                 body:JSON.stringify({
-                    prezzo:payload2,
+                    descrizione:descrizione,
+                    ingredienti:ingredienti,
+                    prezzo:prezzo,
+                    type:type
                 })
             })
             if(response.ok)
