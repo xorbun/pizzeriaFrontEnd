@@ -4,10 +4,12 @@ import Card from "react-bootstrap/Card";
 
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { modifyMenu, takeanorder } from "../Redux/actions";
-import { Col, Row } from "react-bootstrap";
+import { modifyMenu, setNewImage, takeanorder } from "../Redux/actions";
+import { Col, Form, Row } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const Singlefood = (props) => {
+  const navigate=useNavigate();
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
   const token = localStorage.getItem("token");
@@ -15,26 +17,42 @@ const Singlefood = (props) => {
   const [payload, setpayload] = useState({ quantita: 0 });
   const [payload2, setpayload2] = useState();
   const [orderedFood, setOrderedFood] = useState();
+  const [isLoading, setisloading] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleClose2 = () => setShow2(false);
   const handleShow2 = () => setShow2(true);
+
   const user = useSelector((state) => {
     return state.users.data;
   });
+  const data = new FormData();
+  const [image, setImage] = useState(null);
+  if (image) {
+    data.append("image", image[0]);
+  }
 
+  
   const takeorder = async () => {
     dispatch(takeanorder(token, orderedFood, payload));
   };
   const modifyfood = async () => {
     dispatch(modifyMenu(token, orderedFood, payload2));
   };
-
-  const refresh = () => {
+const sendimage=async(id)=>
+{
+  dispatch(setNewImage(token,data,id))
+  console.log(image,id)
+}
+const refresh = () => {
+  setTimeout(() => {
     window.location.reload();
-  };
-
+  }, 1000);
+};
+if (props && !isLoading )
+{
   return (
+   
     <Card className="mx-2 mb-4 cardshadow">
       <Card.Img
         className="imgMenu"
@@ -132,6 +150,20 @@ const Singlefood = (props) => {
                 setpayload2(parseFloat(e.target.value));
               }}
             />
+            <Form.Control
+              className="w-75 me-3"
+              type="file"
+              size="sm"
+              onChange={(e) => {
+                setImage(e.target.files);
+              }}
+            />
+            <Button className="bn3637 bn37 " onClick={()=>
+            {
+              sendimage(props.food.idMenu)
+            }}>
+              invia foto
+            </Button>
           </Modal.Body>
           <Modal.Footer>
             <Button className="bn3637 bn37 " onClick={handleClose2}>
@@ -151,5 +183,13 @@ const Singlefood = (props) => {
       </Card.Body>
     </Card>
   );
+ }
+            else{
+              return(
+                <div className="spinnercontainer d-flex justify-content-center colorsite">
+                <div className="spinner"></div>
+              </div>
+              )
+            }
 };
 export default Singlefood;

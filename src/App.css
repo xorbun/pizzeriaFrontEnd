@@ -225,3 +225,22 @@ div {
     width: 12em;
   }
 }
+.spinner {
+  width: 14.4px;
+  height: 14.4px;
+  border-radius: 14.4px;
+  
+  box-shadow: 36px 0px 0 0 rgba(251,192,45,0.2), 29.2px 21.2px 0 0 rgba(251,192,45,0.4), 11.16px 34.2px 0 0 rgba(251,192,45,0.6), -11.16px 34.2px 0 0 rgba(251,192,45,0.8), -29.2px 21.2px 0 0 #fbc02d;
+  animation: spinner-b87k6z 1s infinite linear;
+}
+
+@keyframes spinner-b87k6z {
+  to {
+     transform: rotate(360deg);
+  }
+}
+.spinnercontainer
+{
+  
+  padding: 25em;
+}

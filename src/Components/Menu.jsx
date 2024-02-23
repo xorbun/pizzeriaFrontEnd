@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Col, Container, Modal, Row } from "react-bootstrap";
 import Singlefood from "./Singlefood";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { setNewFoodToMenu } from "../Redux/actions";
 
@@ -43,70 +43,85 @@ const MenuRestourant = () => {
   const [type, settype] = useState();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [isLoading, setisloading] = useState(false);
   const setNewFood = async () => {
+    setisloading(true)
     dispatch(
       setNewFoodToMenu(token, descrizione, image, prezzo, ingredienti, type)
     );
+    
   };
+  useEffect(() => {}, [isLoading]);
   const refresh = () => {
-    window.location.reload();
+   
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
   };
-  if (menuFromRedux) {
+  if (foodToShow && !isLoading ) {
     return (
       <div className="colorsite vh-200">
-        <Container className="d-flex ">
-          <Row className="mt-5 ">
-            <div className="d-flex mb-5 text-center flex-container">
-              <Col sm={4}>
-                <select
-                  id="disabledSelect"
-                  className="form-select mt-4"
-                  onChange={(e) => {
-                    setSelectedValue(e.target.value);
-                  }}
-                >
-                  <option value="menu">menu</option>
-                  <option value="pizza">pizza</option>
-                  <option value="antipasti">antipasti</option>
-                  <option value="bevande">bevande</option>
-                </select>
-              </Col>
-              <Col sm={4}>
-                <Button
-                  className="bn632-hover bn19 mx-5"
-                  onClick={() => {
-                    navigate("/ordered");
-                  }}
-                >
-                  VISUALIZZA ORDINE
-                </Button>
-              </Col>
-              {user.role === "ADMIN" ? (
-                <Col sm={4}>
-                  <Button
-                    className="bn632-hover bn19 mx-5"
-                    onClick={() => {
-                      handleShow();
-                    }}
-                  >
-                    AGGIUNGI AL MENU
-                  </Button>
-                </Col>
-              ) : (
-                ""
-              )}
-            </div>
-
-            {foodToShow.length > 0 &&
-              foodToShow.map((menu) => {
-                return (
-                  <Col lg={4} md={6} key={menu.idMenu}>
-                    <Singlefood food={menu} />
+        
+         
+        
+          <>
+            <Container className="d-flex ">
+              <Row className="mt-5 ">
+                <div className="d-flex mb-5 text-center flex-container">
+                  <Col sm={4}>
+                    <select
+                      id="disabledSelect"
+                      className="form-select mt-4"
+                      onChange={(e) => {
+                        setSelectedValue(e.target.value);
+                      }}
+                    >
+                      <option value="menu">menu</option>
+                      <option value="pizza">pizza</option>
+                      <option value="antipasti">antipasti</option>
+                      <option value="bevande">bevande</option>
+                    </select>
                   </Col>
-                );
-              })}
-          </Row>
-        </Container>
+                  <Col sm={4}>
+                    <Button
+                      className="bn632-hover bn19 mx-5"
+                      onClick={() => {
+                        navigate("/ordered");
+                      }}
+                    >
+                      VISUALIZZA ORDINE
+                    </Button>
+                  </Col>
+                  {user.role === "ADMIN" ? (
+                    <Col sm={4}>
+                      <Button
+                        className="bn632-hover bn19 mx-5"
+                        onClick={() => {
+                          handleShow();
+                        }}
+                      >
+                        AGGIUNGI AL MENU
+                      </Button>
+                    </Col>
+                  ) : (
+                    ""
+                  )}
+                </div>
+
+                {foodToShow.length > 0 &&
+                  foodToShow.map((menu) => {
+                    return (
+                      <Col lg={4} md={6} key={menu.idMenu}>
+                        <Singlefood food={menu} />
+                      </Col>
+                    );
+                  })}
+              </Row>
+            </Container>{" "}
+          </>
+       
+
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>AGGIUNGI AL MENU</Modal.Title>
@@ -123,17 +138,7 @@ const MenuRestourant = () => {
                 }}
               />
             </div>
-            <div className="my-2">
-              <input
-                type="text"
-                className="w-100 border border-1 rounded-pill"
-                id="myInput3"
-                placeholder="   link immagine"
-                onChange={(e) => {
-                  setimage(e.target.value);
-                }}
-              />
-            </div>
+            
             <div className="my-2">
               <input
                 type="text"
@@ -147,7 +152,7 @@ const MenuRestourant = () => {
             </div>
             <div className="my-2">
               <input
-                type="text"
+                type="number"
                 className="w-100 border border-1 rounded-pill"
                 id="myInput5"
                 placeholder="   prezzo"
@@ -179,6 +184,7 @@ const MenuRestourant = () => {
               className="bn632-hover bn19 mx-5"
               onClick={() => {
                 setNewFood();
+                setisloading(true);
                 refresh();
               }}
             >
@@ -188,6 +194,13 @@ const MenuRestourant = () => {
         </Modal>
       </div>
     );
+  }
+  else{
+    return(
+      <div className="spinnercontainer d-flex justify-content-center colorsite">
+      <div className="spinner"></div>
+    </div>
+    )
   }
 };
 export default MenuRestourant;

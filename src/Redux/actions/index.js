@@ -19,7 +19,8 @@ export const actionType=
     SET_REGISTER:"SET_REGISTER",
     SET_MODIFY:"SET_MODIFY",
     SET_LOGIN_ERROR:"SET_LOGIN_ERROR",
-    SET_MODIFY_MENU:"SET_MODIFY_MENU"
+    SET_MODIFY_MENU:"SET_MODIFY_MENU",
+    SET_IMAGE:"SET_IMAGE"
 }
 export const setUserToken = (token) => ({
     type: actionType.SET_USER_TOKEN,
@@ -92,6 +93,11 @@ export const setNewFood=(newFood)=>
 ({
     type:actionType.SET_NEW_FOOD,
     payload:newFood
+})
+export const setimage=(image)=>
+({
+    type:actionType.SET_IMAGE,
+    payload:image
 })
 
 export const getTokenFromLogin=(email,password)=>async(dispatch)=>
@@ -531,5 +537,37 @@ export const setNewFoodToMenu=(token,descrizione,image,prezzo,ingredienti,type)=
     catch(error)
     {
         console.Error(error);
+    }
+}
+export const setNewImage=(token,image,id)=>async(dispatch)=>
+{
+    const URL="http://localhost:3001/menu/upload/"+ id;
+    try
+    {
+        const response=await fetch(URL,
+            {
+                method:"PATCH",
+                headers:
+                {
+                    Authorization:"Bearer "+token,
+                    Accept: "application/json",
+                },
+                body:image
+                
+            })
+            if(response.ok)
+            {
+                const data=await response.json();
+                dispatch(setimage(data))
+                console.log(data);
+            }
+            else
+            {
+                throw new Error("error", response.status,response.statusText)
+            }
+    }
+    catch(error)
+    {
+        console.error(error)
     }
 }
