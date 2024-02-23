@@ -207,11 +207,21 @@ div {
 .flex-container {
   display: flex;
   flex-direction: row; /* Imposta la direzione dei figli come riga */
+  align-items: center;
 }
 
 /* Layout responsivo - passa a una colonna invece di due colonne */
 @media (max-width: 1366px) {
   .flex-container {
     flex-direction: column;
+  }
+}
+.imageresolution{
+  size: 42em;
+}
+
+@media(max-width:800px) {
+  .imageresolution{
+    width: 12em;
   }
 }

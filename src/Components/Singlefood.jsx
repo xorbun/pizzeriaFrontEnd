@@ -49,9 +49,8 @@ const Singlefood = (props) => {
         <Card.Text>PREZZO: {props.food.prezzo} €</Card.Text>
         <Row>
           <div className="flex-container">
-          {user.role === "ADMIN" ? (
-            <Col>
-              
+            {user.role === "ADMIN" ? (
+              <Col>
                 <Button
                   className="bn3637 bn37 "
                   onClick={() => {
@@ -61,20 +60,19 @@ const Singlefood = (props) => {
                 >
                   MODIFICA MENU
                 </Button>
-              
-            </Col>
-            ):(
-            <Col>
-              <Button
-                className="bn632-hover bn19 "
-                onClick={() => {
-                  handleShow();
-                  setOrderedFood(props.food.idMenu);
-                }}
-              >
-                ORDINA
-              </Button>
-            </Col>
+              </Col>
+            ) : (
+              <Col>
+                <Button
+                  className="bn632-hover bn19 "
+                  onClick={() => {
+                    handleShow();
+                    setOrderedFood(props.food.idMenu);
+                  }}
+                >
+                  ORDINA
+                </Button>
+              </Col>
             )}
           </div>
         </Row>
@@ -127,8 +125,9 @@ const Singlefood = (props) => {
           <Modal.Body>
             <input
               type="text"
+              className="w-100 border border-1 rounded-pill"
               id="myInput"
-              placeholder="inserisci il prezzo"
+              placeholder="   inserisci il prezzo"
               onChange={(e) => {
                 setpayload2(parseFloat(e.target.value));
               }}

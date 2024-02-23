@@ -11,8 +11,9 @@ const Carouselcomp = () => {
         <Carousel indicators={false} controls={false} className="colorsite">
           <Carousel.Item>
             <img
-              src={pizza[6].image}
-              style={{ width: "100%", height: "32em" }}
+              className="imageresolution"
+              src="assets/pizza-napoletana-o-romana.jpg"
+              style={{ width: "100%", height: "70vh" }}
               alt="boh"
             />
             <Carousel.Caption>

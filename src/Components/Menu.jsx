@@ -3,7 +3,7 @@ import { Button, Col, Container, Modal, Row } from "react-bootstrap";
 import Singlefood from "./Singlefood";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { setNewFood, setNewFoodToMenu } from "../Redux/actions";
+import { setNewFoodToMenu } from "../Redux/actions";
 
 const MenuRestourant = () => {
   const user = useSelector((state) => {
@@ -33,20 +33,21 @@ const MenuRestourant = () => {
     foodToShow = bevandeFromRedux;
   }
   const navigate = useNavigate();
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const token = localStorage.getItem("token");
   const [descrizione, setdescrizione] = useState();
-  const [image,setimage]=useState();
-  const [ingredienti,setingredienti]=useState();
-  const [prezzo,setprezzo]=useState();
-  const [type,settype]=useState();
+  const [image, setimage] = useState();
+  const [ingredienti, setingredienti] = useState();
+  const [prezzo, setprezzo] = useState();
+  const [type, settype] = useState();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const setNewFood=async()=>
-  {
-    dispatch(setNewFoodToMenu(token,descrizione,image,prezzo,ingredienti,type));
-  }
+  const setNewFood = async () => {
+    dispatch(
+      setNewFoodToMenu(token, descrizione, image, prezzo, ingredienti, type)
+    );
+  };
   const refresh = () => {
     window.location.reload();
   };
@@ -81,7 +82,7 @@ const MenuRestourant = () => {
                 </Button>
               </Col>
               {user.role === "ADMIN" ? (
-                <Col>
+                <Col sm={4}>
                   <Button
                     className="bn632-hover bn19 mx-5"
                     onClick={() => {
@@ -112,71 +113,76 @@ const MenuRestourant = () => {
           </Modal.Header>
           <Modal.Body>
             <div className="my-2">
-            <input
-              type="text"
-              id="myInput2"
-              placeholder="nome prodotto"
-              onChange={(e) => {
-                setdescrizione(e.target.value);
-              }}
-            />
+              <input
+                type="text"
+                className="w-100 border border-1 rounded-pill"
+                id="myInput2"
+                placeholder="   nome prodotto"
+                onChange={(e) => {
+                  setdescrizione(e.target.value);
+                }}
+              />
             </div>
             <div className="my-2">
-             <input
-              type="text"
-              id="myInput3"
-              placeholder="link immagine"
-              onChange={(e) => {
-                setimage(e.target.value);
-              }}
-            />
+              <input
+                type="text"
+                className="w-100 border border-1 rounded-pill"
+                id="myInput3"
+                placeholder="   link immagine"
+                onChange={(e) => {
+                  setimage(e.target.value);
+                }}
+              />
             </div>
             <div className="my-2">
-             <input
-              type="text"
-              id="myInput4"
-              placeholder="ingredienti"
-              onChange={(e) => {
-                setingredienti(e.target.value);
-              }}
-            />
+              <input
+                type="text"
+                className="w-100 border border-1 rounded-pill"
+                id="myInput4"
+                placeholder="   ingredienti"
+                onChange={(e) => {
+                  setingredienti(e.target.value);
+                }}
+              />
             </div>
             <div className="my-2">
-             <input
-              type="text"
-              id="myInput5"
-              placeholder="prezzo"
-              onChange={(e) => {
-                setprezzo(parseFloat(e.target.value));
-              }}
-            />
+              <input
+                type="text"
+                className="w-100 border border-1 rounded-pill"
+                id="myInput5"
+                placeholder="   prezzo"
+                onChange={(e) => {
+                  setprezzo(parseFloat(e.target.value));
+                }}
+              />
             </div>
             <div>
-            <select
-              id="disabledSelect"
-              className="form-select"
-              onChange={(e) => {
-                settype(e.target.value);
-              }}
-            >
-              <option>seleziona</option>
-              <option value="PIZZA">PIZZA</option>
-              <option value="ANTIPASTI">ANTIPASTI</option>
-              <option value="BEVANDE">BEVANDE</option>
-            </select>
+              <select
+                id="disabledSelect"
+                className="form-select"
+                onChange={(e) => {
+                  settype(e.target.value);
+                }}
+              >
+                <option>seleziona</option>
+                <option value="PIZZA">PIZZA</option>
+                <option value="ANTIPASTI">ANTIPASTI</option>
+                <option value="BEVANDE">BEVANDE</option>
+              </select>
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
+            <Button className="bn3637 bn37 " onClick={handleClose}>
+              ANNULLA
             </Button>
-            <Button variant="primary" onClick={() => {
-                      setNewFood();
-                      
-                      
-                      refresh();
-                    }}>
-              Save Changes
+            <Button
+              className="bn632-hover bn19 mx-5"
+              onClick={() => {
+                setNewFood();
+                refresh();
+              }}
+            >
+              AGGIUNGI
             </Button>
           </Modal.Footer>
         </Modal>
