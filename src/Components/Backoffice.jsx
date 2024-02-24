@@ -9,6 +9,7 @@ import {
   getMenuData,
   getPizzaData,
   getPrenotazioni,
+  groupBy,
 } from "../Redux/actions";
 
 const BackOfficeFetch = () => {
@@ -24,15 +25,16 @@ const BackOfficeFetch = () => {
   })
   if(token)
   {
-    
+   
     if(user.role !== "ADMIN" )
     {
-      
+     
       const ordini = dispatch(getDeliveryData(token));
       const prenotazioni=dispatch(getPrenotazioni(token));
     }
     else
     {
+      const group=dispatch(groupBy(token));
       const ordini=dispatch(getAllDeliveryData(token));
       const prenotazioni=dispatch(getAllPrenotazioniData(token))
     }

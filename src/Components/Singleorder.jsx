@@ -14,7 +14,11 @@ const SingleOrderdelement = (props) => {
   const sendADeletedOrder = async () => {
     dispatch(deleteaDelivery(token, deletedOrder));
   };
-
+  const refresh = () => {
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  };
   return (
     <Container>
       <ListGroup>
@@ -70,7 +74,7 @@ const SingleOrderdelement = (props) => {
                     className="bn632-hover bn19 "
                     onClick={() => {
                       sendADeletedOrder();
-                      handleClose();
+                      refresh()
                     }}
                   >
                     CONFERMA

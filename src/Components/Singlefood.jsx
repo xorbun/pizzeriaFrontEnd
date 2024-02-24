@@ -2,7 +2,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Card from "react-bootstrap/Card";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   deleteFood,
@@ -27,6 +27,9 @@ const Singlefood = (props) => {
   const [type, settype] = useState();
   const [orderedFood, setOrderedFood] = useState();
   const [isLoading, setisloading] = useState(false);
+  const error = useSelector((state) => {
+    return state.error.genericError;
+  });
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleClose2 = () => setShow2(false);
@@ -63,6 +66,7 @@ const Singlefood = (props) => {
       window.location.reload();
     }, 1000);
   };
+  useEffect(() => {}, [error]);
   if (props && !isLoading) {
     return (
       <Card className="mx-2 mb-4 cardshadow">
@@ -82,7 +86,7 @@ const Singlefood = (props) => {
               {user.role === "ADMIN" ? (
                 <Col>
                   <Button
-                    className="bn3637 bn37 "
+                    className="bn632-hover bn19 "
                     onClick={() => {
                       handleShow2();
                       setOrderedFood(props.food.idMenu);
@@ -92,7 +96,7 @@ const Singlefood = (props) => {
                   </Button>
                   <Col>
                     <Button
-                      className="bn3637 bn37 "
+                      className="bn3637 bn37 deletebutton"
                       onClick={() => {
                         setOrderedFood(props.food.idMenu);
                         handleShow3();
@@ -191,6 +195,7 @@ const Singlefood = (props) => {
                   setprezzo(parseFloat(e.target.value));
                 }}
               />
+
               <div className="d-flex">
                 <select
                   id="disabledSelect"
@@ -238,20 +243,21 @@ const Singlefood = (props) => {
               </Button>
             </Modal.Footer>
           </Modal>
+
           <Modal show={show3} onHide={handleClose3}>
             <Modal.Header closeButton>
               <Modal.Title>{props.food.descrizione}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              Confermi di voler eliminare{" "}
+              Confermi di voler eliminare dal menù{" "}
               <span className="fw-bold">{props.food.descrizione}</span>?
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose3}>
+              <Button className="bn3637 bn37" onClick={handleClose3}>
                 Close
               </Button>
               <Button
-                variant="primary"
+                className="bn632-hover bn19"
                 onClick={() => {
                   deleteFoodFromDb();
                   refresh();
@@ -262,6 +268,11 @@ const Singlefood = (props) => {
             </Modal.Footer>
           </Modal>
         </Card.Body>
+        {error && (
+          <div className="alert alert-danger" role="alert">
+            username o password errata
+          </div>
+        )}
       </Card>
     );
   } else {

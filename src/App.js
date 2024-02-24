@@ -17,6 +17,7 @@ import Getprenotazioni from './Components/Getprenotazioni';
 import Logoutuser from './Components/Logout';
 
 import Orderedfood from './Components/OrderedFood';
+import GroupingBy from './Components/Groupbyuser';
 
 
 
@@ -41,7 +42,7 @@ function App() {
         <Route path="/prenotazioni" element={<PrenotazioniList/>}/>
         <Route path="/prenota" element={<Getprenotazioni/>}/>
         <Route path="/ordered" element={<Orderedfood/>}/>
-        
+        <Route path='/orderlist' element={<GroupingBy/>}/>
       </Routes>
       <Footer/>
       </BrowserRouter>

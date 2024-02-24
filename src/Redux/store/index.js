@@ -12,6 +12,9 @@ import menuReducer from '../reducers/menu'
 import prenotazioniReducer from '../reducers/prenotazioni'
 import deliveryReducer from '../reducers/delivery'
 import authReducer from '../reducers/auth';
+import errorReducer from '../reducers/error';
+import groupReducer from '../reducers/group';
+
 
 
 const persistConfig = {
@@ -28,6 +31,8 @@ const bigReducer = combineReducers({
   menu: menuReducer,
   prenotazioni: prenotazioniReducer,
   delivery: deliveryReducer,
+  error:errorReducer,
+  group:groupReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, bigReducer);

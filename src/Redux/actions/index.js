@@ -20,7 +20,9 @@ export const actionType=
     SET_MODIFY:"SET_MODIFY",
     SET_LOGIN_ERROR:"SET_LOGIN_ERROR",
     SET_MODIFY_MENU:"SET_MODIFY_MENU",
-    SET_IMAGE:"SET_IMAGE"
+    SET_IMAGE:"SET_IMAGE",
+    SET_ERROR:"SET_ERROR",
+    GROUPBY:"GROUPBY"
 }
 export const setUserToken = (token) => ({
     type: actionType.SET_USER_TOKEN,
@@ -99,7 +101,16 @@ export const setimage=(image)=>
     type:actionType.SET_IMAGE,
     payload:image
 })
-
+export const setGenericerror=(error)=>
+({
+    type:actionType.SET_ERROR,
+    payload:error
+})
+export const groupByUser=(user)=>
+({
+    type:actionType.GROUPBY,
+    payload:user
+})
 export const getTokenFromLogin=(email,password)=>async(dispatch)=>
 {
     
@@ -561,15 +572,17 @@ export const setNewFoodToMenu=(token,descrizione,image,prezzo,ingredienti,type)=
             {
                 const data=await response.json();
                 dispatch(setNewFood(data))
+                dispatch(setGenericerror(false))
             }
             else
             {
-                throw new Error("errore",response.status,response.statusText)
+                console.log(response);
+                dispatch(setGenericerror(true))
             }
     }
     catch(error)
     {
-        console.Error(error);
+        console.error(error);
     }
 }
 export const setNewImage=(token,image,id)=>async(dispatch)=>
@@ -631,5 +644,34 @@ export const deleteFood=(token,orderedFood)=>async(dispatch)=>
     catch(error)
     {
         console.error(error)
+    }
+}
+export const groupBy=(token)=>async(dispatch)=>
+{
+    const URL="http://localhost:3001/delivery/allorder";
+    try
+    {
+        const response=await fetch(URL,
+            {
+                method:"GET",
+                headers:
+                {
+                    Authorization:"Bearer "+token,
+                    "Content-Type":"application/json",
+                }
+            })
+            if (response.ok)
+            {
+                const data=await response.json();
+                dispatch(groupByUser(data))
+            }
+            else
+            {
+                throw new Error("errore")
+            }
+    }
+    catch(error)
+    {
+        console.error(error);
     }
 }

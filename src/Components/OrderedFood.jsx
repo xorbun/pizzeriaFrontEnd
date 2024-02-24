@@ -3,6 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import SingleOrderdelement from "./Singleorder";
 import { getAllDeliveryData, getDeliveryData } from "../Redux/actions";
+import { useEffect } from "react";
 
 const Orderedfood = () => {
   const dispatch = useDispatch();
@@ -11,11 +12,7 @@ const Orderedfood = () => {
     return state.users.data;
   });
 
-  if (user.role !== "ADMIN") {
-    const ordini = dispatch(getDeliveryData(token));
-  } else {
-    const ordini = dispatch(getAllDeliveryData(token));
-  }
+
 
   const orderedFoodFromRedux = useSelector((state) => {
     return state.delivery.data.content;
@@ -27,7 +24,14 @@ const Orderedfood = () => {
     }
     return tot;
   };
-
+useEffect(()=>
+{
+  if (user.role !== "ADMIN") {
+    const ordini = dispatch(getDeliveryData(token));
+  } else {
+    const ordini = dispatch(getAllDeliveryData(token));
+  }
+},[])
   if (orderedFoodFromRedux) {
     return (
       <div className="colorsite vh-100">
@@ -40,7 +44,7 @@ const Orderedfood = () => {
             {orderedFoodFromRedux.map((ordered) => {
               return (
                 <Col lg={6} md={12} className="mb-4" key={ordered.idDelivery}>
-                  <h5>{ordered.user.nickname}</h5>
+                  
                   <SingleOrderdelement food={ordered} />
                 </Col>
               );

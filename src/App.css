@@ -211,7 +211,7 @@ div {
 }
 
 /* Layout responsivo - passa a una colonna invece di due colonne */
-@media (max-width: 1366px) {
+@media (max-width: 800px) {
   .flex-container {
     flex-direction: column;
   }
@@ -245,4 +245,8 @@ div {
 {
   
   padding: 25em;
+}
+.deletebutton{
+  background-color: #f30808 !important;
+  color:white !important;
 }

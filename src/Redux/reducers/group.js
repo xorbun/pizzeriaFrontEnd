@@ -1,23 +1,20 @@
-import { actionType } from "../actions"
-
+import { actionType } from "../actions";
 
 const initialState={
     data:null,
   
 }
-
-const deliveryReducer=(state=initialState,action)=>
+const groupReducer=(state=initialState,action)=>
 {
     switch(action.type)
     {
-        case actionType.SET_DELIVERY:
+        case actionType.GROUPBY:
             return{
                 ...state,data:action.payload
             }
-       
         
         default:
             return state;
     }
 }
-export default deliveryReducer;
+export default groupReducer
