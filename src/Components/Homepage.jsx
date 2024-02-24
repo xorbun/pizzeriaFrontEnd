@@ -16,7 +16,7 @@ const Homepagesite = () => {
       <Carouselcomp />
       <Container className="mt-5 ">
         <Row>
-          <Col sm={1} className="mb-3" lg={3}>
+          <Col sm={1} md={6} className="mb-3" lg={3}>
             <Card className="cardshadow border-0" style={{ height: "350px" }}>
               <Card.Body className="d-flex flex-column align-items-center">
                 <Card.Title>
@@ -30,7 +30,7 @@ const Homepagesite = () => {
               </Card.Body>
             </Card>
           </Col>
-          <Col sm={1} className="mb-3" lg={3}>
+          <Col sm={1} md={6}  className="mb-3" lg={3}>
             <Card className="cardshadow border-0" style={{ height: "350px" }}>
               <Card.Body className="d-flex flex-column align-items-center">
                 <Card.Title>
@@ -46,7 +46,7 @@ const Homepagesite = () => {
               </Card.Body>
             </Card>
           </Col>
-          <Col sm={1} className="mb-3" lg={3}>
+          <Col sm={1} md={6}  className="mb-3" lg={3}>
             <Card className="cardshadow border-0" style={{ height: "350px" }}>
               <Card.Body className="d-flex flex-column align-items-center">
                 <Card.Title>
@@ -62,7 +62,7 @@ const Homepagesite = () => {
               </Card.Body>
             </Card>
           </Col>
-          <Col sm={1} className="mb-3" lg={3}>
+          <Col sm={1} md={6}  className="mb-3" lg={3}>
             <Card className="cardshadow border-0" style={{ height: "350px" }}>
               <Card.Body className="d-flex flex-column align-items-center">
                 <Card.Title>

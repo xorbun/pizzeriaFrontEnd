@@ -39,9 +39,9 @@ const PrenotazioniList = () => {
     return (
       <div className="colorsite vh-100">
         <Container className="list">
-          {preorderToShow.length > 0 ? (
+          {preorderToShow.length> 0  ? (
             <h2 className="d-flex justify-content-center ">
-              Le tue prenotazioni
+              PRENOTAZIONI ATTIVE
             </h2>
           ) : (
             <h2 className="d-flex justify-content-center ">

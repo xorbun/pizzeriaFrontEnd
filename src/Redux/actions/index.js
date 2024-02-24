@@ -604,3 +604,32 @@ export const setNewImage=(token,image,id)=>async(dispatch)=>
         console.error(error)
     }
 }
+export const deleteFood=(token,orderedFood)=>async(dispatch)=>
+{
+    const URL="http://localhost:3001/menu/" + orderedFood;
+    try
+    {
+        const response=await fetch(URL,
+            {
+                method:"DELETE",
+                headers:
+                {
+                    Authorization:"Bearer "+token,
+                    "Content-Type":"application/json",
+                }
+            })
+            if(response.ok )
+            {
+               console.log("cancellato")
+            }
+            else
+            {
+                Alert("ordine non cancellato")
+                throw new Error("errore",response.status,response.statusText)
+            }
+    }
+    catch(error)
+    {
+        console.error(error)
+    }
+}

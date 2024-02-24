@@ -15,10 +15,7 @@ const deliveryReducer=(state=initialState,action)=>
                 ...state,data:action.payload
             }
         
-        case actionType.DELETE_DELIVERY:
-            return{
-                ...state,data:action.payload
-            }
+        
         default:
             return state;
     }

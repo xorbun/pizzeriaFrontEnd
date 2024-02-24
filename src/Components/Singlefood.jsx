@@ -4,7 +4,12 @@ import Card from "react-bootstrap/Card";
 
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { modifyMenu, setNewImage, takeanorder } from "../Redux/actions";
+import {
+  deleteFood,
+  modifyMenu,
+  setNewImage,
+  takeanorder,
+} from "../Redux/actions";
 import { Col, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
@@ -12,6 +17,7 @@ const Singlefood = (props) => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
+  const [show3, setshow3] = useState(false);
   const token = localStorage.getItem("token");
   const dispatch = useDispatch();
   const [payload, setpayload] = useState({ quantita: 0 });
@@ -25,6 +31,8 @@ const Singlefood = (props) => {
   const handleShow = () => setShow(true);
   const handleClose2 = () => setShow2(false);
   const handleShow2 = () => setShow2(true);
+  const handleClose3 = () => setshow3(false);
+  const handleShow3 = () => setshow3(true);
 
   const user = useSelector((state) => {
     return state.users.data;
@@ -42,6 +50,9 @@ const Singlefood = (props) => {
     dispatch(
       modifyMenu(token, orderedFood, descrizione, ingredienti, prezzo, type)
     );
+  };
+  const deleteFoodFromDb = async () => {
+    dispatch(deleteFood(token, orderedFood));
   };
   const sendimage = async (id) => {
     dispatch(setNewImage(token, data, id));
@@ -79,6 +90,17 @@ const Singlefood = (props) => {
                   >
                     MODIFICA MENU
                   </Button>
+                  <Col>
+                    <Button
+                      className="bn3637 bn37 "
+                      onClick={() => {
+                        setOrderedFood(props.food.idMenu);
+                        handleShow3();
+                      }}
+                    >
+                      ELIMINA
+                    </Button>
+                  </Col>
                 </Col>
               ) : (
                 <Col>
@@ -182,25 +204,24 @@ const Singlefood = (props) => {
                   <option value="ANTIPASTI">ANTIPASTI</option>
                   <option value="BEVANDE">BEVANDE</option>
                 </select>
-                </div>
-                <Form.Control
-                  className="w-75 me-3"
-                  type="file"
-                  size="sm"
-                  onChange={(e) => {
-                    setImage(e.target.files);
-                  }}
-                />
-                
-                <Button
-                  className="bn632-hover bn19  "
-                  onClick={() => {
-                    sendimage(props.food.idMenu);
-                  }}
-                >
-                  CARICA IMMAGINE
-                </Button>
-              
+              </div>
+              <Form.Control
+                className="w-75 me-3"
+                type="file"
+                size="sm"
+                onChange={(e) => {
+                  setImage(e.target.files);
+                }}
+              />
+
+              <Button
+                className="bn632-hover bn19  "
+                onClick={() => {
+                  sendimage(props.food.idMenu);
+                }}
+              >
+                CARICA IMMAGINE
+              </Button>
             </Modal.Body>
             <Modal.Footer>
               <Button className="bn3637 bn37 " onClick={handleClose2}>
@@ -214,6 +235,29 @@ const Singlefood = (props) => {
                 }}
               >
                 SALVA MODIFICA
+              </Button>
+            </Modal.Footer>
+          </Modal>
+          <Modal show={show3} onHide={handleClose3}>
+            <Modal.Header closeButton>
+              <Modal.Title>{props.food.descrizione}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              Confermi di voler eliminare{" "}
+              <span className="fw-bold">{props.food.descrizione}</span>?
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose3}>
+                Close
+              </Button>
+              <Button
+                variant="primary"
+                onClick={() => {
+                  deleteFoodFromDb();
+                  refresh();
+                }}
+              >
+                CONFERMA
               </Button>
             </Modal.Footer>
           </Modal>
