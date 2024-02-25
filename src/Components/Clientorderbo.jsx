@@ -32,7 +32,7 @@ const ClientOrderDetail = (props) => {
               details();
             }}
           >
-            CARICA ORDINE
+            VISUALIZZA ORDINE
           </Button>
         </div>
       </ListGroup.Item>
@@ -53,7 +53,7 @@ const ClientOrderDetail = (props) => {
             })}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button className="bn632-hover bn19 " onClick={handleClose}>
             OK
           </Button>
         </Modal.Footer>
