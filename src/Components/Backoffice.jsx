@@ -31,6 +31,7 @@ const BackOfficeFetch = () => {
      
       const ordini = dispatch(getDeliveryData(token));
       const prenotazioni=dispatch(getPrenotazioni(token));
+      const group=dispatch(groupBy(token));
     }
     else
     {

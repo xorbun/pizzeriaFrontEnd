@@ -15,6 +15,7 @@ export const actionType=
     SET_ANTIPASTI:"SET_ANTIPASTI",
     SET_PRENOTAZIONI:"SET_PRENOTAZIONI",
     SET_DELIVERY:"SET_DELIVERY",
+    SET_SINGLE_DELIVERY:"SET_SINGLE_DELIVERY",
     SET_NEW_FOOD:"SET_NEW_FOOD",
     SET_REGISTER:"SET_REGISTER",
     SET_MODIFY:"SET_MODIFY",
@@ -110,6 +111,11 @@ export const groupByUser=(user)=>
 ({
     type:actionType.GROUPBY,
     payload:user
+})
+export const singleOrder=(single)=>
+({
+    type:actionType.SET_SINGLE_DELIVERY,
+    payload:single
 })
 export const getTokenFromLogin=(email,password)=>async(dispatch)=>
 {
@@ -307,6 +313,36 @@ export const getDeliveryData=(token)=>async(dispatch)=>
         console.error(error);
     }
 }
+export const getSingleDeliveryData=(token,id)=>async(dispatch)=>
+{
+    const URL="http://localhost:3001/delivery/id/"+ id;
+    try
+    {
+        const response=await fetch(URL,
+            {
+                method:"GET",
+                headers:
+                {
+                    Authorization:"Bearer "+token,
+                    "Content-Type":"application/json"
+                }
+            });
+            if(response.ok)
+            {
+                const data=await response.json();
+                dispatch(singleOrder(data));
+                return data;
+            }
+            else
+            {
+                throw new Error("error");
+            }
+    }
+    catch(error)
+    {
+        console.error(error)
+    }
+}
 export const getAllDeliveryData=(token)=>async(dispatch)=>
 {
     const URL="http://localhost:3001/delivery";
@@ -337,6 +373,7 @@ export const getAllDeliveryData=(token)=>async(dispatch)=>
         console.Error(error)
     }
 }
+
 export const getPizzaData=()=>async(dispatch)=>
 {
     const URL="http://localhost:3001/menu/type?type=PIZZA";

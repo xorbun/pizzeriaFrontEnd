@@ -42,11 +42,16 @@ const Currentuser = () => {
                   VISUALIZZA PRENOTAZIONI
                 </Button>
               </Col>
+              
               <Col className="text-center">
                 <Button
                   className="bn632-hover bn19 "
                   onClick={() => {
-                    navigate("/ordered");
+                    if (user.role === "ADMIN") {
+                      navigate("/orderlist");
+                    } else {
+                      navigate("/ordered");
+                    }
                   }}
                 >
                   VISUALIZZA ORDINE

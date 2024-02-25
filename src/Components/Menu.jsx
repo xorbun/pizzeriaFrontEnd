@@ -84,7 +84,11 @@ const MenuRestourant = () => {
                   <Button
                     className="bn632-hover bn19 mx-5"
                     onClick={() => {
-                      navigate("/ordered");
+                      if (user.role === "ADMIN") {
+                        navigate("/orderlist");
+                      } else {
+                        navigate("/ordered");
+                      }
                     }}
                   >
                     VISUALIZZA ORDINE

@@ -40,11 +40,9 @@ useEffect(()=>
             <Col lg={12} className=" d-flex justify-content-center">
               <h1 className="text-secondary">totale spesa {totaleSpesa()} €</h1>
             </Col>
-
             {orderedFoodFromRedux.map((ordered) => {
               return (
                 <Col lg={6} md={12} className="mb-4" key={ordered.idDelivery}>
-                  
                   <SingleOrderdelement food={ordered} />
                 </Col>
               );

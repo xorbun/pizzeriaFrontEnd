@@ -1,12 +1,15 @@
-import { Container, ListGroup, Row } from "react-bootstrap";
+import { Col, Container, ListGroup, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import ClientOrderDetail from "./Clientorderbo";
 
 const GroupingBy = () => {
   const userordering = useSelector((state) => {
     return state.group.data.content;
   });
-  console.log(userordering[0][0].nickname);
-  if (userordering) {
+  const user = useSelector((state) => {
+    return state.users.data;
+  });
+  if (userordering && user.role === "ADMIN") {
     return (
       <div className="colorsite vh-100">
         <Container>
@@ -14,13 +17,21 @@ const GroupingBy = () => {
             <ListGroup className="mt-5">
               {userordering.map((list) => {
                 return (
-                  <ListGroup.Item className="mt-2">
-                    <a href="">{list[0].nickname}</a>
-                  </ListGroup.Item>
+                  <Col key={list[0].idUser}>
+                    <ClientOrderDetail detail={list}/>
+                  </Col>
                 );
               })}
             </ListGroup>
           </Row>
+        </Container>
+      </div>
+    );
+  } else {
+    return (
+      <div className="colorsite vh-100">
+        <Container>
+          <Row></Row>
         </Container>
       </div>
     );
