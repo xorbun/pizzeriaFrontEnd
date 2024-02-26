@@ -8,30 +8,22 @@ import Login from './Components/LoginPage';
 import { BrowserRouter, Routes,Route } from 'react-router-dom';
 import MenuRestourant from './Components/Menu';
 import BackOfficeFetch from './Components/Backoffice';
-
 import Currentuser from './Components/Userprofile';
 import Homepagesite from './Components/Homepage';
 import Footer from './Components/Footer';
 import PrenotazioniList from './Components/Prenotazioni';
 import Getprenotazioni from './Components/Getprenotazioni';
 import Logoutuser from './Components/Logout';
-
 import Orderedfood from './Components/OrderedFood';
 import GroupingBy from './Components/Groupbyuser';
 
 
-
-
-
-
 function App() {
- 
-  return (
+ return (
     <>
       <BrowserRouter>
       <NavbarHome/>
      <BackOfficeFetch/>
-     
       <Routes>
         <Route path="/home" element={<Homepagesite/>}/>
         <Route path="/menu" element={<MenuRestourant/>}/>
@@ -46,7 +38,6 @@ function App() {
       </Routes>
       <Footer/>
       </BrowserRouter>
-      
     </>
   );
 }

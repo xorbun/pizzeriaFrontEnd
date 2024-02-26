@@ -20,25 +20,33 @@ const ClientOrderDetail = (props) => {
 
   return (
     <div>
-      <ListGroup.Item className="mt-2 ">
-        <div className="d-flex justify-content-between ">
-          <h5>{props.detail[0].nickname}</h5>
-          <h5>numero prodotti ordinati:{props.detail[1]}</h5>
-          <Button
-            className="bn632-hover bn19 "
-            onClick={() => {
-              id = props.detail[0].idUser;
-              handleShow();
-              details();
-            }}
-          >
-            VISUALIZZA ORDINE
-          </Button>
-        </div>
-      </ListGroup.Item>
+      <ListGroup className="mt-5">
+        <ListGroup.Item className="listheight">
+          <div className="d-flex  justify-content-between">
+            <div className="d-flex flex-column">
+              <h6 className="fw-bold">Nickname:</h6>
+              <span>{props.detail[0].nickname}</span>
+              <h6 className="fw-bold">indirizzo di consegna:</h6>
+              <span className="truncateaddress">{props.detail[0].address}</span>
+            </div>
+            <div className="my-auto">
+              <Button
+                className="bn632-hover bn19 "
+                onClick={() => {
+                  id = props.detail[0].idUser;
+                  handleShow();
+                  details();
+                }}
+              >
+                VISUALIZZA ORDINE
+              </Button>
+            </div>
+          </div>
+        </ListGroup.Item>
+      </ListGroup>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{props.detail[0].nickname},</Modal.Title>
+          <Modal.Title>{props.detail[0].nickname},{props.detail[0].address}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {order &&

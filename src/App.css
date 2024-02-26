@@ -250,3 +250,13 @@ div {
   background-color: #f30808 !important;
   color:white !important;
 }
+.listheight
+{
+  height: 150px;
+}
+.truncateaddress {
+  width: 100px;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}

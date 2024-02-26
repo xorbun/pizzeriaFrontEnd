@@ -7,12 +7,14 @@ const Register = () => {
   const [cognome, setcognome] = useState("");
   const [nickname, setnickname] = useState("");
   const [email, setemail] = useState("");
+  const [address,setaddress]=useState("");
   const [password, setpassword] = useState("");
 
   const payload = {
     nome: nome,
     cognome: cognome,
     nickname: nickname,
+    address:address,
     email: email,
     password: password,
   };
@@ -61,7 +63,7 @@ const Register = () => {
                 }}
               >
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Control type="email" placeholder="Inserisci email" />
               </Form.Group>
 
               <Form.Group
@@ -71,7 +73,7 @@ const Register = () => {
                 }}
               >
                 <Form.Label>Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter email" />
+                <Form.Control type="text" placeholder="Inserisci nome" />
               </Form.Group>
 
               <Form.Group
@@ -81,7 +83,7 @@ const Register = () => {
                 }}
               >
                 <Form.Label>Surname</Form.Label>
-                <Form.Control type="text" placeholder="Enter email" />
+                <Form.Control type="text" placeholder="Inserisci cognome" />
               </Form.Group>
 
               <Form.Group
@@ -91,9 +93,17 @@ const Register = () => {
                 }}
               >
                 <Form.Label>Username</Form.Label>
+                <Form.Control type="text" placeholder="Inserisci indirizzo" />
+              </Form.Group>
+              <Form.Group
+                className="mb-3"
+                onChange={(e) => {
+                  setaddress(e.target.value);
+                }}
+              >
+                <Form.Label>indirizzo</Form.Label>
                 <Form.Control type="text" placeholder="Enter email" />
               </Form.Group>
-
               <Form.Group
                 className="mb-3"
                 onChange={(e) => {

@@ -9,20 +9,19 @@ const GroupingBy = () => {
   const user = useSelector((state) => {
     return state.users.data;
   });
+
   if (userordering && user.role === "ADMIN") {
     return (
       <div className="colorsite vh-100">
-        <Container>
+        <Container className="list">
           <Row>
-            <ListGroup className="mt-5">
-              {userordering.map((list) => {
-                return (
-                  <Col key={list[0].idUser}>
-                    <ClientOrderDetail detail={list}/>
-                  </Col>
-                );
-              })}
-            </ListGroup>
+            {userordering.map((list) => {
+              return (
+                <Col lg={6} md={12} key={list[0].idUser}>
+                  <ClientOrderDetail detail={list} />
+                </Col>
+              );
+            })}
           </Row>
         </Container>
       </div>

@@ -16,7 +16,7 @@ const NavbarHome = () => {
   });
   useEffect(() => {}, []);
   return (
-    <Navbar expand="lg" className="colornav">
+    <Navbar expand="lg" className="colornav ">
       <Container fluid>
         <Navbar.Brand onClick={() => navigate("/home")}>
           <img
