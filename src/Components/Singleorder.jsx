@@ -24,6 +24,7 @@ const SingleOrderdelement = (props) => {
       <ListGroup>
         <ListGroup.Item>
           <Row>
+          
             <Col sm={4} lg={8}>
               <div className="d-flex">
                 <img
@@ -37,6 +38,9 @@ const SingleOrderdelement = (props) => {
                   </span>
                   <span className="fw-bold ">
                     Quantità: {props.food.quantita}
+                  </span>
+                  <span className="fw-bold ">
+                    STATO: {props.food.stato}
                   </span>
                   
                 </div>

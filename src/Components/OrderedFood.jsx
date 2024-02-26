@@ -3,7 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import SingleOrderdelement from "./Singleorder";
 import { getAllDeliveryData, getDeliveryData } from "../Redux/actions";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Orderedfood = () => {
   const dispatch = useDispatch();
@@ -11,8 +11,6 @@ const Orderedfood = () => {
   const user = useSelector((state) => {
     return state.users.data;
   });
-
-
 
   const orderedFoodFromRedux = useSelector((state) => {
     return state.delivery.data.content;
@@ -24,14 +22,24 @@ const Orderedfood = () => {
     }
     return tot;
   };
-useEffect(()=>
-{
-  if (user.role !== "ADMIN") {
-    const ordini = dispatch(getDeliveryData(token));
-  } else {
-    const ordini = dispatch(getAllDeliveryData(token));
-  }
-},[])
+  const [stato,setstato]=useState("ciao");
+  useEffect(() => {
+    if (user.role !== "ADMIN") {
+      const ordini = dispatch(getDeliveryData(token)).then((res)=>
+      {
+        console.log(res)
+        if(res.content.length>0)
+        {
+          setstato(res.content[0].stato)
+
+        }
+      });
+    } else {
+      const ordini = dispatch(getAllDeliveryData(token));
+
+    }
+  }, []);
+  console.log(stato)
   if (orderedFoodFromRedux) {
     return (
       <div className="colorsite vh-100">
@@ -40,14 +48,16 @@ useEffect(()=>
             <Col lg={12} className=" d-flex justify-content-center">
               <h1 className="text-secondary">totale spesa {totaleSpesa()} €</h1>
             </Col>
-            
             <Col lg={12} className=" d-flex justify-content-center">
-            {orderedFoodFromRedux[0].stato==="INVIATO"?(
-              <h5>stato:ordine inviato</h5>
-              ):(
-                <h5>stato:ordine in consegna</h5>
-              )}
-              </Col>
+              <span>
+                {stato === "INVIATO"
+                  ? "ordine inviato"
+                  : stato === "IN_CONSEGNA"
+                  ? "in consegna"
+                  : " "}
+              </span>
+            </Col>
+
             {orderedFoodFromRedux.map((ordered) => {
               return (
                 <Col lg={6} md={12} className="mb-4" key={ordered.idDelivery}>

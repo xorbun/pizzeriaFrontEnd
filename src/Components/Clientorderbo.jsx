@@ -18,6 +18,27 @@ const ClientOrderDetail = (props) => {
     return state.delivery.single;
   });
 
+  const UpdateState =  async () => {
+    console.log("ok")
+    const URL =
+      "http://localhost:3001/delivery/updateOrder/" +
+      order.content[0].user.idUser;
+    try {
+      const response=await fetch(URL,
+        {
+          method:"PATCH",
+          headers:
+          {
+              Authorization:"Bearer "+token,
+          },
+        })
+        console.log("ok");
+        return response.json();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div>
       <ListGroup className="mt-5">
@@ -45,7 +66,7 @@ const ClientOrderDetail = (props) => {
         </ListGroup.Item>
       </ListGroup>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header className="d-flex flex-column"closeButton>
+        <Modal.Header className="d-flex flex-column" closeButton>
           <Modal.Title>{props.detail[0].nickname},</Modal.Title>
           <ModalBody>{props.detail[0].address}</ModalBody>
         </Modal.Header>
@@ -62,6 +83,12 @@ const ClientOrderDetail = (props) => {
             })}
         </Modal.Body>
         <Modal.Footer>
+          <Button className="bn632-hover bn19 " onClick={()=>
+          {
+            UpdateState();
+          }}>
+            CONFERMA CONSEGNA
+          </Button>
           <Button className="bn632-hover bn19 " onClick={handleClose}>
             OK
           </Button>
