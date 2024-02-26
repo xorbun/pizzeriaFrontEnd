@@ -32,7 +32,7 @@ const ClientOrderDetail = (props) => {
               Authorization:"Bearer "+token,
           },
         })
-        console.log("ok");
+        
         return response.json();
     } catch (error) {
       console.error(error);
@@ -41,8 +41,8 @@ const ClientOrderDetail = (props) => {
 
   return (
     <div>
-      <ListGroup className="mt-5">
-        <ListGroup.Item className="listheight">
+      <ListGroup className="mt-5 ">
+        <ListGroup.Item className="listheight ">
           <div className="d-flex  justify-content-between">
             <div className="d-flex flex-column">
               <h6 className="fw-bold">Nickname:</h6>

@@ -16,8 +16,10 @@ const Carouselcomp = () => {
               style={{ width: "100%", height: "70vh" }}
               alt="boh"
             />
-            <Carousel.Caption>
-              <h1 className="fontcolor ">Benvenuti alla Pizzeria del Gusto!</h1>
+            <Carousel.Caption className="d-flex flex-column ">
+              <h1 className="fontcolor shadow">
+                Benvenuti alla Pizzeria del Gusto!
+              </h1>
               <p className="trasparencytext">
                 Sei pronto per un’esperienza culinaria indimenticabile? La
                 Pizzeria del Gusto è il luogo perfetto per gli amanti della

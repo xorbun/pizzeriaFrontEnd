@@ -21,7 +21,7 @@ const SingleOrderdelement = (props) => {
   };
   return (
     <Container>
-      <ListGroup>
+      <ListGroup className="listradius">
         <ListGroup.Item>
           <Row>
           
@@ -39,10 +39,6 @@ const SingleOrderdelement = (props) => {
                   <span className="fw-bold ">
                     Quantità: {props.food.quantita}
                   </span>
-                  <span className="fw-bold ">
-                    STATO: {props.food.stato}
-                  </span>
-                  
                 </div>
               </div>
             </Col>
@@ -52,6 +48,7 @@ const SingleOrderdelement = (props) => {
               lg={4}
               className="text-center d-flex justify-content-center "
             >
+              {props.food.stato==="INVIATO" ?(
               <Button
                 className="bn632-hover bn19 "
                 onClick={() => {
@@ -61,7 +58,7 @@ const SingleOrderdelement = (props) => {
               >
                 <span className="bottonsize">ANNULLA ORDINE</span>
               </Button>
-
+           ):("") }
               <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                   <Modal.Title>
