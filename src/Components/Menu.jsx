@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Alert, Button, Col, Container, Modal, Row } from "react-bootstrap";
+import { Button, Col, Container, Modal, Row } from "react-bootstrap";
 import Singlefood from "./Singlefood";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -45,21 +45,18 @@ const MenuRestourant = () => {
   const handleShow = () => setShow(true);
   const [isLoading, setisloading] = useState(false);
   const setNewFood = async () => {
-    setisloading(true)
+    setisloading(true);
     dispatch(
       setNewFoodToMenu(token, descrizione, image, prezzo, ingredienti, type)
     );
-    
   };
   useEffect(() => {}, [isLoading]);
   const refresh = () => {
-   
-
     setTimeout(() => {
       window.location.reload();
     }, 2000);
   };
-  if (foodToShow && !isLoading ) {
+  if (foodToShow && !isLoading) {
     return (
       <div className="colorsite vh-200">
         <>
@@ -69,7 +66,7 @@ const MenuRestourant = () => {
                 <Col sm={4}>
                   <select
                     id="disabledSelect"
-                    className="form-select mt-4"
+                    className="form-select"
                     onChange={(e) => {
                       setSelectedValue(e.target.value);
                     }}
@@ -194,13 +191,12 @@ const MenuRestourant = () => {
         </Modal>
       </div>
     );
-  }
-  else{
-    return(
+  } else {
+    return (
       <div className="spinnercontainer d-flex justify-content-center colorsite">
-      <div className="spinner"></div>
-    </div>
-    )
+        <div className="spinner"></div>
+      </div>
+    );
   }
 };
 export default MenuRestourant;

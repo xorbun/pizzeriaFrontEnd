@@ -255,8 +255,13 @@ div {
   height: 150px;
 }
 .truncateaddress {
-  width: 100px;
+  width: 400px;
   white-space: nowrap;
   overflow:hidden;
   text-overflow: ellipsis;
+}
+@media(max-width:800px) {
+  .truncateaddress{
+    width: 150px;
+  }
 }

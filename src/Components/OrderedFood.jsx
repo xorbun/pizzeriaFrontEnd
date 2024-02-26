@@ -40,6 +40,14 @@ useEffect(()=>
             <Col lg={12} className=" d-flex justify-content-center">
               <h1 className="text-secondary">totale spesa {totaleSpesa()} €</h1>
             </Col>
+            
+            <Col lg={12} className=" d-flex justify-content-center">
+            {orderedFoodFromRedux[0].stato==="INVIATO"?(
+              <h5>stato:ordine inviato</h5>
+              ):(
+                <h5>stato:ordine in consegna</h5>
+              )}
+              </Col>
             {orderedFoodFromRedux.map((ordered) => {
               return (
                 <Col lg={6} md={12} className="mb-4" key={ordered.idDelivery}>

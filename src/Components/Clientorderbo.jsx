@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, ListGroup, Modal } from "react-bootstrap";
+import { Button, ListGroup, Modal, ModalBody } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getSingleDeliveryData } from "../Redux/actions";
 
@@ -45,8 +45,9 @@ const ClientOrderDetail = (props) => {
         </ListGroup.Item>
       </ListGroup>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>{props.detail[0].nickname},{props.detail[0].address}</Modal.Title>
+        <Modal.Header className="d-flex flex-column"closeButton>
+          <Modal.Title>{props.detail[0].nickname},</Modal.Title>
+          <ModalBody>{props.detail[0].address}</ModalBody>
         </Modal.Header>
         <Modal.Body>
           {order &&

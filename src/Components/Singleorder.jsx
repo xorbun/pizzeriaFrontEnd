@@ -38,6 +38,7 @@ const SingleOrderdelement = (props) => {
                   <span className="fw-bold ">
                     Quantità: {props.food.quantita}
                   </span>
+                  
                 </div>
               </div>
             </Col>
