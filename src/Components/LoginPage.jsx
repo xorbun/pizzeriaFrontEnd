@@ -31,9 +31,9 @@ const Login = () => {
 
   useEffect(() => {}, [error]);
   return (
-    <div className="colorsite vh-100">
-      <Container>
-        <Row className="flex-column">
+    <div className="colorsite vh-100 d-flex">
+      <Container className="d-flex justify-content-center align-items-center">
+        <Row className="flex-column ">
           <Col>
             <Form onSubmit={login}>
               <Form.Group
@@ -71,17 +71,16 @@ const Login = () => {
             </Form>
           </Col>
           <Col className="text-center">
-          <span className="fs-4">Non sei ancora registrato?</span>
+            <span className="fs-4">Non sei ancora registrato?</span>
             <div>
-            
-            <Button
-              className="bn632-hover bn19"
-              onClick={() => {
-                navigate("/register");
-              }}
-            >
-              REGISTRATI
-            </Button>
+              <Button
+                className="bn632-hover bn19"
+                onClick={() => {
+                  navigate("/register");
+                }}
+              >
+                REGISTRATI
+              </Button>
             </div>
           </Col>
         </Row>

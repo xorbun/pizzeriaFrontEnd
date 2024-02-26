@@ -22,7 +22,7 @@ const Homepagesite = () => {
                 <Card.Title>
                   <h5>Atmosfera Accogliente:</h5>
                 </Card.Title>
-                <Card.Text>
+                <Card.Text className="cardtext">
                   Entra e lasciati avvolgere dall'aroma irresistibile della
                   pizza appena sfornata. I nostri tavoli in legno e le luci
                   soffuse creano un'atmosfera calda e familiare.
@@ -30,13 +30,13 @@ const Homepagesite = () => {
               </Card.Body>
             </Card>
           </Col>
-          <Col sm={1} md={6}  className="mb-3" lg={3}>
+          <Col sm={1} md={6} className="mb-3" lg={3}>
             <Card className="cardshadow border-0" style={{ height: "350px" }}>
               <Card.Body className="d-flex flex-column align-items-center">
                 <Card.Title>
                   <h5>Menu Eclettico:</h5>
                 </Card.Title>
-                <Card.Text>
+                <Card.Text className="cardtext">
                   La nostra vasta selezione di pizze accontenta tutti i gusti.
                   Dalla classica Margherita alla saporita Diavola, passando per
                   le opzioni vegetariane e senza glutine, c'è una pizza per ogni
@@ -46,13 +46,13 @@ const Homepagesite = () => {
               </Card.Body>
             </Card>
           </Col>
-          <Col sm={1} md={6}  className="mb-3" lg={3}>
+          <Col sm={1} md={6} className="mb-3" lg={3}>
             <Card className="cardshadow border-0" style={{ height: "350px" }}>
               <Card.Body className="d-flex flex-column align-items-center">
                 <Card.Title>
                   <h5>Ingredienti di Qualità: </h5>
                 </Card.Title>
-                <Card.Text>
+                <Card.Text className="cardtext">
                   Utilizziamo solo ingredienti freschi e genuini. La nostra
                   mozzarella viene direttamente dalla Campania, e i pomodori San
                   Marzano conferiscono alle nostre pizze un sapore autentico.
@@ -62,13 +62,13 @@ const Homepagesite = () => {
               </Card.Body>
             </Card>
           </Col>
-          <Col sm={1} md={6}  className="mb-3" lg={3}>
+          <Col sm={1} md={6} className="mb-3" lg={3}>
             <Card className="cardshadow border-0" style={{ height: "350px" }}>
               <Card.Body className="d-flex flex-column align-items-center">
                 <Card.Title>
                   <h5>Servizio Cordiale:</h5>
                 </Card.Title>
-                <Card.Text>
+                <Card.Text className="cardtext">
                   Il nostro staff è appassionato di pizza e pronto a rendere la
                   tua visita indimenticabile. Siamo qui per consigliarti e farti
                   sentire a casa. Vieni a trovarci alla Pizzeria del Gusto e
@@ -80,7 +80,7 @@ const Homepagesite = () => {
         </Row>
         <Row className="mt-5">
           <Col sm={12} lg={6}>
-            <Carousel  indicators={false} controls={false}>
+            <Carousel indicators={false} controls={false}>
               <Carousel.Item>
                 <img
                   className=" cardshadow mb-5 rounded-5"
@@ -89,7 +89,7 @@ const Homepagesite = () => {
                   alt="boh"
                 />
                 <Carousel.Caption>
-                  <p className="trasparencytext ">
+                  <p className="trasparencytext cardtext">
                     La nostra pizzeria vi accoglie con calore e allegria
                   </p>
                 </Carousel.Caption>
@@ -105,12 +105,12 @@ const Homepagesite = () => {
                 <Card.Title>
                   <h2>Amanti della pizza, </h2>
                 </Card.Title>
-                <Card.Text className="my-auto">
-                Se stai cercando un’esperienza culinaria autentica e deliziosa, 
-                vi invitiamo a prenotare un tavolo. 
-                Situata nel cuore di Cassino, questa pizzeria offre una vasta selezione di pizze artigianali 
-                cotte nel forno a legna.
-                  leggera e croccante.
+                <Card.Text className="my-auto cardtext">
+                  Se stai cercando un’esperienza culinaria autentica e
+                  deliziosa, vi invitiamo a prenotare un tavolo. Situata nel
+                  cuore di Cassino, questa pizzeria offre una vasta selezione di
+                  pizze artigianali cotte nel forno a legna. leggera e
+                  croccante.
                 </Card.Text>
                 <Button
                   className="bn632-hover bn19"

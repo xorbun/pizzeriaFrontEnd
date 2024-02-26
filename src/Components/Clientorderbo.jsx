@@ -69,6 +69,8 @@ const ClientOrderDetail = (props) => {
         <Modal.Header className="d-flex flex-column" closeButton>
           <Modal.Title>{props.detail[0].nickname},</Modal.Title>
           <ModalBody>{props.detail[0].address}</ModalBody>
+          {order &&
+          <ModalBody>{order.content[0].stato}</ModalBody>}
         </Modal.Header>
         <Modal.Body>
           {order &&

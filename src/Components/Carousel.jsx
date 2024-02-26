@@ -16,8 +16,8 @@ const Carouselcomp = () => {
               style={{ width: "100%", height: "70vh" }}
               alt="boh"
             />
-            <Carousel.Caption className="d-flex flex-column ">
-              <h1 className="fontcolor shadow">
+            <Carousel.Caption className="carouselcaption d-flex flex-column justify-content-between">
+              <h1 className="fontcolor shadow " style={{ fontSize: "62px" }}>
                 Benvenuti alla Pizzeria del Gusto!
               </h1>
               <p className="trasparencytext">

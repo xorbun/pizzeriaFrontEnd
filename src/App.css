@@ -61,27 +61,19 @@
 div {
   position: relative;
 }
+.cardtext
+{
+  text-align: center;
+}
+.carouselcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: white; /* Colore del testo */
+  padding: 20px; /* Spaziatura interna */
+}
 
-.message {
-  position: absolute;
-  top: 450px;
-  left: 50px;
-  background-color: rgba(255, 255, 255, 0.7); /* Sfondo trasparente */
-  padding: 10px;
-  font-size: 25px;
-  font-family: 'roboto';
-  color: #333; /* Colore del testo */
-}
-.message2 {
-  position: absolute;
-  top: 350px;
-  left: 550px;
-  background-color: rgba(255, 255, 255, 0.7); /* Sfondo trasparente */
-  padding: 10px;
-  font-size: 25px;
-  
-  color: #333; /* Colore del testo */
-}
 .trasparencytext
 {
   background-color: rgba(255, 255, 255, 0.7); /* Sfondo trasparente */
