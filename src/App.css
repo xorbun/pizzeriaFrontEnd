@@ -168,6 +168,17 @@ div {
   
   border-top-left-radius: 15% !important;
   border-top-right-radius: 15% !important;
+  position: relative;
+}
+.buttonInsideImage {
+  position: absolute;
+  bottom: 57%; /* Posiziona al centro verticale */
+  left: 91%; /* Posiziona al centro orizzontale */
+  transform: translate(-50%, -50%); /* Centra il bottone */
+  background-color: rgba(241, 238, 234, 0.753) !important;
+  color:black !important;
+  border-color: #00000000 !important;
+  border-radius: 0% !important;
 }
 .truncate {
   width: 300px;
