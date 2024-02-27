@@ -12,7 +12,7 @@ const Homepagesite = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
-    <div className="colorsite ">
+    <div className="colorsite mt-5">
       <Carouselcomp />
       <Container className="mt-5 ">
         <Row>
@@ -22,7 +22,7 @@ const Homepagesite = () => {
                 <Card.Title>
                   <h5>Atmosfera Accogliente:</h5>
                 </Card.Title>
-                <Card.Text className="cardtext">
+                <Card.Text className="cardtext ">
                   Entra e lasciati avvolgere dall'aroma irresistibile della
                   pizza appena sfornata. I nostri tavoli in legno e le luci
                   soffuse creano un'atmosfera calda e familiare.
@@ -89,7 +89,7 @@ const Homepagesite = () => {
                   alt="boh"
                 />
                 <Carousel.Caption>
-                  <p className="trasparencytext cardtext">
+                  <p className="trasparencytext cardtext ">
                     La nostra pizzeria vi accoglie con calore e allegria
                   </p>
                 </Carousel.Caption>
@@ -105,7 +105,7 @@ const Homepagesite = () => {
                 <Card.Title>
                   <h2>Amanti della pizza, </h2>
                 </Card.Title>
-                <Card.Text className="my-auto cardtext">
+                <Card.Text className="my-auto cardtext ">
                   Se stai cercando un’esperienza culinaria autentica e
                   deliziosa, vi invitiamo a prenotare un tavolo. Situata nel
                   cuore di Cassino, questa pizzeria offre una vasta selezione di

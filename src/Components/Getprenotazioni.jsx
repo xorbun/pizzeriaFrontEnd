@@ -43,11 +43,12 @@ const Getprenotazioni = () => {
   };
 
   return (
-    <div className="colorsite">
+    <div className="colorsite mt-5">
       <Container style={{ height: "50em" }}>
         <Row className="flex-column align-items-center text-center">
           <Col lg={5}>
             <Form
+              className="mt-5"
               onSubmit={(e) => {
                 e.preventDefault();
                 takePrenotazione();

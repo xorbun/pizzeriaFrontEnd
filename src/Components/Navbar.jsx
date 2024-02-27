@@ -4,7 +4,7 @@ import { Navbar, Nav } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const NavbarHome = () => {
   const navigate = useNavigate();
@@ -14,9 +14,17 @@ const NavbarHome = () => {
   const currentUser = useSelector((state) => {
     return state.users.data;
   });
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+    setIsNavbarVisible(scrollY < 100); 
+  };
+
+  window.addEventListener('scroll', handleScroll);
   useEffect(() => {}, []);
   return (
-    <Navbar expand="lg" className="colornav ">
+    <Navbar expand="lg" className={`colornav sticky-nav ${isNavbarVisible ? '' : 'hidden'}`}  fixed="top">
       <Container fluid>
         <Navbar.Brand onClick={() => navigate("/home")}>
           <img

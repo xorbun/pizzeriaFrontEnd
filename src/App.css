@@ -8,8 +8,7 @@
   height: 40vmin;
   pointer-events: none;
 }
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -43,7 +42,14 @@
   background-color:#FBC02D;
   
 }
-
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  transition: top 0.3s ease-in-out; /* Aggiungi una transizione per un effetto più fluido */
+}
+.sticky-nav.hidden {
+  top: -100px; /* Nascondi la navbar quando si scorre verso il basso */
+}
 .colorsite 
 {
   background-color:#FFF9C4;
@@ -75,12 +81,12 @@ div {
   
 }
 .carouseltitle{
-  font-size: 70px;
+  font-size: 68px;
  
 }
 @media(max-width:800px) {
   .carouseltitle{
-    font-size: 31px;
+    font-size: 41px;
   }
 }
 .trasparencytext
@@ -209,7 +215,7 @@ div {
   overflow: auto;
 }
 *{
-  font-family: 'lato-thin';
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: rgb(75, 79, 82);
 }
 .flex-container {

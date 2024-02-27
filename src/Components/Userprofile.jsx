@@ -9,11 +9,11 @@ const Currentuser = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="colorsite vh-100">
+    <div className="colorsite vh-100 mt-5">
       <Container>
         <Row>
           <Col
-            className="d-flex flex-column align-items-center "
+            className="d-flex flex-column align-items-center mt-5"
             style={{ padding: "20px" }}
           >
             <h2>Profilo Utente</h2>
@@ -21,7 +21,6 @@ const Currentuser = () => {
             <p>Username: {user.nickname}</p>
             <p>Email: {user.email}</p>
             <Row>
-             
               <Col className="text-center">
                 <Button
                   className="bn632-hover bn19"
@@ -42,7 +41,7 @@ const Currentuser = () => {
                   VISUALIZZA PRENOTAZIONI
                 </Button>
               </Col>
-              
+
               <Col className="text-center">
                 <Button
                   className="bn632-hover bn19 "
@@ -57,7 +56,7 @@ const Currentuser = () => {
                   VISUALIZZA ORDINE
                 </Button>
               </Col>
-            
+
               <Col className="text-center">
                 <Button
                   className="bn3637 bn37 "

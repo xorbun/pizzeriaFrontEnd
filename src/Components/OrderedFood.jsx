@@ -22,27 +22,23 @@ const Orderedfood = () => {
     }
     return tot;
   };
-  const [stato,setstato]=useState("ciao");
+  const [stato, setstato] = useState("ciao");
   useEffect(() => {
     if (user.role !== "ADMIN") {
-      const ordini = dispatch(getDeliveryData(token)).then((res)=>
-      {
-        console.log(res)
-        if(res.content.length>0)
-        {
-          setstato(res.content[0].stato)
-
+      const ordini = dispatch(getDeliveryData(token)).then((res) => {
+        console.log(res);
+        if (res.content.length > 0) {
+          setstato(res.content[0].stato);
         }
       });
     } else {
       const ordini = dispatch(getAllDeliveryData(token));
-
     }
   }, []);
-  console.log(stato)
+  console.log(stato);
   if (orderedFoodFromRedux) {
     return (
-      <div className="colorsite vh-100">
+      <div className="colorsite vh-100 mt-5">
         <Container className="d-flex list justify-content-center mx-auto">
           <Row className="mt-5 ">
             <Col lg={12} className=" d-flex justify-content-center">

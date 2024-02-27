@@ -13,14 +13,11 @@ const PrenotazioniList = () => {
     return state.users.data;
   });
 
-  if(user.role !== "ADMIN" )
-    {
-      const prenotazioni=dispatch(getPrenotazioni(token));
-    }
-    else
-    {
-      const prenotazioni=dispatch(getAllPrenotazioniData(token))
-    }
+  if (user.role !== "ADMIN") {
+    const prenotazioni = dispatch(getPrenotazioni(token));
+  } else {
+    const prenotazioni = dispatch(getAllPrenotazioniData(token));
+  }
 
   let preorderToShow = "";
   const prenotazioniFromRedux = useSelector((state) => {
@@ -37,9 +34,9 @@ const PrenotazioniList = () => {
 
   if (preorderToShow) {
     return (
-      <div className="colorsite vh-100">
+      <div className="colorsite vh-100 mt-5">
         <Container className="list">
-          {preorderToShow.length> 0  ? (
+          {preorderToShow.length > 0 ? (
             <h2 className="d-flex justify-content-center ">
               PRENOTAZIONI ATTIVE
             </h2>
@@ -57,7 +54,6 @@ const PrenotazioniList = () => {
               >
                 <h1 className="text-center">{prenotazioni.user.nickname}</h1>
                 <Col sm={6}>
-                  
                   <Singlepreorder preorder={prenotazioni} />
                 </Col>
               </Row>
