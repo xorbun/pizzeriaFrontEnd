@@ -153,8 +153,7 @@ div {
 {
   border: 0 !important;
   border-radius: 15% !important;
-  border-top-left-radius: 25% !important;
-  border-top-right-radius: 25% !important;
+  
   
 }
 
@@ -169,8 +168,8 @@ div {
 .imgMenu
 {
   
-  border-top-left-radius: 25% !important;
-  border-top-right-radius: 25% !important;
+  border-top-left-radius: 15% !important;
+  border-top-right-radius: 15% !important;
   position: relative;
 }
 .buttonInsideImage {

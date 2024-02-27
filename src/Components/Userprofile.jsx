@@ -16,11 +16,9 @@ const Currentuser = () => {
             className="d-flex flex-column align-items-center mt-5"
             style={{ padding: "20px" }}
           >
-            <h2>Profilo Utente</h2>
-            <p>Benvenuto, {user.nome}!</p>
-            <p>Username: {user.nickname}</p>
-            <p>Email: {user.email}</p>
-            <Row>
+            <h2>Benvenuto, {user.nickname}!</h2>
+
+            <Row className="mt-5">
               <Col className="text-center">
                 <Button
                   className="bn632-hover bn19"
