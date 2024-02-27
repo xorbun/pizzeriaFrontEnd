@@ -258,12 +258,13 @@ div {
 }
 .imageresolution{
   size: 42em;
-  opacity: 77%;
+  opacity: 0.7;
 }
 
 @media(max-width:800px) {
   .imageresolution{
     width: 12em;
+    opacity: 0.6;
   }
 }
 

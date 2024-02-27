@@ -72,7 +72,7 @@ const Singlefood = (props) => {
   const refreshimage = () => {
     setTimeout(() => {
       window.location.reload();
-    }, 2000);
+    }, 3000);
   };
   useEffect(() => {}, [error]);
   if (props && !isLoading) {
