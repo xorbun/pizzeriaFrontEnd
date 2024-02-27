@@ -62,7 +62,7 @@ const MenuRestourant = () => {
         <>
           <Container className="d-flex ">
             <Row className="mt-5 ">
-              <div className="d-flex mb-5 text-center flex-container">
+              <div className="d-flex mb-5 text-center flex-container bounce-in-top">
                 <Col sm={4}>
                   <select
                     id="disabledSelect"

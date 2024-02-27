@@ -16,8 +16,11 @@ const Homepagesite = () => {
       <Carouselcomp />
       <Container className="mt-5 ">
         <Row>
-          <Col sm={1} md={6} className="mb-3" lg={3}>
-            <Card className="cardshadow border-0" style={{ height: "350px" }}>
+          <Col sm={1} md={6} className="mb-3 " lg={3}>
+            <Card
+              className="cardshadow border-0 scale-in-center"
+              style={{ height: "350px" }}
+            >
               <Card.Body className="d-flex flex-column align-items-center">
                 <Card.Title>
                   <h5>Atmosfera Accogliente:</h5>
@@ -31,8 +34,11 @@ const Homepagesite = () => {
             </Card>
           </Col>
           <Col sm={1} md={6} className="mb-3" lg={3}>
-            <Card className="cardshadow border-0" style={{ height: "350px" }}>
-              <Card.Body className="d-flex flex-column align-items-center">
+            <Card
+              className="cardshadow border-0 scale-in-center"
+              style={{ height: "350px" }}
+            >
+              <Card.Body className="d-flex flex-column align-items-center ">
                 <Card.Title>
                   <h5>Menu Eclettico:</h5>
                 </Card.Title>
@@ -47,7 +53,10 @@ const Homepagesite = () => {
             </Card>
           </Col>
           <Col sm={1} md={6} className="mb-3" lg={3}>
-            <Card className="cardshadow border-0" style={{ height: "350px" }}>
+            <Card
+              className="cardshadow border-0 scale-in-center"
+              style={{ height: "350px" }}
+            >
               <Card.Body className="d-flex flex-column align-items-center">
                 <Card.Title>
                   <h5>Ingredienti di Qualità: </h5>
@@ -63,7 +72,10 @@ const Homepagesite = () => {
             </Card>
           </Col>
           <Col sm={1} md={6} className="mb-3" lg={3}>
-            <Card className="cardshadow border-0" style={{ height: "350px" }}>
+            <Card
+              className="cardshadow border-0 scale-in-center"
+              style={{ height: "350px" }}
+            >
               <Card.Body className="d-flex flex-column align-items-center">
                 <Card.Title>
                   <h5>Servizio Cordiale:</h5>
@@ -80,7 +92,7 @@ const Homepagesite = () => {
         </Row>
         <Row className="mt-5">
           <Col sm={12} lg={6}>
-            <Carousel indicators={false} controls={false}>
+            <Carousel indicators={false} controls={false} className="photo">
               <Carousel.Item>
                 <img
                   className=" cardshadow mb-5 rounded-5"

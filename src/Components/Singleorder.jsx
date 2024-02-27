@@ -21,7 +21,7 @@ const SingleOrderdelement = (props) => {
   };
   return (
     <Container >
-      <ListGroup className="listradius">
+      <ListGroup className="bounce-in-top ">
         <ListGroup.Item>
           <Row>
           

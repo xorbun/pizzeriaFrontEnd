@@ -77,7 +77,7 @@ const Singlefood = (props) => {
   useEffect(() => {}, [error]);
   if (props && !isLoading) {
     return (
-      <Card className="mx-2 mb-4 cardshadow">
+      <Card className="mx-2 mb-4 cardshadow ">
         <Card.Img
           className="imgMenu"
           variant="top"
@@ -109,9 +109,9 @@ const Singlefood = (props) => {
                   >
                     MODIFICA MENU
                   </Button>
-                    
+
                   <Col>
-                  <Button
+                    <Button
                       className="bn3637 bn37 deletebutton"
                       onClick={() => {
                         setOrderedFood(props.food.idMenu);

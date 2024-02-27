@@ -40,7 +40,7 @@ const ClientOrderDetail = (props) => {
   };
 
   return (
-    <div>
+    <div className="bounce-in-top">
       <ListGroup className="mt-5 ">
         <ListGroup.Item className="listheight ">
           <div className="d-flex  justify-content-between">
