@@ -17,7 +17,7 @@ const Carouselcomp = () => {
               alt="boh"
             />
             <Carousel.Caption className="carouselcaption d-flex flex-column justify-content-between">
-              <h1 className="fontcolor shadow carouseltitle text-pop-up-top mt-4">
+              <h1 className="fontcolor  carouseltitle  mt-4">
                 Benvenuti nella Pizzeria del Gusto!
               </h1>
               <p className="trasparencytext">

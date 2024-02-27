@@ -82,7 +82,7 @@ div {
 }
 .carouseltitle{
   font-size: 68px;
- 
+  text-shadow: 0 2px 4px rgb(0, 0, 0);
 }
 @media(max-width:800px) {
   .carouseltitle{
@@ -140,7 +140,7 @@ div {
     #FBC02D,
     #fd9103
   );
-  box-shadow: 0 4px 15px 0 rgba(24, 11, 7, 0.75);
+  box-shadow: 0 4px 15px 0 rgba(24, 11, 7, 0.432) !important;
   
 }
 .card:hover
@@ -153,6 +153,9 @@ div {
 {
   border: 0 !important;
   border-radius: 15% !important;
+  border-top-left-radius: 25% !important;
+  border-top-right-radius: 25% !important;
+  
 }
 
  @keyframes slide-top {
@@ -166,19 +169,31 @@ div {
 .imgMenu
 {
   
-  border-top-left-radius: 15% !important;
-  border-top-right-radius: 15% !important;
+  border-top-left-radius: 25% !important;
+  border-top-right-radius: 25% !important;
   position: relative;
 }
 .buttonInsideImage {
   position: absolute;
-  bottom: 57%; /* Posiziona al centro verticale */
-  left: 91%; /* Posiziona al centro orizzontale */
+  bottom: 315px; 
+  left: 366px; 
   transform: translate(-50%, -50%); /* Centra il bottone */
   background-color: rgba(241, 238, 234, 0.753) !important;
   color:black !important;
   border-color: #00000000 !important;
   border-radius: 0% !important;
+}
+@media(max-width:800px) {
+  .buttonInsideImage{
+    position: absolute;
+  bottom: 315px; 
+  left: 316px; 
+  transform: translate(-50%, -50%); /* Centra il bottone */
+  background-color: rgba(241, 238, 234, 0.753) !important;
+  color:black !important;
+  border-color: #00000000 !important;
+  border-radius: 0% !important;
+  }
 }
 .truncate {
   width: 300px;
@@ -202,7 +217,7 @@ div {
   -o-transition: all .4s ease-in-out;
   -webkit-transition: all .4s ease-in-out;
   transition: all .4s ease-in-out;
-  box-shadow: 0 4px 15px 0 rgba(24, 11, 7, 0.75) !important;
+  box-shadow: 0 4px 15px 0 rgba(24, 11, 7, 0.432) !important;
 }
 
 .bn37 {
@@ -231,7 +246,7 @@ div {
 }
 .flex-container {
   display: flex;
-  flex-direction: row; /* Imposta la direzione dei figli come riga */
+  flex-direction: row; 
   align-items: center;
 }
 
@@ -243,6 +258,7 @@ div {
 }
 .imageresolution{
   size: 42em;
+  opacity: 77%;
 }
 
 @media(max-width:800px) {

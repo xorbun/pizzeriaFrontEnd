@@ -18,7 +18,7 @@ const Singlefood = (props) => {
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
   const [show3, setshow3] = useState(false);
-  const [show4,setshow4]=useState(false);
+  const [show4, setshow4] = useState(false);
   const token = localStorage.getItem("token");
   const dispatch = useDispatch();
   const [payload, setpayload] = useState({ quantita: 0 });
@@ -37,8 +37,8 @@ const Singlefood = (props) => {
   const handleShow2 = () => setShow2(true);
   const handleClose3 = () => setshow3(false);
   const handleShow3 = () => setshow3(true);
-  const handleClose4=()=>setshow4(false);
- const handleshow4=()=>setshow4(true);
+  const handleClose4 = () => setshow4(false);
+  const handleshow4 = () => setshow4(true);
 
   const user = useSelector((state) => {
     return state.users.data;
@@ -69,12 +69,11 @@ const Singlefood = (props) => {
       window.location.reload();
     }, 1000);
   };
-  const refreshimage=()=>{
-    setTimeout(()=>
-    {
+  const refreshimage = () => {
+    setTimeout(() => {
       window.location.reload();
-    },2000)
-  }
+    }, 2000);
+  };
   useEffect(() => {}, [error]);
   if (props && !isLoading) {
     return (
@@ -86,7 +85,13 @@ const Singlefood = (props) => {
           src={props.food.image}
           alt="fotoProdotto"
         />
-        <Button onClick={handleshow4} className="buttonInsideImage">carica</Button>
+        {user.role === "ADMIN" ? (
+          <Button onClick={handleshow4} className="buttonInsideImage">
+            carica
+          </Button>
+        ) : (
+          ""
+        )}
         <Card.Body className="d-flex flex-column align-items-center">
           <Card.Title>{props.food.descrizione}</Card.Title>
           <Card.Text className="truncate">{props.food.ingredienti}</Card.Text>
@@ -104,8 +109,9 @@ const Singlefood = (props) => {
                   >
                     MODIFICA MENU
                   </Button>
+                    
                   <Col>
-                    <Button
+                  <Button
                       className="bn3637 bn37 deletebutton"
                       onClick={() => {
                         setOrderedFood(props.food.idMenu);
@@ -220,7 +226,6 @@ const Singlefood = (props) => {
                   <option value="BEVANDE">BEVANDE</option>
                 </select>
               </div>
-              
             </Modal.Body>
             <Modal.Footer>
               <Button className="bn3637 bn37 " onClick={handleClose2}>
@@ -268,29 +273,30 @@ const Singlefood = (props) => {
           </div>
         )}
         <Modal show={show4} onHide={handleClose4}>
-        <Modal.Header closeButton>
-          <Modal.Title>{props.food.descrizione}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body> <Form.Control
-                className="w-75 me-3"
-                type="file"
-                size="sm"
-                onChange={(e) => {
-                  setImage(e.target.files);
-                }}
-              />
-
-              <Button
-                className="bn632-hover bn19  "
-                onClick={() => {
-                  sendimage(props.food.idMenu);
-                  refreshimage();
-                }}
-              >
-                CARICA IMMAGINE
-              </Button></Modal.Body>
-        
-      </Modal>
+          <Modal.Header closeButton>
+            <Modal.Title>{props.food.descrizione}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            {" "}
+            <Form.Control
+              className="w-75 me-3"
+              type="file"
+              size="sm"
+              onChange={(e) => {
+                setImage(e.target.files);
+              }}
+            />
+            <Button
+              className="bn632-hover bn19  "
+              onClick={() => {
+                sendimage(props.food.idMenu);
+                refreshimage();
+              }}
+            >
+              CARICA IMMAGINE
+            </Button>
+          </Modal.Body>
+        </Modal>
       </Card>
     );
   } else {
