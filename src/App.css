@@ -72,15 +72,30 @@ div {
   right: 0;
   color: white; /* Colore del testo */
   padding: 20px; /* Spaziatura interna */
+  
 }
-
+.carouseltitle{
+  font-size: 70px;
+ 
+}
+@media(max-width:800px) {
+  .carouseltitle{
+    font-size: 31px;
+  }
+}
 .trasparencytext
 {
-  background-color: rgba(255, 255, 255, 0.7); /* Sfondo trasparente */
-  padding: 10px;
-  font-size: 25px;
   
+  text-shadow: 0 2px 4px rgb(0, 0, 0);
+  color: #fff !important;
+  padding: 10px;
+  font-size: 35px;
   color: #333; /* Colore del testo */
+}
+@media(max-width:800px) {
+  .trasparencytext{
+    font-size: 21px;
+  }
 }
 .bn632-hover {
   width: 160px;

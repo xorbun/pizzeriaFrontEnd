@@ -87,6 +87,7 @@ const ClientOrderDetail = (props) => {
         <Modal.Footer>
           <Button className="bn632-hover bn19 " onClick={()=>
           {
+            handleClose();
             UpdateState();
           }}>
             CONFERMA CONSEGNA
