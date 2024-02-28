@@ -12,7 +12,7 @@ const Register = () => {
   const [address, setaddress] = useState("");
   const [password, setpassword] = useState("");
   const [error, seterror] = useState(false);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const payload = {
     nome: nome,
     cognome: cognome,
@@ -40,9 +40,8 @@ const Register = () => {
       })
       .then((data) => {
         alert("registrazione effettuata");
-        seterror(false)
-        navigate("/LoginPage")
-        
+        seterror(false);
+        navigate("/LoginPage");
       })
       .catch((err) => {
         console.log(err);
@@ -110,7 +109,7 @@ const Register = () => {
                 }}
               >
                 <Form.Label>inserisci il tuo nickname</Form.Label>
-                <Form.Control type="text" placeholder="Inserisci indirizzo" />
+                <Form.Control type="text" placeholder="Inserisci nickname" />
               </Form.Group>
               <Form.Group
                 className="mb-3"
@@ -119,7 +118,7 @@ const Register = () => {
                 }}
               >
                 <Form.Label>inserisci il tuo indirizzo</Form.Label>
-                <Form.Control type="text" placeholder="Enter email" />
+                <Form.Control type="text" placeholder="inserisci indirizzo" />
               </Form.Group>
               <Form.Group
                 className="mb-3"
@@ -128,7 +127,7 @@ const Register = () => {
                 }}
               >
                 <Form.Label>inserisci la tua password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control type="password" placeholder="inserisci Password" />
               </Form.Group>
               {error && (
                 <div className="alert alert-danger" role="alert">

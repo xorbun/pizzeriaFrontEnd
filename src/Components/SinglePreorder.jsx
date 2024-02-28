@@ -16,7 +16,7 @@ const Singlepreorder = (props) => {
 
   return (
     <>
-      <ListGroup>
+      <ListGroup className="bounce-in-top">
         <ListGroup.Item>
           <Row>
             <Col sm={4} lg={8}>
