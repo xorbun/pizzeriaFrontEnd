@@ -35,13 +35,13 @@ const PrenotazioniList = () => {
   if (preorderToShow) {
     return (
       <div className="colorsite vh-100 mt-5">
-        <Container className="list">
+        <Container className="list ">
           {preorderToShow.length > 0 ? (
-            <h2 className="d-flex justify-content-center ">
+            <h2 className="d-flex justify-content-center mt-5">
               PRENOTAZIONI ATTIVE
             </h2>
           ) : (
-            <h2 className="d-flex justify-content-center ">
+            <h2 className="d-flex justify-content-center mt-5">
               non ci sono prenotazioni
             </h2>
           )}

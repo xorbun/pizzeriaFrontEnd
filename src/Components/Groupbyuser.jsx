@@ -30,7 +30,9 @@ const GroupingBy = () => {
     return (
       <div className="colorsite vh-100">
         <Container>
-          <Row></Row>
+          <Row>
+            
+          </Row>
         </Container>
       </div>
     );

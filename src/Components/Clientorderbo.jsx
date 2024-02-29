@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, ListGroup, Modal, ModalBody } from "react-bootstrap";
+import { Button, Col, ListGroup, Modal, ModalBody } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getSingleDeliveryData } from "../Redux/actions";
 
@@ -18,22 +18,20 @@ const ClientOrderDetail = (props) => {
     return state.delivery.single;
   });
 
-  const UpdateState =  async () => {
-    console.log("ok")
+  const UpdateState = async () => {
+    console.log("ok");
     const URL =
       "http://localhost:3001/delivery/updateOrder/" +
       order.content[0].user.idUser;
     try {
-      const response=await fetch(URL,
-        {
-          method:"PATCH",
-          headers:
-          {
-              Authorization:"Bearer "+token,
-          },
-        })
-        
-        return response.json();
+      const response = await fetch(URL, {
+        method: "PATCH",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
+
+      return response.json();
     } catch (error) {
       console.error(error);
     }
@@ -43,16 +41,16 @@ const ClientOrderDetail = (props) => {
     <div className="bounce-in-top">
       <ListGroup className="mt-5 ">
         <ListGroup.Item className="listheight ">
-          <div className="d-flex  justify-content-between">
-            <div className="d-flex flex-column">
+          <div className="d-flex justify-content-between">
+            <Col lg={8} className="d-flex flex-column">
               <h6 className="fw-bold">Nickname:</h6>
               <span>{props.detail[0].nickname}</span>
               <h6 className="fw-bold">indirizzo di consegna:</h6>
               <span className="truncateaddress">{props.detail[0].address}</span>
-            </div>
-            <div className="my-auto">
+            </Col>
+            <Col lg={6} className="my-auto">
               <Button
-                className="bn632-hover bn19 "
+                className="bn632-hover bn19"
                 onClick={() => {
                   id = props.detail[0].idUser;
                   handleShow();
@@ -61,7 +59,7 @@ const ClientOrderDetail = (props) => {
               >
                 VISUALIZZA ORDINE
               </Button>
-            </div>
+            </Col>
           </div>
         </ListGroup.Item>
       </ListGroup>
@@ -69,8 +67,7 @@ const ClientOrderDetail = (props) => {
         <Modal.Header className="d-flex flex-column" closeButton>
           <Modal.Title>{props.detail[0].nickname},</Modal.Title>
           <ModalBody>{props.detail[0].address}</ModalBody>
-          {order &&
-          <ModalBody>{order.content[0].stato}</ModalBody>}
+          {order && <ModalBody>{order.content[0].stato}</ModalBody>}
         </Modal.Header>
         <Modal.Body>
           {order &&
@@ -85,11 +82,13 @@ const ClientOrderDetail = (props) => {
             })}
         </Modal.Body>
         <Modal.Footer>
-          <Button className="bn632-hover bn19 " onClick={()=>
-          {
-            handleClose();
-            UpdateState();
-          }}>
+          <Button
+            className="bn632-hover bn19 "
+            onClick={() => {
+              handleClose();
+              UpdateState();
+            }}
+          >
             CONFERMA CONSEGNA
           </Button>
           <Button className="bn632-hover bn19 " onClick={handleClose}>
