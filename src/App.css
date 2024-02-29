@@ -152,7 +152,7 @@ div {
 .photo:hover{
   animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
-.card
+.cardangle
 {
   border: 0 !important;
   border-radius: 15% !important;
@@ -171,8 +171,8 @@ div {
 .imgMenu
 {
   
-  border-top-left-radius: 15% !important;
-  border-top-right-radius: 15% !important;
+  border-top-left-radius: 15% ;
+  border-top-right-radius: 15% ;
   position: relative;
 }
 .buttonInsideImage {
