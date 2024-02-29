@@ -77,9 +77,9 @@ const Singlefood = (props) => {
   useEffect(() => {}, [error]);
   if (props && !isLoading) {
     return (
-      <Card className="mx-2 mb-4 cardshadow ">
+      <Card className="mx-2 mb-4 cardshadow rounded-5">
         <Card.Img
-          className="imgMenu"
+          className="imgMenu rounded-top-5"
           variant="top"
           style={{ height: "220px" }}
           src={props.food.image}

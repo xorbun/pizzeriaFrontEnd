@@ -18,7 +18,7 @@ const Homepagesite = () => {
         <Row>
           <Col sm={1} md={6} className="mb-3 " lg={3}>
             <Card
-              className="cardshadow border-0 scale-in-center cardangle"
+              className="cardshadow border-0 scale-in-center rounded-5"
               style={{ height: "350px" }}
             >
               <Card.Body className="d-flex flex-column align-items-center">
@@ -35,7 +35,7 @@ const Homepagesite = () => {
           </Col>
           <Col sm={1} md={6} className="mb-3" lg={3}>
             <Card
-              className="cardshadow border-0 scale-in-center cardangle"
+              className="cardshadow border-0 scale-in-center rounded-5"
               style={{ height: "350px" }}
             >
               <Card.Body className="d-flex flex-column align-items-center ">
@@ -54,7 +54,7 @@ const Homepagesite = () => {
           </Col>
           <Col sm={1} md={6} className="mb-3" lg={3}>
             <Card
-              className="cardshadow border-0 scale-in-center cardangle"
+              className="cardshadow border-0 scale-in-center rounded-5"
               style={{ height: "350px" }}
             >
               <Card.Body className="d-flex flex-column align-items-center">
@@ -73,7 +73,7 @@ const Homepagesite = () => {
           </Col>
           <Col sm={1} md={6} className="mb-3" lg={3}>
             <Card
-              className="cardshadow border-0 scale-in-center cardangle"
+              className="cardshadow border-0 scale-in-center rounded-5"
               style={{ height: "350px" }}
             >
               <Card.Body className="d-flex flex-column align-items-center">
