@@ -1,6 +1,6 @@
 const Logoutuser=()=>
 {
     localStorage.clear();
-    window.location.href = '/home';
+    window.location.href = '/';
 }
 export default Logoutuser;

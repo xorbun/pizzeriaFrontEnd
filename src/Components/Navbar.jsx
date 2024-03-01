@@ -26,7 +26,7 @@ const NavbarHome = () => {
   return (
     <Navbar expand="lg" className={`colornav sticky-nav ${isNavbarVisible ? '' : 'hidden'}`}  fixed="top">
       <Container fluid>
-        <Navbar.Brand onClick={() => navigate("/home")}>
+        <Navbar.Brand onClick={() => navigate("/")}>
           <img
             src="assets/logo.png"
             alt="logo"
@@ -39,7 +39,7 @@ const NavbarHome = () => {
           <Nav className="d-flex ms-auto">
             <Nav.Link
               onClick={() => {
-                navigate("/home");
+                navigate("/");
               }}
             >
               <i className="bi bi-house"></i>

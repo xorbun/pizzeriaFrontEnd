@@ -25,7 +25,7 @@ function App() {
       <NavbarHome/>
      <BackOfficeFetch/>
       <Routes>
-        <Route path="/home" element={<Homepagesite/>}/>
+        <Route path="/" element={<Homepagesite/>}/>
         <Route path="/menu" element={<MenuRestourant/>}/>
         <Route path="/LoginPage" element={<Login />} /> 
         <Route path="/logout" element={<Logoutuser/>}/>

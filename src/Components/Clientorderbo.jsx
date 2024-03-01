@@ -48,7 +48,7 @@ const ClientOrderDetail = (props) => {
               <h6 className="fw-bold">indirizzo di consegna:</h6>
               <span className="truncateaddress">{props.detail[0].address}</span>
             </Col>
-            <Col lg={6} className="my-auto">
+            <Col lg={4} className="my-auto">
               <Button
                 className="bn632-hover bn19"
                 onClick={() => {
