@@ -140,7 +140,7 @@ div {
     #FBC02D,
     #fd9103
   );
-  box-shadow: 0 4px 15px 0 rgba(24, 11, 7, 0.432) !important;
+ 
   
 }
 .card:hover
@@ -172,7 +172,7 @@ div {
 .buttonInsideImage {
   position: absolute;
   bottom: 315px; 
-  left: 366px; 
+  left: 363.5px; 
   transform: translate(-50%, -50%); /* Centra il bottone */
   background-color: rgba(241, 238, 234, 0.753) !important;
   color:black !important;
@@ -183,7 +183,7 @@ div {
   .buttonInsideImage{
     position: absolute;
   bottom: 315px; 
-  left: 316px; 
+  left: 313.5px; 
   transform: translate(-50%, -50%); /* Centra il bottone */
   background-color: rgba(241, 238, 234, 0.753) !important;
   color:black !important;
@@ -213,7 +213,7 @@ div {
   -o-transition: all .4s ease-in-out;
   -webkit-transition: all .4s ease-in-out;
   transition: all .4s ease-in-out;
-  box-shadow: 0 4px 15px 0 rgba(24, 11, 7, 0.432) !important;
+  
 }
 
 .bn37 {
@@ -472,4 +472,11 @@ div {
     -webkit-animation-timing-function: ease-out;
             animation-timing-function: ease-out;
   }
+}
+.padding{
+  padding-bottom: 20px;
+}
+
+.paddingpreorderbox{
+  padding-bottom: 10px;
 }

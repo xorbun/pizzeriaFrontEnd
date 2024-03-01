@@ -21,20 +21,18 @@ const Singlepreorder = (props) => {
           <Row>
             <Col sm={4} lg={8}>
               <div className="d-flex flex-column">
-                <span className="fw-bold ">
-                  data:
+                <span className="paddingpreorderbox">
+                  <b> data: </b>
                   {props.preorder.data}
                 </span>
 
-                <span className="fw-bold ">
-                  orario:
+                <span className="paddingpreorderbox">
+                  <b> orario: </b>
                   {props.preorder.orario}{" "}
-                  
                 </span>
-                
 
-                <span className="fw-bold">
-                  numero persone:
+                <span className="paddingpreorderbox">
+                  <b> numero persone: </b>
                   {props.preorder.numeroPersone}
                 </span>
               </div>
