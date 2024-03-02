@@ -40,24 +40,36 @@
 }
 .colornav{
   background-color:#FBC02D;
+
+}
+.colorfooter{
+  background-clip: padding-box;
+  background-color:#FBC02D;
+  border-image-slice: 100 0 60;
+  border-image-source: url(/public/assets/landing-links-waves-desktop.svg);
+  border-top: 100px solid transparent;
   
 }
-.sticky-nav {
+@media (max-width: 800px) {
+  .colorfooter {
+    border-image-source: url(/public/assets/landing-links-waves-mobile.svg);
+  }
+}
+ .sticky-nav {
   position: sticky;
   top: 0;
   transition: top 0.3s ease-in-out; /* Aggiungi una transizione per un effetto più fluido */
-}
+} 
 .sticky-nav.hidden {
   top: -100px; /* Nascondi la navbar quando si scorre verso il basso */
-}
+} 
 .colorsite 
 {
   background-color:#FFF9C4;
-
 }
 .fontcolor
 {
-  color:rgb(255, 255, 255); ;
+  color:rgb(255, 255, 255); 
 }
 .cardshadow
 {
@@ -480,3 +492,4 @@ div {
 .paddingpreorderbox{
   padding-bottom: 10px;
 }
+
