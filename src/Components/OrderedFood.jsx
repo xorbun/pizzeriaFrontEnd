@@ -24,16 +24,19 @@ const Orderedfood = () => {
     return tot;
   };
   const [stato, setstato] = useState("ciao");
-  const array = [];
+  const arrayPayment = [];
   const createArray = () => {
     if (orderedFoodFromRedux) {
       orderedFoodFromRedux.map((order) => {
-        array.push({ price: order.menu.priceId, quantity: order.quantita });
+        arrayPayment.push({
+          price: order.menu.priceId,
+          quantity: order.quantita,
+        });
       });
     }
   };
   createArray();
-  console.log(array);
+
   useEffect(() => {
     if (user.role !== "ADMIN") {
       const ordini = dispatch(getDeliveryData(token)).then((res) => {
@@ -74,7 +77,7 @@ const Orderedfood = () => {
             })}
 
             <div className="d-flex justify-content-center">
-              <Paymentmethod arrayoforder={array} />
+              <Paymentmethod arrayoforder={arrayPayment} />
             </div>
           </Row>
         </Container>
