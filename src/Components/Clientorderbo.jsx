@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Col, ListGroup, Modal, ModalBody } from "react-bootstrap";
+import { Button, Col, ListGroup, Modal, ModalBody, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getSingleDeliveryData } from "../Redux/actions";
 
@@ -43,11 +43,12 @@ const ClientOrderDetail = (props) => {
         <ListGroup.Item className="listheight ">
           <div className="d-flex justify-content-between">
             <Col lg={8} className="d-flex flex-column">
-              <h6 className="fw-bold">Nickname:</h6>
-              <span>{props.detail[0].nickname}</span>
-              <h6 className="fw-bold">indirizzo di consegna:</h6>
+              <span className="fw-bold">Nickname:</span>
+              <span className="padding">{props.detail[0].nickname}</span>
+              <span className="fw-bold">indirizzo di consegna:</span>
               <span className="truncateaddress">{props.detail[0].address}</span>
             </Col>
+         
             <Col lg={4} className="my-auto">
               <Button
                 className="bn632-hover bn19"

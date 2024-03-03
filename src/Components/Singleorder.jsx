@@ -20,11 +20,10 @@ const SingleOrderdelement = (props) => {
     }, 1000);
   };
   return (
-    <Container >
+    <Container>
       <ListGroup className="bounce-in-top ">
         <ListGroup.Item>
           <Row>
-          
             <Col sm={4} lg={8}>
               <div className="d-flex">
                 <img
@@ -33,11 +32,11 @@ const SingleOrderdelement = (props) => {
                   alt="foto"
                 />
                 <div className="d-flex flex-column mx-3 my-3">
-                  <span className="fw-bold">
-                    Tipologia: {props.food.menu.descrizione}
+                  <span className="paddingpreorderbox">
+                    <b> Tipologia: </b> {props.food.menu.descrizione}
                   </span>
-                  <span className="fw-bold ">
-                    Quantità: {props.food.quantita}
+                  <span className="paddingpreorderbox ">
+                    <b> Quantità: </b> {props.food.quantita}
                   </span>
                 </div>
               </div>
@@ -48,17 +47,19 @@ const SingleOrderdelement = (props) => {
               lg={4}
               className="text-center d-flex justify-content-center "
             >
-              {props.food.stato==="INVIATO" ?(
-              <Button
-                className="bn632-hover bn19 "
-                onClick={() => {
-                  setdeletedOrder(props.food.idDelivery);
-                  handleShow();
-                }}
-              >
-                <span className="bottonsize">ANNULLA ORDINE</span>
-              </Button>
-           ):("") }
+              {props.food.stato === "INVIATO" ? (
+                <Button
+                  className="bn632-hover bn19 "
+                  onClick={() => {
+                    setdeletedOrder(props.food.idDelivery);
+                    handleShow();
+                  }}
+                >
+                  <span className="bottonsize">ANNULLA ORDINE</span>
+                </Button>
+              ) : (
+                <span className="my-auto">ordine in consegna</span>
+              )}
               <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                   <Modal.Title>
@@ -76,7 +77,7 @@ const SingleOrderdelement = (props) => {
                     className="bn632-hover bn19 "
                     onClick={() => {
                       sendADeletedOrder();
-                      refresh()
+                      refresh();
                     }}
                   >
                     CONFERMA

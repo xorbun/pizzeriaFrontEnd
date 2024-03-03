@@ -52,7 +52,7 @@ const PrenotazioniList = () => {
                 key={prenotazioni.prenotazione}
                 className="mt-2 d-flex justify-content-center"
               >
-                <h1 className="text-center">{prenotazioni.user.nickname}</h1>
+                <h1 className="text-center bounce-in-top">{prenotazioni.user.nickname}</h1>
                 <Col sm={6}>
                   <Singlepreorder preorder={prenotazioni} />
                 </Col>
