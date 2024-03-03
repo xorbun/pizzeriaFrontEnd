@@ -5,22 +5,12 @@ const Footer = () => {
     <>
       <div className="colorsite">
         <footer className="text-center text-lg-start colorfooter text-muted ">
-          <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+          <section className="d-flex justify-content-center justify-content-lg-between p-4">
             <div className="me-5 d-none d-lg-block">
               <span>Cercaci sui social:</span>
             </div>
 
             <div>
-              <a
-                href="https://www.facebook.com/xorbun92/"
-                className="me-4 text-reset"
-              >
-                <i className="bi bi-facebook"></i>
-              </a>
-              <a href="https://twitter.com/xorbun4" className="me-4 text-reset">
-                <i className="bi bi-twitter-x"></i>
-              </a>
-
               <a
                 href="https://www.linkedin.com/in/brunocapobianco/"
                 className="me-4 text-reset"
