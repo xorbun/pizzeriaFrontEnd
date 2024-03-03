@@ -16,6 +16,7 @@ import Getprenotazioni from './Components/Getprenotazioni';
 import Logoutuser from './Components/Logout';
 import Orderedfood from './Components/OrderedFood';
 import GroupingBy from './Components/Groupbyuser';
+import SuccessPayment from './Components/SuccessP';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route path="/prenota" element={<Getprenotazioni/>}/>
         <Route path="/ordered" element={<Orderedfood/>}/>
         <Route path='/orderlist' element={<GroupingBy/>}/>
+        <Route path='/success' element={<SuccessPayment/>}/>
       </Routes>
       <Footer/>
       </BrowserRouter>

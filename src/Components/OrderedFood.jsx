@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import SingleOrderdelement from "./Singleorder";
 import { getAllDeliveryData, getDeliveryData } from "../Redux/actions";
 import { useEffect, useState } from "react";
+import Paymentmethod from "./Payment";
 
 const Orderedfood = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,16 @@ const Orderedfood = () => {
     return tot;
   };
   const [stato, setstato] = useState("ciao");
+  const array = [];
+  const createArray = () => {
+    if (orderedFoodFromRedux) {
+      orderedFoodFromRedux.map((order) => {
+        array.push({ price: order.menu.priceId, quantity: order.quantita });
+      });
+    }
+  };
+  createArray();
+  console.log(array);
   useEffect(() => {
     if (user.role !== "ADMIN") {
       const ordini = dispatch(getDeliveryData(token)).then((res) => {
@@ -61,6 +72,10 @@ const Orderedfood = () => {
                 </Col>
               );
             })}
+
+            <div className="d-flex justify-content-center">
+              <Paymentmethod arrayoforder={array} />
+            </div>
           </Row>
         </Container>
       </div>
